@@ -1,0 +1,1140 @@
+<meta charset="utf-8">
+<title>MatricX PRO 2.0 — Official User Guide</title>
+<style>
+  :root{
+    --bg:#111111; --panel:#1b1b1b; --panel2:#202020; --line:#2e2e2e;
+    --text:#d8d8d8; --dim:#9a9a9a; --head:#ffffff; --accent:#f26722; --code:#ffb98a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .topbar{height:8px;background:var(--accent)}
+  .page{max-width:900px;margin:0 auto;padding:0 40px 80px}
+
+  /* ---------- cover ---------- */
+  .cover{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0}
+  .cover .logo{width:92px;height:92px;object-fit:contain;border-radius:12px;margin-bottom:26px;
+               background:#000;padding:6px}
+  .cover h1{font-size:76px;line-height:1;margin:0;color:var(--head);letter-spacing:-2px;font-weight:800}
+  .cover h1 .pro{
+    display:inline-block;background:var(--accent);color:#fff;font-size:30px;font-weight:800;
+    padding:10px 22px;border-radius:8px;vertical-align:middle;margin-left:18px;letter-spacing:1px;
+  }
+  .rule{height:3px;background:var(--accent);width:540px;max-width:100%;margin:22px 0 18px}
+  .cover h2{font-size:23px;font-weight:400;color:var(--text);margin:0 0 6px}
+  .cover .sub{color:var(--dim);font-size:15px;margin:0}
+  .badges{margin:44px 0 26px;display:flex;gap:12px;flex-wrap:wrap}
+  .badge{background:#262626;color:var(--dim);padding:11px 20px;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:.5px}
+  .badge.on{background:var(--accent);color:#fff}
+  .byline{color:var(--dim);font-size:14px}
+  .byline a,.byline b{color:var(--accent);font-weight:600}
+
+  /* ---------- structure ---------- */
+  section{padding-top:52px}
+  .kicker{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:2.2px;margin:0 0 6px}
+  h2.sec{font-size:38px;color:var(--head);margin:0 0 6px;font-weight:700;letter-spacing:-.5px}
+  h2.sec + .rule{width:100px;height:4px;margin:14px 0 26px}
+  h3{font-size:21px;color:var(--head);margin:34px 0 10px;font-weight:650}
+  h4{font-size:16px;color:var(--accent);margin:24px 0 6px;font-weight:700}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 16px;padding-left:22px}
+  li{margin:5px 0}
+  ul{list-style:none;padding-left:20px}
+  ul li{position:relative}
+  ul li::before{content:"●";color:var(--accent);position:absolute;left:-18px;font-size:9px;top:6px}
+  ol li::marker{color:var(--accent);font-weight:700}
+  code{background:#262626;color:var(--code);padding:2px 7px;border-radius:4px;font-size:13.5px;
+       font-family:"SF Mono",Consolas,Monaco,monospace}
+  .path{display:block;background:#1a1a1a;border-left:3px solid var(--accent);
+        padding:14px 18px;margin:0 0 16px;color:var(--code);white-space:pre;
+        font-family:"SF Mono",Consolas,Monaco,monospace;font-size:13px;overflow-x:auto}
+
+  /* ---------- contents ---------- */
+  .toc{margin-top:8px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .toc a{display:flex;gap:18px;padding:13px 20px;color:var(--text);text-decoration:none;
+         border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
+  .toc a:last-child{border-bottom:none}
+  .toc a:nth-child(odd){background:var(--panel)}
+  .toc a:nth-child(even){background:var(--panel2)}
+  .toc a span{color:var(--accent);font-weight:800;min-width:26px}
+  .toc a em{color:var(--dim);font-style:normal;font-weight:400;margin-left:auto;font-size:13px}
+
+  /* ---------- figures ---------- */
+  figure{margin:22px 0 26px;background:var(--panel);border:1px solid var(--line);
+         border-radius:8px;padding:14px;text-align:center}
+  figure img{max-width:100%;height:auto;border-radius:5px;display:block;margin:0 auto}
+  figcaption{color:var(--dim);font-size:13px;margin-top:12px;text-align:left;line-height:1.5}
+  figcaption b{color:var(--accent);font-weight:700}
+  figure.wide{padding:0;border:none;background:none}
+  figure.wide img{border-radius:8px}
+
+  /* ---------- callouts ---------- */
+  .note,.warn,.new{border-left:3px solid var(--accent);background:var(--panel);
+        padding:14px 18px;margin:0 0 18px;border-radius:0 6px 6px 0}
+  .note b,.warn b,.new b{color:var(--accent)}
+  .warn{border-left-color:#e0483c}
+  .warn b{color:#ff6a5e}
+  .new{border-left-color:#3ea76a}
+  .new b{color:#4fc281}
+  .note p:last-child,.warn p:last-child,.new p:last-child{margin-bottom:0}
+
+  /* ---------- tables ---------- */
+  table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14px}
+  th{background:#252525;color:var(--head);text-align:left;padding:11px 14px;
+     font-size:12px;letter-spacing:.8px;text-transform:uppercase;border-bottom:2px solid var(--accent)}
+  td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:var(--panel)}
+  td b{color:var(--head)}
+  .yes{color:#4fc281;font-weight:700}
+  .no{color:#6d6d6d}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+  @media (max-width:760px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+  .card h4{margin-top:0}
+
+  .kbd{display:inline-block;background:#2b2b2b;border:1px solid #3a3a3a;border-bottom-width:2px;
+       border-radius:5px;padding:2px 9px;font-size:13px;color:var(--head);font-weight:600}
+
+  hr.div{border:none;border-top:1px solid var(--line);margin:56px 0 0}
+  footer{color:#666;font-size:12px;text-align:center;padding:60px 0 20px;border-top:1px solid var(--line);margin-top:60px}
+
+  /* Printed and PDF output keeps the dark Eidos Edge styling rather than
+     inverting: the screenshots are all dark Blender UI, and on a white page
+     they float as bright rectangles instead of sitting in the layout. */
+  @page{ size:A4; margin:0; }
+  @media print{
+    html,body{
+      background:var(--bg) !important;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .topbar{display:none}
+    .page{max-width:none;padding:14mm 16mm}
+    .cover{min-height:auto;padding:26mm 0 0}
+    .cover h1{font-size:58px}
+    section{page-break-before:always;padding-top:0}
+    figure,.card,.note,.warn,.new,.path{page-break-inside:avoid}
+    thead{display:table-header-group}
+    /* Tighten the contents so all 22 entries stay on one page. */
+    .toc{page-break-inside:avoid}
+    .toc a{padding:8.5px 18px;font-size:13.5px}
+    h2.sec,h3,h4{page-break-after:avoid}
+    tr{page-break-inside:avoid}
+    a{color:var(--accent);text-decoration:none}
+    footer{page-break-before:always}
+  }
+</style>
+
+<div class="topbar"></div>
+<div class="page">
+
+<!-- ============================= COVER ============================= -->
+<div class="cover">
+  <img class="logo" src="New%20folder/matricx%20logo.png" alt="MatricX">
+  <h1>MATRICX<span class="pro">PRO</span></h1>
+  <div class="rule"></div>
+  <h2>Official User Guide</h2>
+  <p class="sub">Smart materials · layered imperfections · paint masks · decals · trim sheets · version 2.0.0</p>
+
+  <figure class="wide" style="margin:38px 0 30px">
+    <img src="New%20folder/Cover%20Image.png" alt="MatricX PRO 2.0">
+  </figure>
+
+  <div class="badges">
+    <span class="badge on">BLENDER ADD-ON</span>
+    <span class="badge">PREMIUM</span>
+    <span class="badge">v2.0.0</span>
+  </div>
+  <p class="byline">Created by <b>Prasanth / Eidos Edge</b><br>
+     Requires Blender 4.5 or newer · tested through Blender 5.2</p>
+</div>
+
+<!-- ============================= CONTENTS ============================= -->
+<section id="contents">
+  <p class="kicker">CONTENTS</p>
+  <h2 class="sec">What's Inside</h2>
+  <div class="rule"></div>
+  <div class="toc">
+    <a href="#whatsnew"><span>01</span> What's new in 2.0 <em>start here if you used 1.6</em></a>
+    <a href="#intro"><span>02</span> Introduction</a>
+    <a href="#install"><span>03</span> Installation and asset pack</a>
+    <a href="#interface"><span>04</span> Interface overview</a>
+    <a href="#materials"><span>05</span> Materials workspace</a>
+    <a href="#collection"><span>06</span> The 2.0 material collection</a>
+    <a href="#surface"><span>07</span> Base surface controls and Reset</a>
+    <a href="#looks"><span>08</span> Material Looks</a>
+    <a href="#sharing"><span>09</span> Applying, sharing, and Make Unique</a>
+    <a href="#mapping"><span>10</span> Live mapping compensation</a>
+    <a href="#imperfections"><span>11</span> Imperfection Studio</a>
+    <a href="#types"><span>12</span> The 15 imperfection types</a>
+    <a href="#paint"><span>13</span> Paint masks</a>
+    <a href="#custom"><span>14</span> Custom PBR materials</a>
+    <a href="#decals"><span>15</span> Decals workspace</a>
+    <a href="#libraries"><span>16</span> Adding your own decal libraries</a>
+    <a href="#trims"><span>17</span> Trim sheets</a>
+    <a href="#viewport"><span>18</span> Viewport workspace</a>
+    <a href="#prefs"><span>19</span> Preferences and runtime assets</a>
+    <a href="#workflows"><span>20</span> Recommended workflows</a>
+    <a href="#trouble"><span>21</span> Troubleshooting</a>
+    <a href="#support"><span>22</span> Support</a>
+  </div>
+</section>
+
+<!-- ============================= WHAT'S NEW ============================= -->
+<section id="whatsnew">
+  <p class="kicker">SECTION 01</p>
+  <h2 class="sec">What's New in 2.0</h2>
+  <div class="rule"></div>
+
+  <p>Version 2.0 is a rebuild rather than an update. If you are coming from 1.6, these are the changes
+     that affect how you actually work.</p>
+
+  <h3>Paint masks — the headline feature</h3>
+  <p>Every imperfection layer can now be painted directly onto the mesh. Instead of a procedural mask
+     covering the whole surface, you brush in exactly where rust, dirt, or scratches appear.
+     See <a href="#paint" style="color:var(--accent)">Section 13</a>.</p>
+
+  <h3>A curated material collection</h3>
+  <p>25 authored materials ship inside the add-on — 13 metals, 4 plastics, 3 woods, 3 fabrics and
+     2 glasses. 17 of them arrive with a complete, hand-built imperfection stack already layered on.</p>
+
+  <h3>Materials keep their own values</h3>
+  <p>Each material now loads its own authored base colour and roughness. Switching from a red painted
+     metal to Default Metal no longer carries the red across. A <b>Reset Base Material</b> button
+     restores a material's shipped values if you overshoot.</p>
+
+  <h3>External decal <i>and</i> trim sheet libraries</h3>
+  <p>You can add your own folders of decals or trim sheets, and remove them again, from either the
+     N-panel or Preferences. Trim sheets are not included with MatricX — this is how you supply them.</p>
+
+  <h3>Everything else</h3>
+  <ul>
+    <li><b>15 imperfection types</b>, including new Chip Damaged, Grunge, Leaking, and Bump Texture.</li>
+    <li><b>Anti-tiling</b> with an Auto mode that only pays the cost when an object is large enough to show repeats.</li>
+    <li><b>Mask preview</b> — view any layer's mask in isolation as greyscale.</li>
+    <li><b>Reorderable authored stacks</b> — preset layers can be restacked, and restored afterwards.</li>
+    <li><b>Blender Extension package</b> in addition to the legacy add-on ZIP.</li>
+    <li>Minimum Blender version raised to <b>4.5</b>.</li>
+  </ul>
+
+  <div class="warn">
+    <p><b>Upgrading from 1.6:</b> remove the old add-on and restart Blender before installing 2.0.
+    MatricX 2.0 detects an older copy and disables it, migrating your saved asset-pack path,
+    favourites and custom material catalog — but a restart is what guarantees old Python modules
+    and keymaps are not left in memory.</p>
+  </div>
+</section>
+
+<!-- ============================= INTRO ============================= -->
+<section id="intro">
+  <p class="kicker">SECTION 02</p>
+  <h2 class="sec">Introduction</h2>
+  <div class="rule"></div>
+
+  <p>MatricX PRO turns a clean model into a used one. It is built for hard-surface detailing,
+     look development, game-asset presentation, and concept work — anywhere a surface needs a
+     history rather than a flat shader.</p>
+
+  <figure class="wide">
+    <img src="New%20folder/before%20%26%20after.png" alt="Before and after MatricX">
+    <figcaption>The same helmet before and after. The right side is one base material plus a
+      handful of restrained imperfection layers — no texture painting, no UV work.</figcaption>
+  </figure>
+
+  <p>The add-on is organised into three workspaces:</p>
+  <ul>
+    <li><b>Materials</b> — browse, apply, customise and layer materials and imperfections.</li>
+    <li><b>Decals</b> — place, project, colour and manage decals, plus trim sheets in Trims mode.</li>
+    <li><b>Viewport</b> — quick modelling colours and collection helpers.</li>
+  </ul>
+
+  <p>Most controls update the active material immediately. Materials shared between objects stay
+     linked until you explicitly make a copy.</p>
+
+  <div class="note">
+    <p><b>The core idea:</b> several restrained layers read as more realistic than one strong layer.
+    A surface that has been touched, wiped, knocked and left outdoors has many faint stories on it,
+    not one loud one.</p>
+  </div>
+</section>
+
+<!-- ============================= INSTALL ============================= -->
+<section id="install">
+  <p class="kicker">SECTION 03</p>
+  <h2 class="sec">Installation and Asset Pack</h2>
+  <div class="rule"></div>
+
+  <h3>The three downloads</h3>
+  <table>
+    <thead><tr><th>File</th><th>What it is</th></tr></thead><tbody>
+    <tr><td><code>MatricX_PRO_2.0.0_Addon.zip</code></td><td>The add-on, for Blender's classic Add-ons installer.</td></tr>
+    <tr><td><code>MatricX_PRO_2.0.0_Blender_Extension.zip</code></td><td>The same add-on packaged as a Blender Extension.</td></tr>
+    <tr><td><code>MatricX_Assets_2.0.0.zip</code></td><td>Runtime assets: materials, textures and the official decal library.</td></tr>
+  </tbody>
+  </table>
+
+  <div class="warn">
+    <p><b>Install one code package, not both.</b> Never enable the legacy add-on and the extension
+    at the same time.</p>
+  </div>
+
+  <h3>Installing the add-on</h3>
+  <p><b>As a classic add-on:</b></p>
+  <ol>
+    <li>Edit → Preferences → Add-ons.</li>
+    <li>Open the dropdown menu and choose <b>Install from Disk</b>.</li>
+    <li>Select <code>MatricX_PRO_2.0.0_Addon.zip</code>.</li>
+    <li>Enable <b>MatricX PRO</b> if Blender does not enable it for you.</li>
+  </ol>
+  <p><b>As an extension:</b></p>
+  <ol>
+    <li>Edit → Preferences → <b>Get Extensions</b>.</li>
+    <li>Top-right dropdown → <b>Install from Disk</b>.</li>
+    <li>Select <code>MatricX_PRO_2.0.0_Blender_Extension.zip</code>.</li>
+  </ol>
+  <p>Then press <span class="kbd">N</span> in the 3D Viewport and open the <b>MatricX PRO</b> tab.</p>
+
+  <h3>Installing the asset pack</h3>
+  <p>Extract <code>MatricX_Assets_2.0.0.zip</code> anywhere you like — a fast local drive is ideal.
+     Placing it beside the add-on folder lets MatricX find it automatically.</p>
+
+  <span class="path">MatricX_Assets_2.0.0/
+    Material/            Blender material files
+    MX_Texture/          runtime and imperfection textures
+    Decals/MX_Decals/    the official MatricX decal library
+    asset_manifest.json
+    ASSET_LICENSE.txt</span>
+
+  <p>If MatricX does not find it, open the MatricX panel, expand <b>Runtime Assets</b> and click
+     <b>Locate Asset Pack</b>. You may select the pack folder, its parent, or one of its subfolders.
+     The path is stored outside the add-on, so reinstalling — or switching between the add-on and
+     extension packages — does not lose it.</p>
+
+  <div class="note">
+    <p><b>Studio deployments:</b> set the <code>MATRICX_ASSET_ROOT</code> environment variable to a
+    shared asset-pack location and every workstation picks it up.</p>
+  </div>
+
+  <p>Material preview thumbnails are bundled inside the add-on, so the browser stays visual even
+     before the asset pack is connected.</p>
+</section>
+
+<!-- ============================= INTERFACE ============================= -->
+<section id="interface">
+  <p class="kicker">SECTION 04</p>
+  <h2 class="sec">Interface Overview</h2>
+  <div class="rule"></div>
+
+  <p>Press <span class="kbd">N</span> in the 3D Viewport and select the <b>MatricX PRO</b> tab.
+     Three workspace buttons sit at the top of the panel.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Materials</h4>
+      <p>Material assignment, base surface controls, Material Looks, and the Imperfection Studio.</p>
+    </div>
+    <div class="card">
+      <h4>Decals</h4>
+      <p>Two modes: <b>Decals</b> for individual placed objects, <b>Trims</b> for trim sheet regions
+         applied to selected faces.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:18px">
+    <h4>Viewport</h4>
+    <p>Fast modelling colours, quick swatches, and collection helpers.</p>
+  </div>
+
+  <h3>The panel follows your selection</h3>
+  <p>Select an object carrying a MatricX material and the panel loads its settings, including the
+     full imperfection stack. Select a decal and the panel switches to that decal's placement,
+     opacity, projection and colour controls. Controls that do not apply to the current selection
+     are hidden or greyed out rather than left to mislead you.</p>
+</section>
+
+<!-- ============================= MATERIALS ============================= -->
+<section id="materials">
+  <p class="kicker">SECTION 05</p>
+  <h2 class="sec">Materials Workspace</h2>
+  <div class="rule"></div>
+
+  <h3>The basic loop</h3>
+  <ol>
+    <li>Select one or more mesh objects.</li>
+    <li>Open the <b>Materials</b> workspace.</li>
+    <li>Pick a <b>Material</b> category.</li>
+    <li>Choose a preset from the dropdown, or browse thumbnails in the Material Collection.</li>
+    <li>Adjust the surface controls.</li>
+    <li>Click <b>Apply Material</b>.</li>
+  </ol>
+
+  <h3>Categories</h3>
+  <table>
+    <thead><tr><th>Category</th><th>Notes</th></tr></thead><tbody>
+    <tr><td><b>Metal</b></td><td>Default Metal, Perl Black, and the 13-material metal collection.</td></tr>
+    <tr><td><b>Plastic</b></td><td>Default Plastic, Perl Black Plastic, and 4 authored plastics.</td></tr>
+    <tr><td><b>Wood</b></td><td>Default, Dark, Light, Dirt Wood, and 3 shiny woods.</td></tr>
+    <tr><td><b>Fabric</b></td><td>3 procedural fabrics. These sample through the mesh UV map.</td></tr>
+    <tr><td><b>Glass</b></td><td>Custom glass with smudge and crack controls, plus 2 authored glasses.</td></tr>
+    <tr><td><b>Rubber &amp; Leather</b></td><td>Rubber and leather variants.</td></tr>
+    <tr><td><b>Special Mat</b></td><td>Car paint, camo, gradients, and other specialised shaders.</td></tr>
+    <tr><td><b>Emission</b></td><td>Glow surfaces with strength control.</td></tr>
+    <tr><td><b>Custom Material</b></td><td>Your own imported PBR texture sets. See Section 14.</td></tr>
+  </tbody>
+  </table>
+
+  <h3>The material browser</h3>
+  <p>The thumbnail browser supports text search, favourites, recents, adjustable thumbnail size, and
+     previous/next navigation. Use the browser when you are exploring; use the category dropdown when
+     you already know what you want.</p>
+</section>
+
+<!-- ============================= COLLECTION ============================= -->
+<section id="collection">
+  <p class="kicker">SECTION 06</p>
+  <h2 class="sec">The 2.0 Material Collection</h2>
+  <div class="rule"></div>
+
+  <p>25 authored materials ship inside the add-on itself. Most arrive with a complete imperfection
+     stack already built — apply one and it is finished, not a starting point.</p>
+
+  <figure>
+    <img src="New%20folder/metal%20Materials%20collecions.png" alt="Metal collection">
+    <figcaption><b>Metal — 15 entries.</b> Default Metal and Perl Black are clean bases you build on.
+      The other 13 ship with authored imperfection stacks: Black Metal 1–4, Damaged Steel 1–2,
+      Dirty Green Metal, Painted Metal 1–4, and Rust Metal 1–2.</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <figure>
+      <img src="New%20folder/plastic%20collections.png" alt="Plastic collection">
+      <figcaption><b>Plastic.</b> Black, Matte, and Shiny Plastic 1–2, all with authored stacks.</figcaption>
+    </figure>
+    <figure>
+      <img src="New%20folder/wood%20collections.png" alt="Wood collection">
+      <figcaption><b>Wood.</b> Default, Dark, Light and Dirt Wood, plus three shiny woods.</figcaption>
+    </figure>
+    <figure>
+      <img src="New%20folder/fabric%20collections.png" alt="Fabric collection">
+      <figcaption><b>Fabric.</b> Three procedural weaves. These need a UV map — MatricX warns you if
+        the mesh has none.</figcaption>
+    </figure>
+    <figure>
+      <img src="New%20folder/glass%20collections.png" alt="Glass collection">
+      <figcaption><b>Glass.</b> Custom glass with its own smudge and crack sliders, plus chromatic
+        and iridescent variants.</figcaption>
+    </figure>
+    <figure>
+      <img src="New%20folder/rubber%20collections.png" alt="Rubber and leather collection">
+      <figcaption><b>Rubber &amp; Leather.</b> Rubber accepts weathering layers; leather is kept
+        deliberately restrained.</figcaption>
+    </figure>
+    <figure>
+      <img src="New%20folder/special%20mat%20collecions.png" alt="Special materials collection">
+      <figcaption><b>Special Mat.</b> Car paint, camo patterns, gradients and other specialised
+        shaders with their own controls.</figcaption>
+    </figure>
+  </div>
+
+  <div class="note">
+    <p><b>Authored stacks are protected, not frozen.</b> On the 17 materials that ship with layers,
+    you cannot add, delete or rename layers — but you can reorder them, tune every setting, and
+    press <b>Restore Authored Stack</b> to put the original recipe back.</p>
+  </div>
+</section>
+
+<!-- ============================= SURFACE ============================= -->
+<section id="surface">
+  <p class="kicker">SECTION 07</p>
+  <h2 class="sec">Base Surface Controls and Reset</h2>
+  <div class="rule"></div>
+
+  <p>Under <b>Material Setup</b> you get the controls that define the surface underneath the
+     imperfections — typically Base Color and Roughness, plus Bevel on the default materials.</p>
+
+  <h3>Every material brings its own values</h3>
+  <p>When you apply a material, MatricX reads that material's authored colour and roughness and
+     loads them into the panel. Applying Painted Metal 2 gives you its red; switching to Default
+     Metal gives you Default Metal's grey. Values no longer bleed from one material to the next.</p>
+
+  <h3>Grouped materials</h3>
+  <p>Some materials — the plastics, for example — expose their surface through a
+     <b>Material Group Controls</b> box instead, with Base Color, Metallic, Roughness and Coat
+     taken straight from the authored shader.</p>
+
+  <div class="new">
+    <p><b>New in 2.0 — Reset Base Material.</b> The ↺ button on the Material Setup header restores
+    that material's shipped colour, roughness and surface values. It does not touch your imperfection
+    layers; <b>Restore Authored Stack</b> is the equivalent for those.</p>
+  </div>
+
+  <h3>Bevel</h3>
+  <p>Default Metal and Default Plastic expose a <b>Bevel</b> radius that rounds shading on hard
+     edges — this is what makes edge wear catch light convincingly. The authored collection materials
+     do not expose it, because they carry their own hand-built bevel and bump work that a global
+     bevel would overwrite.</p>
+</section>
+
+<!-- ============================= LOOKS ============================= -->
+<section id="looks">
+  <p class="kicker">SECTION 08</p>
+  <h2 class="sec">Material Looks</h2>
+  <div class="rule"></div>
+
+  <p>A Material Look is a complete saved setup — base material, every surface value, and the whole
+     imperfection stack with its order, names, opacities and per-layer settings. Build a look once,
+     reuse it on every prop in a set.</p>
+
+  <ol>
+    <li>Build a material on a mesh and tune its imperfections.</li>
+    <li>Expand <b>My Material Looks</b>.</li>
+    <li>Save the current look with a descriptive name.</li>
+    <li>Apply it to any other mesh later.</li>
+  </ol>
+
+  <p>Looks are stored in your Blender user configuration, so they follow you between projects.
+     You can export a look as a <code>.json</code> file to share it, and import one you have
+     been given.</p>
+
+  <div class="note">
+    <p><b>Name them for the result, not the recipe:</b> "Worn Red Painted Metal", "Subtle Dirty
+    Rubber", "Rusted Industrial Panel". You will be scanning this list at speed six months from now.</p>
+  </div>
+</section>
+
+<!-- ============================= SHARING ============================= -->
+<section id="sharing">
+  <p class="kicker">SECTION 09</p>
+  <h2 class="sec">Applying, Sharing, and Make Unique</h2>
+  <div class="rule"></div>
+
+  <p><b>Apply Material</b> assigns the current MatricX material to the active mesh and leaves every
+     setting editable in the panel.</p>
+
+  <h3>Linked materials</h3>
+  <p>If one material is used by several objects, editing it updates all of them — base colour,
+     roughness, the imperfection stack, layer order, every per-layer value. This is usually what you
+     want for a set of matching parts.</p>
+
+  <h3>Make Unique</h3>
+  <p>Use it when one object should stop following the others. Make Unique copies the material,
+     separates its nested MatricX node groups, preserves the current panel state, and rebinds
+     mapping compensation to the selected object. After this, edits no longer affect the originals.</p>
+
+  <h3>Separate Material</h3>
+  <p>The equivalent action for viewport materials — the mesh keeps the same visible look but stops
+     sharing the datablock.</p>
+</section>
+
+<!-- ============================= MAPPING ============================= -->
+<section id="mapping">
+  <p class="kicker">SECTION 10</p>
+  <h2 class="sec">Live Mapping Compensation</h2>
+  <div class="rule"></div>
+
+  <p>Procedural and projected textures stretch when an object has unapplied scale, and edge effects
+     drift when rotation is unapplied. MatricX can correct both live, without you applying transforms.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Live Scale Compensation</h4>
+      <p>Keeps texture scale visually constant while you scale the object. Useful for procedural
+         metals, wood and rubber patterns, box-projected imperfections, and anything you are still
+         actively modelling.</p>
+    </div>
+    <div class="card">
+      <h4>Live Rotation Compensation</h4>
+      <p>Keeps edge-based effects aligned when the object is rotated without applying rotation.</p>
+    </div>
+  </div>
+
+  <p>Both appear only when the selected mesh carries a compatible material.</p>
+
+  <p><b>Turn them off</b> when you deliberately want mapping to stretch with the object, when a
+     custom material uses its own coordinates, or when you are about to apply transforms and want
+     standard Blender behaviour.</p>
+</section>
+
+<!-- ============================= IMPERFECTIONS ============================= -->
+<section id="imperfections">
+  <p class="kicker">SECTION 11</p>
+  <h2 class="sec">Imperfection Studio</h2>
+  <div class="rule"></div>
+
+  <p>The Imperfection Studio is where a material stops looking new. Layers stack, reorder, and
+     composite over one another — you are building a history, not applying a texture.</p>
+
+  <figure>
+    <img src="New%20folder/imperfection%20system.png" alt="Imperfection Studio panel">
+    <figcaption>The Layer Stack on an authored preset. <b>Texture / Mask</b> switches the viewport
+      between the finished material and an isolated greyscale view of the active layer's mask.
+      <b>Auto</b> is the anti-tiling mode. The lock notice shows this is an authored stack — layers
+      are fixed, but every value stays editable and <b>Restore Authored Stack</b> undoes your changes.</figcaption>
+  </figure>
+
+  <h3>Adding a layer</h3>
+  <ol>
+    <li>Apply a material that supports imperfections.</li>
+    <li>Click <b>Add Layer</b> and choose a type.</li>
+    <li>Select it in the list to edit its settings.</li>
+  </ol>
+  <p>The arrows to the right of the list reorder layers. <b>Duplicate</b> copies the selected layer
+     with its own independent settings, and the bin removes it.</p>
+
+  <h3>Layer controls</h3>
+  <p>Every layer has a name, an enable checkbox, and an <b>Opacity</b> slider — shown as the
+     percentage in the list. Beyond that, each type exposes its own colour, scale, amount and
+     surface-response controls, with the less-used ones tucked under <b>Advanced</b>.</p>
+
+  <div class="note">
+    <p><b>A disabled layer keeps its settings.</b> Unticking the checkbox hides the layer from the
+    material without discarding your tuning, which makes it a good A/B switch.</p>
+  </div>
+
+  <h3>Mask preview</h3>
+  <p>Switch the view mode to <b>Mask</b> to see the active layer's mask alone, in greyscale — white
+     is where the imperfection appears. This is the fastest way to understand what a scale or amount
+     slider is actually doing before you commit to it.</p>
+
+  <h3>Anti-tiling</h3>
+  <p>Large surfaces reveal the repeat in any texture. The tiling control blends phase-shifted samples
+     to break up the lattice.</p>
+  <table>
+    <thead><tr><th>Mode</th><th>Behaviour</th></tr></thead><tbody>
+    <tr><td><b>Auto</b></td><td>Matches object size — off below 12 m, 2 samples to 30 m, 3 samples above. The default.</td></tr>
+    <tr><td><b>Off</b></td><td>One sample. Cheapest, and correct for anything hand-scaled.</td></tr>
+    <tr><td><b>Fast</b></td><td>2 phase-shifted samples. Removes the lattice at moderate cost.</td></tr>
+    <tr><td><b>High</b></td><td>3 samples. Most varied, for very large surfaces.</td></tr>
+  </tbody>
+  </table>
+
+  <h3>Reset a layer</h3>
+  <p>Each layer has a ↺ reset that restores its type's defaults. MatricX asks for confirmation
+     first, because it discards your manual tuning for that layer. It does not touch other layers
+     or the base material.</p>
+</section>
+
+<!-- ============================= TYPES ============================= -->
+<section id="types">
+  <p class="kicker">SECTION 12</p>
+  <h2 class="sec">The 15 Imperfection Types</h2>
+  <div class="rule"></div>
+
+  <figure>
+    <img src="New%20folder/imperfections%20list.png" alt="Imperfection types menu">
+    <figcaption>The Add Layer menu, grouped by what each effect actually does. Only the types the
+      current material supports are listed.</figcaption>
+  </figure>
+
+  <h4>Tone &amp; Finish</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Gradient Linear</b></td><td>Blends a directional colour gradient across the surface. A tonal foundation rather than damage — MatricX always evaluates it beneath the physical layers.</td></tr>
+    <tr><td><b>Bump Texture</b></td><td>Fine surface grain and raised flakes, so the finish is not perfectly smooth. Writes the surface normal in place without adding a second shader.</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Edges &amp; Damage</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Edge Wear</b></td><td>Wears the paint or finish off exposed corners and edges. The randomness controls keep it from reading as a perfectly even outline.</td></tr>
+    <tr><td><b>Edge Damage</b></td><td>Chips and breaks up edges where they take impacts. Randomness varies the mask rather than just brightening it.</td></tr>
+    <tr><td><b>Chip Damaged</b></td><td>Deep chips cut into the surface, with real crater depth rather than painted-on marks.</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Scratches &amp; Marks</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Scratch</b></td><td>Cuts grooves into the surface with depth and self-shadowing. The <b>Depth</b> slider controls how dark the groove floor goes — that shadowing is what makes it read as cut rather than drawn.</td></tr>
+    <tr><td><b>Scratch Paint</b></td><td>Scratches that cut through paint to the material beneath. Use <b>Amount</b> for coverage and <b>Detail Amount</b> to break the strokes up along their length.</td></tr>
+    <tr><td><b>Fingerprints</b></td><td>Sparse oily fingerprint marks. Best at low opacity on gloss, glass and painted surfaces.</td></tr>
+    <tr><td><b>Water Stains</b></td><td>Dried water marks and mineral staining — soft, cloudy residue.</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Dirt &amp; Weathering</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Dirt</b></td><td>Loose particulate settling into recesses and cavities.</td></tr>
+    <tr><td><b>Directional Dirt</b></td><td>Dirt washed along one axis, as run-off or airflow leaves it. Use it for streaks and downward grime.</td></tr>
+    <tr><td><b>Grime</b></td><td>Thin handled residue clinging to open, air-washed surfaces — handles, rails, panels people touch.</td></tr>
+    <tr><td><b>Grunge</b></td><td>General-purpose grunge overlay with real carved depth.</td></tr>
+    <tr><td><b>Rust</b></td><td>Corrosion that eats into corners, seams and cavities. Keep the opacity restrained and pair it with edge damage.</td></tr>
+    <tr><td><b>Leaking</b></td><td>Vertical leak streaks and wet residue running down from seams and fixings.</td></tr>
+  </tbody>
+  </table>
+
+  <h3>Which materials support which types</h3>
+  <p>Not every imperfection makes sense on every surface, so MatricX only offers the ones that do.
+     The Add Layer menu is filtered accordingly.</p>
+  <table>
+    <thead><tr><th>Material</th><th>Available imperfections</th></tr></thead><tbody>
+    <tr><td><b>Metal</b></td><td>All 15, including Rust.</td></tr>
+    <tr><td><b>Plastic</b></td><td>All except Rust.</td></tr>
+    <tr><td><b>Wood</b></td><td>Gradient Linear, Scratch, Chip Damaged.</td></tr>
+    <tr><td><b>Rubber</b></td><td>Edge Wear, Dirt, Grime, Grunge, Scratch Paint, Water Stains.</td></tr>
+    <tr><td><b>Leather</b></td><td>Gradient Linear, Scratch.</td></tr>
+    <tr><td><b>Special Mat</b></td><td>Camo: Dirt. Gradients: all except Gradient Linear.</td></tr>
+    <tr><td><b>Glass</b></td><td class="no">None — glass uses its own Smudge and Crack controls in Material Setup.</td></tr>
+    <tr><td><b>Custom Material</b></td><td class="no">None — your imported maps are the complete surface definition.</td></tr>
+  </tbody>
+  </table>
+</section>
+
+<!-- ============================= PAINT ============================= -->
+<section id="paint">
+  <p class="kicker">SECTION 13</p>
+  <h2 class="sec">Paint Masks</h2>
+  <div class="rule"></div>
+
+  <p>Procedural masks decide where an imperfection goes by rule. A paint mask lets you decide by
+     hand — brush rust onto the one corner that should have it, wipe grime off the area a hand
+     would have polished.</p>
+
+  <figure class="wide">
+    <img src="New%20folder/MatricX%20Paint%20Imperfections.png" alt="Painting an imperfection mask">
+    <figcaption>Painting a Scratch layer directly onto the mesh. Blender is in Vertex Paint mode with
+      the brush already configured; the MatricX panel stays available on the right so you can adjust
+      the layer while you work. <b>Finish Painting</b> returns you to the finished material.</figcaption>
+  </figure>
+
+  <h3>Painting a layer</h3>
+  <ol>
+    <li>Select the imperfection layer you want to control.</li>
+    <li>Expand <b>Paint Mask</b> and click <b>Start Painting</b>.</li>
+    <li>MatricX switches to Vertex Paint and sets up a greyscale brush for you.</li>
+    <li>Paint on the mesh. <b>White reveals, black hides.</b></li>
+    <li>Click <b>Finish Painting</b> when done.</li>
+  </ol>
+
+  <h3>Paint Behavior</h3>
+  <p><b>Paint In</b> is the default: the mask starts empty and white brushes the imperfection in.
+     Turn it off to invert the meaning — the imperfection covers everything and black erases it.
+     Choose whichever means less painting for the result you want.</p>
+
+  <h3>Strength</h3>
+  <p>Scales how much the painted mask affects the layer overall, without repainting anything. Pull
+     it down to soften a mask that came out too strong.</p>
+
+  <div class="warn">
+    <p><b>Paint masks are vertex-based.</b> Detail is limited by how dense your mesh is — a
+    default cube has eight vertices and cannot hold a mask at all. MatricX warns you when a mesh is
+    too coarse. Subdivide if you need finer control.</p>
+  </div>
+
+  <h3>Mask Utilities</h3>
+  <p>Fill the mask solid, clear it, or remove it entirely and return the layer to its procedural
+     mask. Removing a paint mask does not remove the layer.</p>
+
+  <div class="note">
+    <p><b>Multiple objects sharing a material:</b> the mask lives on each mesh, so an object without
+    one shows the layer at full procedural coverage. MatricX warns you when this applies and offers
+    to add a mask to every object using that material.</p>
+  </div>
+</section>
+
+<!-- ============================= CUSTOM ============================= -->
+<section id="custom">
+  <p class="kicker">SECTION 14</p>
+  <h2 class="sec">Custom PBR Materials</h2>
+  <div class="rule"></div>
+
+  <p>Custom Material imports an external texture set and turns it into a reusable MatricX entry.</p>
+
+  <ol>
+    <li>Set the category to <b>Custom Material</b>.</li>
+    <li>Click <b>+</b> and select one or more texture files from the set's folder.</li>
+    <li>MatricX scans the folder and identifies the maps by name.</li>
+    <li>Check the detected entry, then click <b>Apply Custom Material</b>.</li>
+  </ol>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Maps detected</h4>
+      <p>Base Color, Normal, Roughness, Metallic, Ambient Occlusion, packed ORM, Height,
+         Emission, Opacity.</p>
+    </div>
+    <div class="card">
+      <h4>Controls</h4>
+      <p>Uniform scale, rotation, offset, UV map choice, treat-as-metal, ORM mode, normal strength,
+         displacement scale, alpha mode and clip threshold.</p>
+    </div>
+  </div>
+
+  <p>Entries are stored in add-on preferences and stay available across projects.</p>
+
+  <div class="note">
+    <p><b>Imperfection layers are not offered on custom materials.</b> Your authored maps are the
+    complete surface definition — MatricX leaves them alone rather than compositing over work you
+    already did.</p>
+  </div>
+</section>
+
+<!-- ============================= DECALS ============================= -->
+<section id="decals">
+  <p class="kicker">SECTION 15</p>
+  <h2 class="sec">Decals Workspace</h2>
+  <div class="rule"></div>
+
+  <figure>
+    <img src="New%20folder/decal%20system.png" alt="Decal panel">
+    <figcaption>The Decals panel. <b>Decal Tool</b> switches between Decals and Trims. The
+      <b>+</b> and <b>✕</b> on the Decal Library header add and remove your own libraries.
+      <b>Scene Decals</b> tracks everything placed in the current file.</figcaption>
+  </figure>
+
+  <h3>Placing a decal</h3>
+  <ol>
+    <li>Pick a decal thumbnail.</li>
+    <li>Click <b>Place Decal</b>.</li>
+    <li>Move the cursor over a mesh surface — the decal aligns to the surface normal.</li>
+    <li>Confirm.</li>
+  </ol>
+
+  <table>
+    <thead><tr><th>Input</th><th>Action</th></tr></thead><tbody>
+    <tr><td><span class="kbd">LMB</span> / <span class="kbd">Space</span></td><td>Confirm placement</td></tr>
+    <tr><td><span class="kbd">RMB</span> / <span class="kbd">Esc</span></td><td>Cancel</td></tr>
+    <tr><td><span class="kbd">Wheel</span></td><td>Rotate</td></tr>
+    <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Wheel</span></td><td>Fine rotate</td></tr>
+    <tr><td><span class="kbd">Shift</span> + <span class="kbd">Wheel</span></td><td>Scale</td></tr>
+    <tr><td><span class="kbd">MMB</span></td><td>Orbit the viewport</td></tr>
+  </tbody>
+  </table>
+
+  <h3>The adjustment pie</h3>
+  <figure>
+    <img src="New%20folder/decal%20pie%20menu.png" alt="Decal pie menu">
+    <figcaption>Press <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">D</span>
+      over a selected decal. The pie is built for speed in the viewport; the N-panel remains the place
+      for browsing and exact values.</figcaption>
+  </figure>
+
+  <h3>Key actions</h3>
+  <ul>
+    <li><b>Reposition</b> — move a placed decal to another point or another mesh, keeping its settings.</li>
+    <li><b>Scale &amp; Rotate</b> — resize or angle without moving the placement point.</li>
+    <li><b>Surface &amp; Opacity</b> — blend into the surface, and set the offset that prevents
+        z-fighting. <code>0.001 m</code> is a good starting value.</li>
+    <li><b>Change Color</b> — override a label or brand decal's colour instead of using its texture.
+        Restore the original material to go back.</li>
+    <li><b>Project to Surface</b> — build final conforming geometry. Only the first surface along
+        each ray is kept, so the decal never prints through to the far side of a closed mesh.</li>
+    <li><b>Delete Decal</b>, plus Select All / Hide / Show and Delete All Decals in the panel.</li>
+  </ul>
+</section>
+
+<!-- ============================= LIBRARIES ============================= -->
+<section id="libraries">
+  <p class="kicker">SECTION 16</p>
+  <h2 class="sec">Adding Your Own Decal Libraries</h2>
+  <div class="rule"></div>
+
+  <p>MatricX ships one official decal library. You can add as many of your own as you like, from the
+     N-panel or from Preferences.</p>
+
+  <h3>Adding a library</h3>
+  <ol>
+    <li>Click <b>+</b> on the Decal Library header, or <b>Add Library</b> in Preferences.</li>
+    <li>Select the folder that <i>contains</i> the decal subfolders.</li>
+    <li>Optionally give it a name — otherwise the folder name is used.</li>
+  </ol>
+
+  <p>MatricX validates the folder before accepting it and tells you if there is nothing usable inside.</p>
+
+  <h4>Expected decal folder layout</h4>
+  <span class="path">My Decal Pack/
+    001_some_decal/
+        decal.blend      required
+        decal.png        thumbnail, recommended
+        uuid             optional, gives the decal a stable identity
+    002_another_decal/
+        decal.blend
+        decal.png</span>
+
+  <h3>Removing a library</h3>
+  <p>Click <b>✕</b> on the library header to remove the one you are browsing, or use the ✕ beside any
+     entry in Preferences. <b>Only the reference is removed — nothing is deleted from disk.</b>
+     The bundled MatricX library cannot be removed.</p>
+
+  <div class="note">
+    <p><b>Duplicates are filtered automatically.</b> If the same decal appears in two libraries,
+    MatricX shows it once. Identity comes from the <code>uuid</code> file when present, so give your
+    own decals unique uuids if you want copies treated as distinct.</p>
+  </div>
+
+  <p>Library references live in your Blender user configuration, not inside the add-on, so they
+     survive reinstalling MatricX and are available in every file.</p>
+</section>
+
+<!-- ============================= TRIMS ============================= -->
+<section id="trims">
+  <p class="kicker">SECTION 17</p>
+  <h2 class="sec">Trim Sheets</h2>
+  <div class="rule"></div>
+
+  <div class="warn">
+    <p><b>MatricX does not ship trim sheets.</b> The Trims tool is fully functional, but the sheets
+    themselves are yours to supply — add a folder of your own and it appears here.</p>
+  </div>
+
+  <figure class="wide">
+    <img src="New%20folder/matricX%20Trimesheets%20workflow.png" alt="Trim sheet workflow">
+    <figcaption>Trims mode with an external sheet library loaded. Trims apply to <b>selected faces
+      in Edit Mode</b> — MatricX assigns the sheet material and fits those faces' UVs into the chosen
+      region, rather than placing a floating object.</figcaption>
+  </figure>
+
+  <h3>Applying a trim</h3>
+  <ol>
+    <li>Enter <b>Edit Mode</b> and select the faces that should receive the trim.</li>
+    <li>Open <b>Decals → Trims</b> and pick a sheet, then a trim region.</li>
+    <li>Choose the UV Fit and material options.</li>
+    <li>Click <b>Apply Trim to Selected Faces</b>.</li>
+    <li>Refine with <b>Live Trim Adjustment</b> if needed.</li>
+  </ol>
+
+  <h3>UV Fit</h3>
+  <table>
+    <thead><tr><th>Option</th><th>Behaviour</th></tr></thead><tbody>
+    <tr><td><b>Automatic</b></td><td>Picks the sensible fit for the selection. Start here.</td></tr>
+    <tr><td><b>Fill</b></td><td>Stretches the selection to fill the trim region. Fast for panel strips.</td></tr>
+    <tr><td><b>Preserve</b></td><td>Keeps more of the existing UV proportions. Use when face proportions matter.</td></tr>
+    <tr><td><b>Fit Each UV Island</b></td><td>Fits each island separately — good for repeated strips, wrong for one continuous area.</td></tr>
+    <tr><td><b>Rotation / Flip U / Flip V</b></td><td>Correct orientation without re-selecting.</td></tr>
+    <tr><td><b>Edge Padding</b></td><td>Insets the UVs slightly to stop neighbouring regions bleeding in.</td></tr>
+  </tbody>
+  </table>
+
+  <h3>Trim material</h3>
+  <p><b>Trimsheet</b> assigns the sheet's own material. <b>Mesh Materials</b> preserves each face's
+     existing material and applies only the UV placement — use it when the trim geometry is right but
+     the surface should keep matching the rest of the model. <b>Surface Detail</b> scales the bump
+     contribution.</p>
+
+  <h3>Live Trim Adjustment</h3>
+  <p>Move, Rotate and Scale refine the placement after applying. Move adjusts location only — scaling
+     is a separate action, so vertical cursor movement will not resize by accident. The adjustment
+     pie is <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">T</span> in Edit Mode.</p>
+
+  <h3>Trim sheet folder format</h3>
+  <p>A trim sheet folder is identified by a <code>data.json</code> describing the atlas and its regions.</p>
+  <span class="path">My Trim Pack/
+    Panel Sheet 01/
+        data.json
+        (texture maps referenced by data.json)</span>
+  <p>The <code>data.json</code> needs a <code>resolution</code> pair and a <code>trims</code> list.
+     Each trim needs <code>coords</code> and <code>dimensions</code> in 0–1 UV space:</p>
+  <span class="path">{
+  "name": "Panel Sheet 01",
+  "uuid": "…",
+  "resolution": [2048, 2048],
+  "trims": [
+    { "name": "Panel A", "coords": [0.0, 0.0],  "dimensions": [1.0, 0.25] },
+    { "name": "Panel B", "coords": [0.0, 0.25], "dimensions": [1.0, 0.25] }
+  ],
+  "maps": { }
+}</span>
+
+  <div class="note">
+    <p><b>Decal and trim libraries are kept apart on purpose.</b> MatricX detects which kind a folder
+    holds and shows it only in the matching mode, so a full trim sheet can never be placed as an
+    ordinary decal by accident.</p>
+  </div>
+</section>
+
+<!-- ============================= VIEWPORT ============================= -->
+<section id="viewport">
+  <p class="kicker">SECTION 18</p>
+  <h2 class="sec">Viewport Workspace</h2>
+  <div class="rule"></div>
+
+  <figure>
+    <img src="New%20folder/viewport%20materials%20system.png" alt="Viewport workspace">
+    <figcaption>Built for blockout and modelling — fast, disposable colour that keeps parts readable
+      before any real look development starts.</figcaption>
+  </figure>
+
+  <h3>Live Viewport Color</h3>
+  <p>Set Color, Metallic and Roughness, then <b>Apply to Selection</b>. Once assigned, the controls
+     edit that material live, and selecting another object with a MatricX viewport material syncs the
+     panel to its values.</p>
+
+  <h3>Quick Swatches</h3>
+  <p>Clay, Dark, Light, Rubber Black, Metal Gray, Accent Red, Accent Blue and Glass Cyan.
+     <b>Use Material View</b> switches your viewports to Material Preview so the colours actually show.</p>
+
+  <h3>Helpers</h3>
+  <ul>
+    <li><b>Random Viewport Color</b> — a different colour per selected mesh, for separating a busy blockout.</li>
+    <li><b>Move Collection</b> / <b>New Collection</b> — organise the selection without leaving the panel.</li>
+    <li><b>Separate Material</b> — stop one mesh sharing a viewport material with the rest.</li>
+  </ul>
+
+  <div class="note">
+    <p><b>Viewport materials are protected.</b> MatricX will not overwrite a production material with
+    a viewport colour — it tells you how many selected objects it skipped and why.</p>
+  </div>
+</section>
+
+<!-- ============================= PREFS ============================= -->
+<section id="prefs">
+  <p class="kicker">SECTION 19</p>
+  <h2 class="sec">Preferences and Runtime Assets</h2>
+  <div class="rule"></div>
+
+  <p>Edit → Preferences → Add-ons → <b>MatricX PRO</b>.</p>
+
+  <ul>
+    <li><b>External Asset Pack</b> — the path, a Locate button, and a live status line.</li>
+    <li><b>MatricX Decals &amp; Trims</b> — decal and trim counts, pie shortcuts, and Refresh Libraries.</li>
+    <li><b>Additional Libraries</b> — every library you have added, with its path, what it contains,
+        and a ✕ to remove it. A folder that has gone missing is flagged but stays listed so you can
+        still clear it.</li>
+    <li>Update and support links.</li>
+  </ul>
+
+  <h3>Runtime asset status</h3>
+  <p>With a valid pack, MatricX can load material files, runtime and imperfection textures, and the
+     official decal library. Without it, the browser still shows thumbnails — those ship in the
+     add-on — but applying a material will fail until the pack is located.</p>
+
+  <h3>Cross-platform paths</h3>
+  <p>MatricX 2.0 resolves paths without platform-specific separators and tolerates case differences,
+     so projects move between Windows, macOS and Linux. For shared setups, use the locator or
+     <code>MATRICX_ASSET_ROOT</code> rather than hard-coding paths into project files.</p>
+</section>
+
+<!-- ============================= WORKFLOWS ============================= -->
+<section id="workflows">
+  <p class="kicker">SECTION 20</p>
+  <h2 class="sec">Recommended Workflows</h2>
+  <div class="rule"></div>
+
+  <h3>Fast hard-surface material</h3>
+  <ol>
+    <li>Apply Default Metal or Default Plastic.</li>
+    <li>Enable live scale and rotation compensation if the object still has unapplied transforms.</li>
+    <li>Set base colour, roughness and bevel.</li>
+    <li>Add subtle <b>Edge Wear</b>.</li>
+    <li>Add low-opacity <b>Dirt</b> or <b>Directional Dirt</b>.</li>
+    <li>Add <b>Scratch</b>, <b>Fingerprints</b> or <b>Water Stains</b> only where they earn their place.</li>
+    <li>Save it as a Material Look if you will reuse it.</li>
+  </ol>
+
+  <h3>Start from the collection instead</h3>
+  <ol>
+    <li>Apply one of the 17 authored materials — the stack is already built.</li>
+    <li>Tune Base Color and Roughness to your asset.</li>
+    <li>Adjust individual layer opacities to taste.</li>
+    <li>Press <b>Restore Authored Stack</b> if you want the original recipe back.</li>
+  </ol>
+
+  <h3>Rusted metal</h3>
+  <ol>
+    <li>Apply a metal material and add <b>Rust</b>.</li>
+    <li>Tune its sharpness and surface detail; keep opacity restrained.</li>
+    <li>Add <b>Edge Damage</b> for chipped areas.</li>
+    <li>Add <b>Dirt</b> at low opacity to unify everything.</li>
+    <li>Paint the rust mask so corrosion collects where water would actually sit.</li>
+  </ol>
+
+  <h3>Hand-placed wear with paint masks</h3>
+  <ol>
+    <li>Build the layer and get its procedural look right first.</li>
+    <li>Start painting, and set Paint Behavior to whichever direction means less brushing.</li>
+    <li>Use Mask view to check coverage as you go.</li>
+    <li>Finish Painting, then lower Strength if the result is too strong.</li>
+  </ol>
+
+  <h3>Modelling blockout</h3>
+  <ol>
+    <li>Open Viewport and click <b>Use Material View</b>.</li>
+    <li>Assign quick swatches by part group, or use Random Viewport Color.</li>
+    <li>Organise with the collection helpers.</li>
+  </ol>
+</section>
+
+<!-- ============================= TROUBLESHOOTING ============================= -->
+<section id="trouble">
+  <p class="kicker">SECTION 21</p>
+  <h2 class="sec">Troubleshooting</h2>
+  <div class="rule"></div>
+
+  <h4>The browser shows thumbnails, but applying a material fails</h4>
+  <p>Thumbnails ship in the add-on; the material files are in the asset pack. Open Runtime Assets
+     and click <b>Locate Asset Pack</b>.</p>
+
+  <h4>"No trim sheets added yet"</h4>
+  <p>Expected. MatricX does not include trim sheets — click <b>Add Trim Sheet Library</b> and point
+     it at a folder of your own. Locating the asset pack will not help; there are none in it.</p>
+
+  <h4>An imperfection covers far too much</h4>
+  <p>Lower the layer <b>Opacity</b> first, then the type's Amount control. Switch to <b>Mask</b> view
+     to see exactly what the mask is doing.</p>
+
+  <h4>The Add Layer menu is missing a type</h4>
+  <p>The list is filtered to what the current material supports — see the table in Section 12.
+     Glass and Custom Material offer none by design.</p>
+
+  <h4>I cannot add or delete layers on a collection material</h4>
+  <p>Authored stacks have fixed contents. You can still reorder them, edit every value, and press
+     <b>Restore Authored Stack</b> to undo your changes.</p>
+
+  <h4>Painting says another layer is being painted</h4>
+  <p>A different layer owns the paint session. Click <b>Finish That Session</b> and start again on
+     the layer you want.</p>
+
+  <h4>My paint mask is blocky</h4>
+  <p>Masks are vertex-based, so resolution follows mesh density. Subdivide the mesh where you need
+     finer control.</p>
+
+  <h4>A decal appears twice</h4>
+  <p>Refresh libraries and check the same folder is not added twice in Preferences. MatricX
+     de-duplicates by uuid, so decals copied without unique uuids may look repeated.</p>
+
+  <h4>A trim applies to more than the faces I selected</h4>
+  <p>Confirm you are in Edit Mode with only the intended faces selected, and check
+     <b>Fit Each UV Island</b> matches your intent.</p>
+
+  <h4>A pie shortcut conflicts with another add-on</h4>
+  <p>Preferences → Keymap, search for <code>matricx.show_decal_pie</code> or
+     <code>matricx.show_trim_pie</code>, and rebind or disable.</p>
+
+  <h4>A fabric material looks flat and wrong</h4>
+  <p>Fabrics sample through the UV map. Without one the weave collapses to a single sampled point —
+     MatricX warns you and offers to add a UV map.</p>
+</section>
+
+<!-- ============================= SUPPORT ============================= -->
+<section id="support">
+  <p class="kicker">SECTION 22</p>
+  <h2 class="sec">Support</h2>
+  <div class="rule"></div>
+
+  <p>Use the official Eidos Edge links in MatricX Preferences for support, updates and demos.</p>
+
+  <p>When reporting a problem, include:</p>
+  <ul>
+    <li>Blender version and operating system.</li>
+    <li>MatricX PRO version, and whether you installed the add-on or the extension package.</li>
+    <li>Whether the asset pack is connected — Preferences shows the status.</li>
+    <li>A screenshot or short recording.</li>
+    <li>A minimal <code>.blend</code> where possible.</li>
+    <li>The exact steps to reproduce it.</li>
+  </ul>
+
+  <div class="note" style="margin-top:36px">
+    <p style="font-size:17px"><b>Thank you for using MatricX PRO.</b></p>
+    <p style="margin-top:6px;color:var(--dim)">— Prasanth · Eidos Edge · MatricX PRO Developer</p>
+  </div>
+</section>
+
+<footer>
+  MatricX PRO — Official User Guide · v2.0.0 · Premium Edition<br>
+  © 2024–2026 Prasanth / Eidos Edge
+</footer>
+
+</div>
