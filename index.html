@@ -248,231 +248,763 @@ footer{
 footer .brand{font-family:'Anton';color:var(--head);font-size:15px;letter-spacing:.5px}
 footer .brand span{color:var(--accent)}
 footer .tag{color:var(--dim);font-size:12.5px;font-family:'JetBrains Mono',monospace}
+
+/* ---------------- PAIN / COMPARISON COLUMNS ---------------- */
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
+.pain-col{border-radius:6px;padding:22px 22px 24px}
+.pain-col.old{background:var(--panel);border:1px solid var(--line)}
+.pain-col.new{background:var(--panel);border:1px solid var(--accent)}
+.pain-col .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:700}
+.pain-col.old .label{color:var(--dim)}
+.pain-col.new .label{color:var(--accent)}
+.pain-step{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--text)}
+.pain-step:last-child{border-bottom:none}
+.pain-col.old .pain-step{color:var(--dim)}
+.pain-col.new .pain-step{color:var(--head);font-weight:600}
+
+/* ---------------- WORKFLOW STEPS ---------------- */
+.workflow-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:28px 0}
+.workflow-step{
+  background:var(--panel2);border:1px solid var(--line);border-radius:6px;
+  padding:14px 16px;min-width:110px;text-align:center;
+}
+.workflow-step .wn{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:11px;font-weight:700}
+.workflow-step .wt{color:var(--head);font-size:13px;font-weight:700;margin-top:4px}
+.workflow-arrow{color:var(--accent);font-size:18px}
+
+/* ---------------- PULL QUOTE ---------------- */
+.pull-quote{
+  border-left:3px solid var(--accent);padding:6px 0 6px 24px;margin:30px 0;
+}
+.pull-quote p{
+  font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:none;
+  color:var(--head);font-size:22px;line-height:1.35;margin:0;letter-spacing:.2px;
+}
+
+/* ---------------- CONTRAST TABLE ---------------- */
+.contrast-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.contrast-row:last-child{border-bottom:none}
+.contrast-old{color:var(--dim);font-size:14px;text-align:right}
+.contrast-arrow{color:var(--accent);font-size:14px;font-family:'JetBrains Mono',monospace}
+.contrast-new{color:var(--head);font-size:14px;font-weight:600}
+
+/* ---------------- PILLAR TAGS ---------------- */
+.pillars{display:flex;gap:12px;margin:26px 0;flex-wrap:wrap}
+.pillar{
+  background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  padding:16px 20px;flex:1;min-width:160px;
+}
+.pillar .pt{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
+.pillar-tag{
+  background:var(--panel2);border:1px solid var(--line);border-radius:20px;
+  padding:7px 14px;font-size:12.5px;color:var(--text);
+}
+.pillar-tag b{color:var(--accent)}
+
+/* ---------------- WHO IT'S FOR ---------------- */
+.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:28px 0}
+.who-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
+.who-card .wh{color:var(--head);font-size:15px;font-weight:700;margin-bottom:6px}
+.who-card p{color:var(--dim);font-size:13.5px;margin:0}
+
+/* ---------------- VALUE STACK LIST ---------------- */
+.value-list{list-style:none;margin:26px 0;padding:0}
+.value-list li{
+  display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);
+  font-size:14.5px;color:var(--text);align-items:flex-start;
+}
+.value-list li:last-child{border-bottom:none}
+.value-list .check{color:var(--accent);font-weight:800;flex-shrink:0}
+.value-list b{color:var(--head)}
+
+/* ---------------- FAQ ---------------- */
+.faq-item{border-bottom:1px solid var(--line);padding:18px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{color:var(--head);font-size:15.5px;font-weight:700;margin:0 0 8px}
+.faq-a{color:var(--dim);font-size:14px;margin:0}
+
+/* ---------------- FINAL CTA ---------------- */
+.final-cta{
+  background:linear-gradient(180deg, var(--panel), var(--panel2));
+  border:1px solid var(--line);border-top:3px solid var(--accent);
+  border-radius:8px;padding:44px 34px;text-align:center;margin:26px 0;
+}
+.final-cta h2{font-size:30px;max-width:600px;margin:0 auto}
+.final-cta p{max-width:520px;margin:16px auto 0;color:var(--text);font-size:15.5px}
+
+/* ---------------- ASSET PLACEHOLDER (detailed spec format) ---------------- */
+.asset-ph{
+  border:1.5px dashed #3a3a3a;
+  background:repeating-linear-gradient(135deg, #151515, #151515 10px, #181818 10px, #181818 20px);
+  border-radius:6px;padding:26px;margin:26px 0;
+}
+.asset-ph .aid{
+  display:inline-block;background:var(--accent);color:#000;font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 9px;border-radius:3px;margin-bottom:12px;
+}
+.asset-ph h4{margin:0 0 14px;color:var(--head);font-size:16px;font-weight:700}
+.asset-ph .af{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:13.5px;margin-bottom:6px}
+.asset-ph .af b{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.asset-ph .af span{color:var(--text)}
+
+/* ---------------- PRICING ---------------- */
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:26px 20px;display:flex;flex-direction:column;position:relative;
+}
+.price-card.popular{border-color:var(--accent);background:var(--panel2)}
+.price-card .pop-tag{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#150900;font-family:'JetBrains Mono',monospace;
+  font-size:10px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;border-radius:3px;
+}
+.price-card .pname{font-family:'JetBrains Mono',monospace;color:var(--dim);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.price-card.popular .pname{color:var(--accent)}
+.price-card .pamount{font-family:'Anton',sans-serif;color:var(--head);font-size:34px;margin-bottom:4px}
+.price-card .pnote{color:var(--dim);font-size:12.5px;margin-bottom:18px;min-height:34px}
+.price-card ul{list-style:none;margin:0 0 22px;padding:0;flex-grow:1}
+.price-card li{color:var(--text);font-size:13px;padding:7px 0;border-bottom:1px solid var(--line)}
+.price-card li:last-child{border-bottom:none}
+.price-card a.btn{width:100%;justify-content:center;text-align:center}
+
+/* ---------------- PROMO MODULE ---------------- */
+.promo-module{
+  background:var(--panel2);border:1px dashed var(--accent);border-radius:8px;
+  padding:28px 26px;margin:30px 0;text-align:center;
+}
+.promo-module .plabel{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.promo-module h3{font-family:'Anton',sans-serif;color:var(--head);font-size:24px;margin:0 0 14px;text-transform:uppercase}
+.coupon-code{
+  display:inline-block;background:var(--bg);border:1px solid var(--accent);color:var(--accent);
+  font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;letter-spacing:2px;
+  padding:10px 20px;border-radius:5px;margin:6px 0 14px;
+}
+.promo-table{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.promo-tier{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px 16px;font-size:12.5px;color:var(--dim)}
+.promo-tier b{color:var(--head)}
+.promo-tier s{color:#555}
+.promo-tier .disc{color:var(--accent);font-weight:700}
+
+/* ---------------- ECOSYSTEM PIPELINE ---------------- */
+.pipeline-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0;justify-content:center}
+.pipeline-node{
+  background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;text-align:center;min-width:120px;
+}
+.pipeline-node.hi{border-color:var(--accent);background:var(--panel2)}
+.pipeline-node .pn-label{color:var(--head);font-size:13px;font-weight:700}
+.pipeline-arrow{color:var(--accent);font-size:18px}
+
+/* ---------------- OPTIONAL MODULE MARKER ---------------- */
+.optional-module{border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:36px 0}
+.module-note{
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#666;letter-spacing:1px;
+  text-transform:uppercase;text-align:center;margin-bottom:20px;
+}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HERO -->
-  <img class="hero-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/hero-give-history.png" alt="MatricX PRO — Give your 3D surfaces a history">
+  <!-- ================================================================
+       MATRICX PAGE CONFIG
+       Replace these values before publishing. Do not leave as literal
+       {{...}} tokens on the live page — find & replace each one.
+
+       {{PRODUCT_URL}}           — this MatricX Pro Superhive listing URL
+       {{DOCUMENTATION_URL}}     — currently set to the real hosted guide:
+                                    https://jack-hardsurface.github.io/MatricX-Pro-Page/MatricX-PRO-User-Guide.html
+       {{MATRICX_BAKE_URL}}      — MatricX Bake product listing URL
+       {{MATRICX_20_COUPON}}     — general 20% promo code (leave section 16
+                                    commented out below until a real code exists)
+       {{COUPON_EXPIRATION}}     — real expiration date, only if one exists
+       {{PRO_TO_BAKE_COUPON}}    — existing Pro customer → Bake discount code
+       {{BAKE_TO_PRO_COUPON}}    — existing Bake customer → Pro discount code
+  ================================================================= -->
+
+  <!-- SECTION 01 — HERO -->
+  <img class="hero-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vector%202.0.jpg" alt="MatricX PRO — finished weathered hard-surface render">
+
   <div class="hero-copy">
-    <p class="kicker">MatricX PRO · Version 2.0.0 · Blender Add-on</p>
-    <h1>Turn a clean model<br>into a <span>used one.</span></h1>
-    <p class="hero-sub">Smart materials, layered imperfections, paint masks, decals and trim sheets — one panel, no shader nodes, no UV unwrapping. Built for hard-surface detailing, look development, game-asset presentation and concept work.</p>
+    <p class="kicker">MatricX PRO &middot; Surface System &middot; Blender</p>
+    <h1>Build finished surfaces.<br><span>Not shader networks.</span></h1>
+    <p class="hero-sub">MatricX Pro brings professional materials, layered imperfections, paint masks, decals, trim sheets and reusable PBR materials into one Blender workflow &mdash; so you can spend more time designing and less time configuring.</p>
+
     <div class="badges">
-      <span class="badge on">Paint Masks — New in 2.0</span>
-      <span class="badge">25 Authored Materials</span>
-      <span class="badge">15 Imperfection Types</span>
-      <span class="badge">Blender 4.5 – 5.2</span>
+      <span class="badge on">25 Authored Materials</span>
+      <span class="badge on">15 Imperfection Types</span>
+      <span class="badge on">Paint Mask Control</span>
+      <span class="badge on">Decals + Trims</span>
+      <span class="badge on">Custom PBR</span>
     </div>
+
     <div class="btn-row">
-      <a class="btn btn-primary" href="MatricX-PRO-User-Guide.html" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h1"/></svg>
-        Read Full Documentation
-      </a>
-      <a class="btn btn-secondary" href="#specs">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-        See What's Inside
-      </a>
+      <a class="btn btn-primary cta-hero" href="#pricing" target="_self">See Pricing</a>
+      <a class="btn btn-secondary cta-workflow" href="#workflow" target="_self">See the Workflow</a>
     </div>
   </div>
 
-  <!-- THE IDEA -->
+  <!-- SECTION 02 — PROBLEM RECOGNITION -->
   <section>
-    <p class="kicker">The idea</p>
-    <h2 class="sec">Several quiet layers beat<br>one loud one.</h2>
+    <p class="kicker">01 / The Problem</p>
+    <h2 class="sec">Texturing shouldn't mean<br>rebuilding the workflow.</h2>
     <hr class="rule">
-    <div class="body-col">
-      <p class="lead">A surface that's been touched, wiped, knocked and left outdoors carries many faint stories — not one strong effect.</p>
-      <p>MatricX PRO is organised into three workspaces — <b style="color:var(--head)">Materials</b>, <b style="color:var(--head)">Decals</b> and <b style="color:var(--head)">Viewport</b> — and most controls update your object immediately. Build a material once, layer in edge wear, rust and grime with restraint, and it reads as real. No texture painting software, no manual UV work required to get there.</p>
+    <p class="lead body-col">The hard part isn't creating one good material. It's rebuilding the same setup every time you need another believable surface.</p>
+    <p class="body-col">MatricX turns that repetitive process into a reusable, artist-facing workflow.</p>
+
+    <div class="pain-grid">
+      <div class="pain-col old">
+        <div class="label">Traditional Workflow</div>
+        <div class="pain-step">Nodes</div>
+        <div class="pain-step">Masks</div>
+        <div class="pain-step">Mapping</div>
+        <div class="pain-step">Weathering</div>
+        <div class="pain-step">Manual adjustments</div>
+        <div class="pain-step">More setup</div>
+      </div>
+      <div class="pain-col new">
+        <div class="label">MatricX</div>
+        <div class="pain-step">Choose Material</div>
+        <div class="pain-step">Add History</div>
+        <div class="pain-step">Direct It</div>
+        <div class="pain-step">Finish</div>
+      </div>
     </div>
+  </section>
+
+  <!-- SECTION 03 — SHOW THE WORKFLOW -->
+  <section id="workflow">
+    <p class="kicker">02 / The Workflow</p>
+    <h2 class="sec">From clean model<br>to finished surface.</h2>
+    <hr class="rule">
+
+    <div class="workflow-row">
+      <div class="workflow-step"><div class="wn">01</div><div class="wt">Choose</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step"><div class="wn">02</div><div class="wt">Build</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step"><div class="wn">03</div><div class="wt">Direct</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step"><div class="wn">04</div><div class="wt">Detail</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step" style="background:var(--accent);border-color:var(--accent)"><div class="wn" style="color:#150900">05</div><div class="wt" style="color:#150900">Finish</div></div>
+    </div>
+
+    <p class="body-col dim" style="font-size:14px">Apply a material &middot; layer imperfections &middot; paint effects exactly where they belong &middot; add decals and trim-sheet detail &middot; render the finished surface.</p>
+
+    <div class="asset-ph">
+      <span class="aid">Asset-01</span>
+      <h4>Full Workflow Sequence</h4>
+      <div class="af"><b>Show</b><span>One hard-surface object evolving through all five stages above, in order.</span></div>
+      <div class="af"><b>Action</b><span>Apply material &rarr; layer imperfections &rarr; paint effect &rarr; add decal/trim &rarr; final render.</span></div>
+      <div class="af"><b>UI</b><span>MatricX N-panel visible throughout so viewers can follow which control drives which change.</span></div>
+      <div class="af"><b>Duration</b><span>15&ndash;25 seconds, looping.</span></div>
+      <div class="af"><b>Resolution</b><span>1600&times;900 minimum.</span></div>
+      <div class="af"><b>Format</b><span>GIF or MP4.</span></div>
+      <div class="af"><b>Purpose</b><span>This is the single strongest conversion asset on the page &mdash; make MatricX feel fast and easy, not technical.</span></div>
+    </div>
+  </section>
+
+  <!-- SECTION 04 — VISUAL PROOF -->
+  <section>
+    <p class="kicker">03 / The Result</p>
+    <h2 class="sec">Same model.<br>Different story.</h2>
+    <hr class="rule">
 
     <div class="compare" id="compare-hero">
       <img class="after-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vector%202.0.jpg" alt="After MatricX PRO">
       <img class="before-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vector%201.0.png" alt="Before MatricX PRO">
       <span class="compare-label before-lbl">BEFORE</span>
       <span class="compare-label after-lbl">AFTER</span>
-      <div class="compare-handle"><div class="bar"></div><div class="knob">⟷</div></div>
+      <div class="compare-handle"><div class="bar"></div><div class="knob">&#8596;</div></div>
     </div>
     <p class="compare-hint">drag to compare</p>
+    <p class="body-col" style="text-align:center;color:var(--head);font-weight:600;margin-top:8px">Geometry gives the object its shape. Surface history makes it believable.</p>
   </section>
 
-  <!-- PAINT MASKS HEADLINE FEATURE -->
+  <!-- SECTION 05 — MATERIAL SYSTEM -->
   <section>
-    <p class="kicker">Headline feature — new in 2.0</p>
-    <h2 class="sec">Paint exactly where<br>the damage goes.</h2>
+    <p class="kicker">04 / Material System</p>
+    <h2 class="sec">Start with a finished surface.<br>Then make it yours.</h2>
     <hr class="rule">
-    <div class="body-col">
-      <p class="lead">Every imperfection layer can now be painted directly onto the mesh.</p>
-      <p>Instead of a procedural mask covering the whole surface, brush rust into the one corner that should have it, or wipe grime off the area a hand would have polished. <b style="color:var(--head)">Paint In</b> starts the mask empty and reveals it in white — flip it to erase from a full mask instead, whichever means less painting for the result you want. <b style="color:var(--head)">Strength</b> softens an overpainted layer without touching a single brush stroke.</p>
-      <p class="dim">Paint masks are vertex-based — MatricX warns you when a mesh is too coarse to hold detail, and offers to add a mask to every object sharing a material.</p>
+    <p class="lead body-col">You don't just receive presets. You receive strong starting surfaces that stay fully editable.</p>
+
+    <div class="workflow-row">
+      <div class="workflow-step"><div class="wt">Start Fast</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step"><div class="wt">Adjust</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step"><div class="wt">Personalize</div></div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step"><div class="wt">Restore Original</div></div>
     </div>
 
-    <div class="shot-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vertex%20paint%20mode.png" alt="MatricX PRO paint mask session in Vertex Paint mode" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
+    <div class="grid2">
+      <div class="card"><h4>25 Authored Materials</h4><p>Metal, plastic, wood, fabric, glass, rubber, leather and specialty shaders.</p></div>
+      <div class="card"><h4>17 Pre-Built Surface Histories</h4><p>Complete imperfection stacks already layered on, ready to use as-is.</p></div>
+      <div class="card"><h4>Editable Layer Stacks</h4><p>Reorder, retune, or strip back any authored layer &mdash; nothing is locked.</p></div>
+      <div class="card"><h4>Restore Anytime</h4><p>One click returns a material to its original authored recipe.</p></div>
     </div>
-  </section>
-
-  <!-- MATERIAL COLLECTION -->
-  <section>
-    <p class="kicker">Material collection</p>
-    <h2 class="sec">25 materials.<br>Most arrive finished.</h2>
-    <hr class="rule">
-    <div class="body-col">
-      <p class="lead">Apply one and it's finished — not a starting point.</p>
-      <p>17 of the 25 authored materials ship with a complete, hand-built imperfection stack already layered on. Every material loads its own authored colour and roughness, so switching from a red painted metal to Default Metal no longer carries the red across.</p>
-    </div>
-
-    <table>
-      <tr><th>Category</th><th>What's inside</th></tr>
-      <tr><td><b>Metal</b></td><td><span class="count">15</span> materials — Default Metal and Perl Black as clean bases, plus 13 with authored imperfection stacks (Black Metal 1–4, Damaged Steel 1–2, Dirty Green Metal, Painted Metal 1–4, Rust Metal 1–2)</td></tr>
-      <tr><td><b>Plastic</b></td><td>Default, Perl Black, Matte and Shiny Plastic 1–2 — all with authored stacks</td></tr>
-      <tr><td><b>Wood</b></td><td>Default, Dark, Light, Dirt Wood, plus 3 shiny woods</td></tr>
-      <tr><td><b>Fabric</b></td><td>3 procedural weaves (UV mapped)</td></tr>
-      <tr><td><b>Glass</b></td><td>Custom glass with smudge &amp; crack controls, plus chromatic and iridescent variants</td></tr>
-      <tr><td><b>Rubber &amp; Leather</b></td><td>Rubber with weathering support, restrained leather variant</td></tr>
-      <tr><td><b>Special Mat</b></td><td>Car paint, camo, gradients and other specialised shaders</td></tr>
-    </table>
-    <p class="dim" style="font-size:13.5px">Authored stacks are protected, not frozen — reorder layers, tune every value, and press <b style="color:var(--text)">Restore Authored Stack</b> to put the original recipe back at any time.</p>
 
     <div class="shot-img-wrap">
       <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/materials%20collections.png" alt="MatricX PRO material collection grid" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
     </div>
   </section>
 
-  <!-- CUSTOM MATERIALS (provided image) -->
+  <!-- SECTION 06 — IMPERFECTION SYSTEM -->
   <section>
-    <p class="kicker">Custom PBR materials</p>
-    <h2 class="sec">Bring your own textures.<br>No nodes required.</h2>
+    <p class="kicker">05 / Imperfection Studio</p>
+    <h2 class="sec">Don't add grunge.<br>Build a history.</h2>
     <hr class="rule">
-    <div class="feature-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/custom_materials.png" alt="MatricX PRO — Custom Materials, no UV, no shader nodes">
-    </div>
-    <div class="body-col">
-      <p>Point MatricX at a folder of your own PBR texture set and it does the rest. It scans for Base Color, Normal, Roughness, Metallic, Ambient Occlusion, packed ORM, Height, Emission and Opacity, and turns the set into a reusable material entry stored in your preferences — available in every project from then on.</p>
-      <p class="dim">Custom materials use your authored maps as the complete surface definition — MatricX doesn't composite imperfection layers over work you've already done.</p>
-    </div>
-  </section>
-
-  <!-- IMPERFECTION STUDIO -->
-  <section>
-    <p class="kicker">Imperfection studio</p>
-    <h2 class="sec">15 imperfection types,<br>layered like history.</h2>
-    <hr class="rule">
-    <p class="lead body-col">Layers stack, reorder, and composite over one another — you're building a history, not applying a texture.</p>
+    <p class="lead body-col">Build believable surface history from controllable layers &mdash; not a single grunge pass.</p>
 
     <div class="stack-diagram">
       <div class="stack-chip"><div class="n">01</div><div class="t">Base Material</div></div>
       <div class="arrow">+</div>
       <div class="stack-chip"><div class="n">02</div><div class="t">Edge Wear</div></div>
       <div class="arrow">+</div>
-      <div class="stack-chip"><div class="n">03</div><div class="t">Rust</div></div>
+      <div class="stack-chip"><div class="n">03</div><div class="t">Scratches</div></div>
       <div class="arrow">+</div>
-      <div class="stack-chip"><div class="n">04</div><div class="t">Dirt</div></div>
+      <div class="stack-chip"><div class="n">04</div><div class="t">Rust</div></div>
+      <div class="arrow">+</div>
+      <div class="stack-chip"><div class="n">05</div><div class="t">Dirt</div></div>
       <div class="arrow">=</div>
-      <div class="stack-result">Finished Surface</div>
-    </div>
-
-    <div class="type-group">
-      <h4>Tone &amp; Finish</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Gradient Linear</b><span>A tonal foundation MatricX evaluates beneath the physical layers</span></div>
-        <div class="type-item"><b>Bump Texture</b><span>Fine surface grain and raised flakes, written into the normal</span></div>
-      </div>
-    </div>
-    <div class="type-group">
-      <h4>Edges &amp; Damage</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Edge Wear</b><span>Wears paint or finish off exposed corners and edges</span></div>
-        <div class="type-item"><b>Edge Damage</b><span>Chips and breaks up edges where they take impacts</span></div>
-        <div class="type-item"><b>Chip Damaged</b><span>Deep chips with real crater depth, not painted-on marks</span></div>
-      </div>
-    </div>
-    <div class="type-group">
-      <h4>Scratches &amp; Marks</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Scratch</b><span>Grooves with depth and self-shadowing</span></div>
-        <div class="type-item"><b>Scratch Paint</b><span>Scratches that cut through paint to the material beneath</span></div>
-        <div class="type-item"><b>Fingerprints</b><span>Sparse oily marks, best at low opacity on gloss and glass</span></div>
-        <div class="type-item"><b>Water Stains</b><span>Dried water marks and soft mineral residue</span></div>
-      </div>
-    </div>
-    <div class="type-group">
-      <h4>Dirt &amp; Weathering</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Dirt</b><span>Loose particulate settling into recesses and cavities</span></div>
-        <div class="type-item"><b>Directional Dirt</b><span>Dirt washed along one axis, as run-off or airflow leaves it</span></div>
-        <div class="type-item"><b>Grime</b><span>Thin handled residue on rails, handles, panels people touch</span></div>
-        <div class="type-item"><b>Grunge</b><span>General-purpose grunge overlay with real carved depth</span></div>
-        <div class="type-item"><b>Rust</b><span>Corrosion that eats into corners, seams and cavities</span></div>
-        <div class="type-item"><b>Leaking</b><span>Vertical leak streaks running down from seams and fixings</span></div>
-      </div>
+      <div class="stack-result">Believable Surface</div>
     </div>
 
     <div class="shot-img-wrap">
       <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/layer%20stack.png" alt="MatricX PRO Imperfection Studio layer stack" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
     </div>
+
+    <div class="type-group">
+      <h4>Edge &amp; Damage</h4>
+      <div class="type-list">
+        <div class="type-item"><b>Edge Wear</b></div>
+        <div class="type-item"><b>Edge Damage</b></div>
+        <div class="type-item"><b>Chip Damaged</b></div>
+      </div>
+    </div>
+    <div class="type-group">
+      <h4>Scratches &amp; Marks</h4>
+      <div class="type-list">
+        <div class="type-item"><b>Scratch</b></div>
+        <div class="type-item"><b>Scratch Paint</b></div>
+        <div class="type-item"><b>Fingerprints</b></div>
+        <div class="type-item"><b>Water Stains</b></div>
+      </div>
+    </div>
+    <div class="type-group">
+      <h4>Dirt &amp; Weathering</h4>
+      <div class="type-list">
+        <div class="type-item"><b>Dirt</b></div>
+        <div class="type-item"><b>Directional Dirt</b></div>
+        <div class="type-item"><b>Grime</b></div>
+        <div class="type-item"><b>Grunge</b></div>
+        <div class="type-item"><b>Rust</b></div>
+        <div class="type-item"><b>Leaking</b></div>
+      </div>
+    </div>
+    <div class="type-group">
+      <h4>Tone &amp; Finish</h4>
+      <div class="type-list">
+        <div class="type-item"><b>Gradient Linear</b></div>
+        <div class="type-item"><b>Bump Texture</b></div>
+      </div>
+    </div>
   </section>
 
-  <!-- DECALS & TRIM SHEETS -->
+  <!-- SECTION 07 — PAINT MASKS -->
   <section>
-    <p class="kicker">Decals &amp; trim sheets</p>
-    <h2 class="sec">Decals that project.<br>Trims that fit.</h2>
+    <p class="kicker">06 / Art Direction</p>
+    <h2 class="sec">Procedural speed.<br>Hand-painted intention.</h2>
+    <hr class="rule">
+    <p class="lead body-col">Procedural gets you there fast. Paint Masks let you decide exactly where the story happens.</p>
+
+    <div class="pipeline-row" style="justify-content:flex-start">
+      <div class="pipeline-node"><div class="pn-label">Procedural Rust</div></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-node"><div class="pn-label">Paint Bolt / Seam / Corner</div></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-node hi"><div class="pn-label">Directed Result</div></div>
+    </div>
+
+    <div class="shot-img-wrap">
+      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vertex%20paint%20mode.png" alt="MatricX PRO paint mask session in Vertex Paint mode" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
+    </div>
+
+    <div class="asset-ph">
+      <span class="aid">Asset-02</span>
+      <h4>Paint Mask Demo (animated)</h4>
+      <div class="af"><b>Show</b><span>Hard-surface object in the Blender viewport.</span></div>
+      <div class="af"><b>Action</b><span>Paint rust around two bolts and one lower seam.</span></div>
+      <div class="af"><b>UI</b><span>MatricX Paint Mask controls visible.</span></div>
+      <div class="af"><b>Duration</b><span>5&ndash;8 seconds.</span></div>
+      <div class="af"><b>Resolution</b><span>1600&times;900 minimum.</span></div>
+      <div class="af"><b>Format</b><span>GIF or MP4.</span></div>
+      <div class="af"><b>Purpose</b><span>Demonstrate the procedural &rarr; art-directed workflow in motion. The static screenshot above works as an interim asset.</span></div>
+    </div>
+  </section>
+
+  <!-- SECTION 08 — DECALS + TRIMS -->
+  <section>
+    <p class="kicker">07 / Detailing</p>
+    <h2 class="sec">Detail the surface.<br>Without breaking the flow.</h2>
     <hr class="rule">
 
     <div class="grid2">
       <div class="card">
         <div class="num">Decals</div>
         <h4>Place, project, recolor</h4>
-        <p>Pick a decal, place it on any surface — it aligns to the normal automatically. Reposition, scale, rotate, recolor a label, or project it into final conforming geometry that never prints through to the far side of a closed mesh.</p>
+        <p>Place &middot; Project &middot; Scale &middot; Rotate &middot; Recolor</p>
       </div>
       <div class="card">
-        <div class="num">Trims</div>
+        <div class="num">Trim Sheets</div>
         <h4>Fit sheet regions to faces</h4>
-        <p>Select faces in Edit Mode, apply a trim region, and MatricX fits the UVs for you. Automatic, Fill, Preserve or Fit Each Island — plus live Move, Rotate and Scale adjustment afterward.</p>
+        <p>Select Faces &middot; Choose Region &middot; Fit &middot; Adjust</p>
       </div>
     </div>
 
-    <p class="body-col">Add as many of your own decal and trim libraries as you like, from the N-panel or Preferences — MatricX validates every folder and filters out duplicates automatically. One official decal library ships with the add-on; trim sheets are yours to supply.</p>
-
-    <div class="shot-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/decal%20system.png" alt="MatricX PRO decal placement in viewport" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/trim%20sheets%20mode.png" alt="MatricX PRO trim sheet applied to selected faces" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:0 0 24px;">
+    <div class="grid2">
+      <div><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/decal%20system.png" alt="MatricX PRO decal placement in viewport" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);"></div>
+      <div><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/trim%20sheets%20mode.png" alt="MatricX PRO trim sheet applied to selected faces" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);"></div>
     </div>
   </section>
 
-  <!-- LIVE MAPPING COMPENSATION -->
+  <!-- SECTION 09 — CUSTOM PBR -->
   <section>
-    <div class="strip">
-      <div class="icon">↻</div>
-      <div>
-        <h4>Live Mapping Compensation</h4>
-        <p>Scale and rotate freely without applying transforms. Live Scale Compensation keeps procedural texture scale visually constant while you resize an object; Live Rotation Compensation keeps edge-based effects aligned as it turns. Both appear automatically when the selected mesh carries a compatible material.</p>
-      </div>
+    <p class="kicker">08 / Your Library</p>
+    <h2 class="sec">Bring your materials<br>with you.</h2>
+    <hr class="rule">
+    <p class="lead body-col">MatricX isn't a closed material ecosystem. Already own textures? Good. Use them.</p>
+
+    <div class="pipeline-row" style="justify-content:flex-start">
+      <div class="pipeline-node"><div class="pn-label">Your PBR Folder</div></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-node"><div class="pn-label">MatricX</div></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-node hi"><div class="pn-label">Reusable Material</div></div>
     </div>
-    <div class="shot">
-      <span class="tag">Render needed</span>
-      <h4>Compensation on vs. off</h4>
-      <p>Two versions of the same scaled object: one with stretched, distorted procedural texture (compensation off), one with the texture holding its scale correctly (compensation on).</p>
-      <p class="ratio">Suggested: 1400×700, side by side</p>
+
+    <div class="feature-img-wrap">
+      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/custom_materials.png" alt="MatricX PRO — Custom Materials, no UV, no shader nodes">
+    </div>
+    <p class="body-col dim" style="font-size:14px">Scans for Base Color, Normal, Roughness, Metallic, AO, packed ORM, Height, Emission and Opacity &mdash; and stores the result as a reusable material entry.</p>
+  </section>
+
+  <!-- SECTION 10 — LIVE MAPPING -->
+  <section>
+    <p class="kicker">09 / Automation</p>
+    <h2 class="sec">Change the object.<br>Keep the material right.</h2>
+    <hr class="rule">
+    <p class="lead body-col">Scale and rotate freely &mdash; procedural textures and edge effects stay locked in place, without applying transforms.</p>
+
+    <div class="asset-ph">
+      <span class="aid">Asset-03</span>
+      <h4>Live Mapping Compensation — On vs. Off</h4>
+      <div class="af"><b>Show</b><span>The same object being scaled up and down.</span></div>
+      <div class="af"><b>Action</b><span>Left/first half: compensation off, texture visibly stretches. Right/second half: compensation on, texture holds scale correctly.</span></div>
+      <div class="af"><b>UI</b><span>Live Scale Compensation toggle visible in the N-panel.</span></div>
+      <div class="af"><b>Duration</b><span>6&ndash;10 seconds, or a static side-by-side pair.</span></div>
+      <div class="af"><b>Resolution</b><span>1600&times;800 minimum.</span></div>
+      <div class="af"><b>Format</b><span>GIF, MP4, or two static renders side by side.</span></div>
+      <div class="af"><b>Purpose</b><span>This feature is much stronger shown than explained.</span></div>
     </div>
   </section>
 
-  <!-- SPECS / WHAT'S INCLUDED -->
+  <!-- SECTION 11 — WHY MATRICX -->
+  <section>
+    <p class="kicker">10 / Why MatricX</p>
+    <h2 class="sec">Not another<br>material pack.</h2>
+    <hr class="rule">
+
+    <div class="pull-quote">
+      <p>MatricX is designed for artists who want the speed of procedural workflows without surrendering artistic control.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="num">Material Library</div>
+        <p style="margin-top:8px">Choose preset &rarr; Use preset &rarr; Move on</p>
+      </div>
+      <div class="card" style="border-color:var(--accent)">
+        <div class="num" style="color:var(--accent)">MatricX</div>
+        <p style="margin-top:8px">Start with authored material &rarr; Layer surface history &rarr; Art-direct effects &rarr; Paint locally &rarr; Add decals/trims &rarr; Use your own PBR &rarr; Continue editing</p>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar"><div class="pt">Speed</div></div>
+      <div class="pillar"><div class="pt">Control</div></div>
+      <div class="pillar"><div class="pt">Finished Quality</div></div>
+    </div>
+  </section>
+
+  <!-- SECTION 12 — WHO IT IS FOR -->
+  <section>
+    <p class="kicker">11 / Built For</p>
+    <h2 class="sec">Built for artists<br>who finish surfaces.</h2>
+    <hr class="rule">
+    <div class="who-grid">
+      <div class="who-card"><div class="wh">Hard-Surface Artists</div><p>Detail props and mechanical parts without hand-building wear every time.</p></div>
+      <div class="who-card"><div class="wh">Concept Designers</div><p>Get a surface to read as real, fast enough to keep pace with iteration.</p></div>
+      <div class="who-card"><div class="wh">Game Asset Artists</div><p>Ship presentation-ready materials without a dedicated texturing pass.</p></div>
+      <div class="who-card"><div class="wh">Look Development</div><p>Iterate on surface variants without rebuilding shader graphs each time.</p></div>
+      <div class="who-card"><div class="wh">Product / Asset Presentation</div><p>Finished, believable materials for renders that need to look real now.</p></div>
+    </div>
+  </section>
+
+  <!-- SECTION 13 — MATRICX ECOSYSTEM / BAKE UPSELL -->
+  <section>
+    <p class="kicker">12 / Going Beyond Blender?</p>
+    <h2 class="sec">Create in MatricX.<br>Bake for the game engine.</h2>
+    <hr class="rule">
+    <p class="body-col">If your work stays inside Blender, MatricX Pro may be all you need. If you need baked texture maps for a game-engine workflow, MatricX Bake picks up where Pro leaves off.</p>
+
+    <div class="pipeline-row">
+      <div class="pipeline-node hi"><div class="pn-label">MatricX Pro<br><span class="dim" style="font-size:11px">Build Surface</span></div></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-node"><div class="pn-label">MatricX Bake<br><span class="dim" style="font-size:11px">Bake Textures</span></div></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-node"><div class="pn-label">Game Engine</div></div>
+    </div>
+
+    <p class="body-col dim" style="font-size:14px">MatricX Pro builds the surface. MatricX Bake turns that result into texture maps for workflows that need to leave the procedural Blender environment.</p>
+
+    <div class="btn-row">
+      <a class="btn btn-secondary cta-bake" href="{{MATRICX_BAKE_URL}}" target="_self">Explore MatricX Bake</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OPTIONAL MODULE — only show on campaigns targeting existing
+       MatricX Bake customers. Delete this whole block if unused.
+  ============================================================= -->
+  <section class="optional-module">
+    <p class="module-note">Optional module &mdash; existing Bake customers only</p>
+    <p class="kicker">You Already Solved Baking</p>
+    <h2 class="sec">Now speed up<br>surface creation.</h2>
+    <hr class="rule">
+    <p class="body-col">MatricX Bake handles the delivery side. MatricX Pro handles surface creation. Together they form a more complete workflow.</p>
+    <div class="pipeline-row">
+      <div class="pipeline-node"><div class="pn-label">Bake</div></div>
+      <div class="pipeline-arrow">+</div>
+      <div class="pipeline-node"><div class="pn-label">Pro</div></div>
+      <div class="pipeline-arrow">=</div>
+      <div class="pipeline-node hi"><div class="pn-label">Create &rarr; Bake &rarr; Deliver</div></div>
+    </div>
+    <p class="body-col dim" style="font-size:13.5px">Existing Bake customer discount, if active: <span class="coupon-code">{{BAKE_TO_PRO_COUPON}}</span></p>
+  </section>
+
+  <!-- ============================================================
+       OPTIONAL MODULE — only show on campaigns targeting existing
+       MatricX Pro customers who might need Bake. Delete if unused.
+  ============================================================= -->
+  <section class="optional-module">
+    <p class="module-note">Optional module &mdash; existing Pro customers only</p>
+    <p class="kicker">Taking Your Surfaces Into a Game Engine?</p>
+    <h2 class="sec">Your surface is finished.<br>Now bake it.</h2>
+    <hr class="rule">
+    <p class="body-col">MatricX Bake is designed to turn the MatricX result into texture maps for workflows that need to move beyond Blender.</p>
+    <p class="body-col dim" style="font-size:13.5px">Existing Pro customer discount, if active: <span class="coupon-code">{{PRO_TO_BAKE_COUPON}}</span></p>
+  </section>
+
+  <!-- SECTION 14 — VALUE STACK -->
+  <section>
+    <p class="kicker">13 / Everything Included</p>
+    <h2 class="sec">One surface workflow.<br>Everything inside.</h2>
+    <hr class="rule">
+    <ul class="value-list">
+      <li><span class="check">&#10003;</span><span>25 Authored Materials</span></li>
+      <li><span class="check">&#10003;</span><span>17 Pre-Built Imperfection Stacks</span></li>
+      <li><span class="check">&#10003;</span><span>15 Imperfection Types</span></li>
+      <li><span class="check">&#10003;</span><span>Paint Masks</span></li>
+      <li><span class="check">&#10003;</span><span>Decal System</span></li>
+      <li><span class="check">&#10003;</span><span>Trim Sheet Workflow</span></li>
+      <li><span class="check">&#10003;</span><span>Custom PBR Materials</span></li>
+      <li><span class="check">&#10003;</span><span>Live Scale Compensation</span></li>
+      <li><span class="check">&#10003;</span><span>Live Rotation Compensation</span></li>
+      <li><span class="check">&#10003;</span><span>Viewport Material Tools</span></li>
+      <li><span class="check">&#10003;</span><span>Official Decal Library</span></li>
+      <li><span class="check">&#10003;</span><span>Documentation</span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 15 — PRICING / LICENSE TIERS -->
+  <section id="pricing">
+    <p class="kicker">14 / Choose Your Access</p>
+    <h2 class="sec">Same core system.<br>Choose how far you want to go.</h2>
+    <hr class="rule">
+    <p class="body-col dim" style="font-size:14px">Every tier includes the full MatricX surface workflow. Higher tiers add deeper support and collaboration &mdash; not a more complete version of the tool.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="pname">Creator Access</div>
+        <div class="pamount">$79</div>
+        <div class="pnote">Full MatricX surface workflow for independent creators.</div>
+        <ul>
+          <li>All materials</li>
+          <li>Decal system</li>
+          <li>Imperfection layer system</li>
+          <li>Live mapping</li>
+          <li>Viewport materials</li>
+        </ul>
+        <a class="btn btn-secondary cta-pricing-creator" href="{{PRODUCT_URL}}" target="_self">Get Creator Access</a>
+      </div>
+
+      <div class="price-card popular">
+        <span class="pop-tag">Popular</span>
+        <div class="pname">Pro Studio</div>
+        <div class="pamount">$129</div>
+        <div class="pnote">Everything in Creator Access, plus faster support.</div>
+        <ul>
+          <li>Everything in Creator Access</li>
+          <li>Priority support</li>
+          <li>Faster response</li>
+          <li>Priority updates &amp; news</li>
+        </ul>
+        <a class="btn btn-primary cta-pricing-pro" href="{{PRODUCT_URL}}" target="_self">Choose Pro Studio</a>
+      </div>
+
+      <div class="price-card">
+        <div class="pname">Elite Custom</div>
+        <div class="pamount">$269</div>
+        <div class="pnote">For workflows that need MatricX tailored more closely.</div>
+        <ul>
+          <li>Everything in Pro Studio</li>
+          <li>Custom updates</li>
+          <li>Feature requests, where agreed</li>
+          <li>Tailored workflow integration</li>
+        </ul>
+        <a class="btn btn-secondary cta-pricing-elite" href="{{PRODUCT_URL}}" target="_self">Choose Elite Custom</a>
+      </div>
+
+      <div class="price-card">
+        <div class="pname">Enterprise Partner</div>
+        <div class="pamount">$519</div>
+        <div class="pnote">For studios and partners who want direct collaboration.</div>
+        <ul>
+          <li>Everything in Elite Custom</li>
+          <li>Direct roadmap collaboration</li>
+          <li>Early access to experimental features</li>
+          <li>Dedicated onboarding &amp; training</li>
+          <li>Studio showcase, where applicable</li>
+        </ul>
+        <a class="btn btn-secondary cta-pricing-enterprise" href="{{PRODUCT_URL}}" target="_self">Become a Partner</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16 — 20% PROMOTIONAL OFFER (modular / optional)
+       Delete this entire block to disable the promo. Do not
+       publish with the literal {{MATRICX_20_COUPON}} token showing —
+       fill in a real code first, or remove the section.
+  ============================================================= -->
+  <section>
+    <div class="promo-module">
+      <div class="plabel">Limited Promotion</div>
+      <h3>Save 20% on MatricX Pro</h3>
+      <div>Use code</div>
+      <div class="coupon-code">{{MATRICX_20_COUPON}}</div>
+      <div class="dim" style="font-size:13px">at checkout &middot; offer ends {{COUPON_EXPIRATION}}</div>
+      <div class="promo-table">
+        <div class="promo-tier">Creator <s>$79</s> <span class="disc">$63.20</span></div>
+        <div class="promo-tier">Pro Studio <s>$129</s> <span class="disc">$103.20</span></div>
+        <div class="promo-tier">Elite Custom <s>$269</s> <span class="disc">$215.20</span></div>
+        <div class="promo-tier">Enterprise <s>$519</s> <span class="disc">$415.20</span></div>
+      </div>
+      <p class="dim" style="font-size:11.5px;margin-top:14px;margin-bottom:0">Superhive checkout pricing is authoritative &mdash; coupon must be valid and applied at checkout.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 21 — TECHNICAL SPECIFICATIONS -->
   <section id="specs">
-    <p class="kicker">What's included</p>
-    <h2 class="sec">Specifications</h2>
+    <p class="kicker">Specifications</p>
+    <h2 class="sec">The technical details.</h2>
     <hr class="rule">
     <div class="spec-block">
-      <div class="spec-row"><div class="k">Requires</div><div class="v"><b>Blender 4.5</b> or newer — tested through Blender 5.2</div></div>
+      <div class="spec-row"><div class="k">Requires</div><div class="v"><b>Blender 4.5</b> or newer &mdash; tested through Blender 5.2</div></div>
       <div class="spec-row"><div class="k">Package format</div><div class="v">Classic add-on ZIP <b>and</b> Blender Extension package, both included</div></div>
-      <div class="spec-row"><div class="k">Asset pack</div><div class="v">Separate runtime download — materials, textures and the official MatricX decal library</div></div>
-      <div class="spec-row"><div class="k">Workspaces</div><div class="v"><b>Materials</b> · <b>Decals</b> · <b>Viewport</b> — one N-panel, follows your selection</div></div>
       <div class="spec-row"><div class="k">Material collection</div><div class="v"><b>25</b> authored materials, <b>17</b> with pre-built imperfection stacks</div></div>
       <div class="spec-row"><div class="k">Imperfection types</div><div class="v"><b>15</b> layer types across tone, edges, scratches and weathering</div></div>
-      <div class="spec-row"><div class="k">Paint masks</div><div class="v">Vertex-based hand painting for any imperfection layer — new in 2.0</div></div>
+      <div class="spec-row"><div class="k">Paint masks</div><div class="v">Vertex-based hand painting for any imperfection layer</div></div>
       <div class="spec-row"><div class="k">Decals &amp; trims</div><div class="v">Official decal library included, plus support for your own decal and trim sheet libraries</div></div>
       <div class="spec-row"><div class="k">Custom materials</div><div class="v">Import external PBR texture sets, no shader editing required</div></div>
+      <div class="spec-row"><div class="k">Mapping</div><div class="v">Live Scale and Live Rotation Compensation</div></div>
+    </div>
+  </section>
+
+  <!-- SECTION 19 — OBJECTION HANDLING / FAQ -->
+  <section>
+    <p class="kicker">15 / Before You Buy</p>
+    <h2 class="sec">The things<br>you should know.</h2>
+    <hr class="rule">
+
+    <div class="faq-item">
+      <p class="faq-q">Does MatricX replace Blender materials?</p>
+      <p class="faq-a">No. MatricX materials are built on standard Blender shader nodes &mdash; they work alongside anything else in your scene.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Do I need UVs?</p>
+      <p class="faq-a">Not for most materials. Procedural materials work without unwrapping. The fabric weaves are UV-mapped, and trim sheets use UVs by design since they place sheet regions onto faces.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can I use my own PBR textures?</p>
+      <p class="faq-a">Yes. Point MatricX at a folder of your own maps and it imports them as a reusable custom material.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can I edit materials after applying them?</p>
+      <p class="faq-a">Yes. Every layer stays editable &mdash; reorder, retune, or remove any effect, any time.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can I control exactly where imperfections appear?</p>
+      <p class="faq-a">Yes, with Paint Masks &mdash; brush any imperfection layer directly onto the mesh instead of relying on a procedural mask alone.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Does it support decals?</p>
+      <p class="faq-a">Yes &mdash; place, project, scale, rotate and recolor decals, plus support for your own decal libraries.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Does it support trim sheets?</p>
+      <p class="faq-a">Yes &mdash; select faces, fit a trim region, and adjust live afterward.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What Blender versions are supported?</p>
+      <p class="faq-a">Blender 4.5 and newer, tested through Blender 5.2.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What's the difference between Creator Access, Pro Studio, Elite Custom and Enterprise Partner?</p>
+      <p class="faq-a">All four include the same complete MatricX surface workflow. Higher tiers add faster support, tailored updates, and direct collaboration &mdash; not extra core features.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Do I need MatricX Bake?</p>
+      <p class="faq-a">No. MatricX Bake is for users who need to bake their finished MatricX surfaces into texture maps for workflows such as game engines. If your work stays inside Blender, Pro is complete on its own.</p>
+    </div>
+
+    <p class="body-col dim" style="font-size:14px;margin-top:24px">Need the details? <a href="{{DOCUMENTATION_URL}}" target="_blank" rel="noopener" style="color:var(--accent)">Read full documentation</a>.</p>
+  </section>
+
+  <!-- SECTION 20 — FINAL CONVERSION SECTION -->
+  <section>
+    <div class="final-cta">
+      <p class="kicker" style="justify-content:center;display:flex">MatricX PRO</p>
+      <h2 class="sec">Create more.<br>Configure less.</h2>
+      <p>Build materials, layer surface history, direct imperfections and finish your assets &mdash; without turning every project into another shader-building exercise.</p>
+
+      <div style="margin-top:26px">
+        <div class="kicker" style="justify-content:center;display:flex">Starting At</div>
+        <div style="font-family:'Anton',sans-serif;color:var(--head);font-size:38px">$79 <span style="font-size:15px;color:var(--dim);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px">Creator Access</span></div>
+      </div>
+
+      <div class="btn-row" style="justify-content:center;margin-top:22px">
+        <a class="btn btn-primary cta-final" href="{{PRODUCT_URL}}" target="_self">Get MatricX PRO</a>
+        <a class="btn btn-secondary" href="#pricing" target="_self">Compare Access Levels</a>
+      </div>
     </div>
   </section>
 
@@ -483,6 +1015,27 @@ footer .tag{color:var(--dim);font-size:12.5px;font-family:'JetBrains Mono',monos
     </div>
     <div class="tag">Built by Prasanth / EidosEdge</div>
   </footer>
+
+  <!-- ================================================================
+       ASSET CHECKLIST — what to render/record before publishing
+
+       ASSET-01 — Full Workflow Sequence
+         One object evolving through: apply material, layer imperfections,
+         paint effect, add decal/trim, final render. 15-25s loop, GIF/MP4,
+         1600x900+. Used in Section 03 (Workflow).
+
+       ASSET-02 — Paint Mask Demo (animated)
+         Vertex Paint mode, painting rust around two bolts and one seam,
+         MatricX Paint Mask panel visible. 5-8s, GIF/MP4, 1600x900+.
+         Used in Section 07 (Paint Masks). A static screenshot is already
+         in place as an interim asset.
+
+       ASSET-03 — Live Mapping Compensation, On vs Off
+         Same object scaled up/down: compensation off shows the texture
+         stretching, compensation on holds it steady. 6-10s GIF/MP4 or a
+         static side-by-side pair, 1600x800+. Used in Section 10
+         (Live Mapping). No interim asset currently in place.
+  ================================================================= -->
 
 </div>
 
