@@ -852,69 +852,42 @@ footer .tag{color:var(--dim);font-size:12.5px;font-family:'JetBrains Mono',monos
     </ul>
   </section>
 
-  <!-- SECTION 15 — PRICING / LICENSE TIERS -->
+  <!-- SECTION 15 — ACCESS LEVEL COMPARISON (Superhive's own pricing widget above
+       already handles tier selection + Add to Cart — this section explains the
+       difference between tiers, it doesn't duplicate the purchase action) -->
   <section id="pricing">
     <p class="kicker">14 / Choose Your Access</p>
     <h2 class="sec">Same core system.<br>Choose how far you want to go.</h2>
     <hr class="rule">
-    <p class="body-col dim" style="font-size:14px">Every tier includes the full MatricX surface workflow. Higher tiers add deeper support and collaboration &mdash; not a more complete version of the tool.</p>
+    <p class="body-col dim" style="font-size:14px">Every tier includes the full MatricX surface workflow &mdash; all materials, the imperfection system, decals, trims and custom presets. Higher tiers add deeper support and collaboration, not a more complete version of the tool. Pick your tier using the selector above and add it to cart from there.</p>
 
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="pname">Creator Access</div>
-        <div class="pamount">$79</div>
-        <div class="pnote">Full MatricX surface workflow for independent creators.</div>
-        <ul>
-          <li>All materials</li>
-          <li>Decal system</li>
-          <li>Imperfection layer system</li>
-          <li>Live mapping</li>
-          <li>Viewport materials</li>
-        </ul>
-        <a class="btn btn-secondary cta-pricing-creator" href="{{PRODUCT_URL}}" target="_self">Get Creator Access</a>
-      </div>
-
-      <div class="price-card popular">
-        <span class="pop-tag">Popular</span>
-        <div class="pname">Pro Studio</div>
-        <div class="pamount">$129</div>
-        <div class="pnote">Everything in Creator Access, plus faster support.</div>
-        <ul>
-          <li>Everything in Creator Access</li>
-          <li>Priority support</li>
-          <li>Faster response</li>
-          <li>Priority updates &amp; news</li>
-        </ul>
-        <a class="btn btn-primary cta-pricing-pro" href="{{PRODUCT_URL}}" target="_self">Choose Pro Studio</a>
-      </div>
-
-      <div class="price-card">
-        <div class="pname">Elite Custom</div>
-        <div class="pamount">$269</div>
-        <div class="pnote">For workflows that need MatricX tailored more closely.</div>
-        <ul>
-          <li>Everything in Pro Studio</li>
-          <li>Custom updates</li>
-          <li>Feature requests, where agreed</li>
-          <li>Tailored workflow integration</li>
-        </ul>
-        <a class="btn btn-secondary cta-pricing-elite" href="{{PRODUCT_URL}}" target="_self">Choose Elite Custom</a>
-      </div>
-
-      <div class="price-card">
-        <div class="pname">Enterprise Partner</div>
-        <div class="pamount">$519</div>
-        <div class="pnote">For studios and partners who want direct collaboration.</div>
-        <ul>
-          <li>Everything in Elite Custom</li>
-          <li>Direct roadmap collaboration</li>
-          <li>Early access to experimental features</li>
-          <li>Dedicated onboarding &amp; training</li>
-          <li>Studio showcase, where applicable</li>
-        </ul>
-        <a class="btn btn-secondary cta-pricing-enterprise" href="{{PRODUCT_URL}}" target="_self">Become a Partner</a>
-      </div>
-    </div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:26px 0">
+      <tr>
+        <th style="background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);font-family:'JetBrains Mono',monospace">Tier</th>
+        <th style="background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);font-family:'JetBrains Mono',monospace">Price</th>
+        <th style="background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);font-family:'JetBrains Mono',monospace">What's Different</th>
+      </tr>
+      <tr>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--head);font-weight:700">Creator Access</td>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--text)">$79</td>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--dim)">Full surface workflow &mdash; all materials, decals, imperfection system, live mapping, viewport tools</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--accent);font-weight:700">Pro Studio <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px">POPULAR</span></td>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--text)">$129</td>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--dim)">Everything in Creator Access, plus priority support and faster response</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--head);font-weight:700">Elite Custom</td>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--text)">$269</td>
+        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--dim)">Everything in Pro Studio, plus custom updates and tailored workflow integration</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 14px;color:var(--head);font-weight:700">Enterprise Partner</td>
+        <td style="padding:12px 14px;color:var(--text)">$519</td>
+        <td style="padding:12px 14px;color:var(--dim)">Everything in Elite Custom, plus direct roadmap collaboration, early access, and dedicated onboarding</td>
+      </tr>
+    </table>
   </section>
 
   <!-- ============================================================
