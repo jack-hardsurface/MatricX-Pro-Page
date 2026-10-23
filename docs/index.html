@@ -1,0 +1,1507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs — MatricX PRO 2.1 User Guide</title>
+<meta name="description" content="The official MatricX PRO 2.1 user guide: installation, materials, imperfections, paint masks, decals, trim sheets and troubleshooting.">
+<link rel="icon" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a; --panel:#141414; --panel2:#191919; --line:#262626;
+    --text:#c4c4c4; --dim:#8a8a8a; --head:#ffffff;
+    --mint:#6ee7a8; --orange:#f26722; --red:#ff6a5e; --code:#ffb98a;
+    --display:"Anton","Bebas Neue",Impact,"Arial Narrow",sans-serif;
+    --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Consolas,Monaco,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{background:var(--bg)}
+  body{margin:0;color:var(--text);font:15px/1.68 var(--body)}
+  .page{max-width:900px;margin:0 auto;padding:0 40px 80px}
+  a{color:var(--orange);text-decoration:none}
+
+  /* ---------- image placeholders (replace each .ph with an <img>) ---------- */
+  .ph{position:relative;width:100%;border:1.5px dashed #3a3a3a;border-radius:8px;background:
+      repeating-linear-gradient(45deg,#111 0 14px,#141414 14px 28px);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+      color:var(--dim);text-align:center;padding:18px}
+  .ph .ph-id{font:600 13px var(--mono);color:var(--mint);letter-spacing:1px}
+  .ph .ph-t{font:600 15px var(--body);color:#d6d6d6}
+  .ph .ph-s{font:12px var(--mono);color:var(--dim)}
+
+  /* ---------- cover ---------- */
+  .cover{min-height:96vh;display:flex;flex-direction:column;justify-content:center;padding:56px 0}
+  .cover .logo-ph{width:96px;height:96px;margin-bottom:28px;padding:6px}
+  .cover .logo-ph .ph-t{font-size:11px}
+  .eyebrow{font:12px var(--mono);color:var(--mint);letter-spacing:2px;margin:0 0 14px}
+  .cover h1{font:400 92px/0.95 var(--display);color:var(--head);margin:0;letter-spacing:1px;text-transform:uppercase}
+  .cover h1 .ver{color:var(--orange)}
+  .cover .edition{font:400 30px/1.1 var(--display);color:var(--mint);margin:14px 0 0;text-transform:uppercase;letter-spacing:1px}
+  .rule{height:2px;background:var(--orange);width:120px;margin:26px 0 22px}
+  .cover .lead{font-size:17px;color:var(--text);max-width:640px;margin:0}
+  .badges{margin:34px 0 24px;display:flex;gap:12px;flex-wrap:wrap}
+  .badge{background:#1c1c1c;color:var(--dim);padding:11px 20px;border-radius:6px;font:700 12px var(--body);letter-spacing:1px}
+  .badge.on{background:var(--orange);color:#111}
+  .byline{color:var(--dim);font-size:14px}
+  .byline b{color:var(--orange);font-weight:600}
+
+  /* ---------- structure ---------- */
+  section{padding-top:56px}
+  .kicker{font:12px var(--mono);color:var(--mint);letter-spacing:2px;margin:0 0 8px}
+  h2.sec{font:400 50px/1.02 var(--display);color:var(--head);margin:0;text-transform:uppercase;letter-spacing:.5px}
+  h2.sec .acc{color:var(--orange)}
+  h2.sec + .rule{margin:16px 0 26px}
+  .intro{font-size:16.5px;color:#d2d2d2;margin:0 0 18px}
+  h3{font:400 26px/1.15 var(--display);color:var(--mint);margin:36px 0 12px;text-transform:uppercase;letter-spacing:.5px}
+  h4{font:700 15px var(--body);color:var(--head);margin:22px 0 6px}
+  p{margin:0 0 14px}
+  b,strong{color:#eaeaea;font-weight:600}
+  ul,ol{margin:0 0 16px;padding-left:24px}
+  li{margin:6px 0}
+  ul{list-style:none;padding-left:26px}
+  ul li{position:relative}
+  ul li::before{content:"→";color:var(--head);position:absolute;left:-24px;top:0;font-weight:600}
+  ol li::marker{color:var(--orange);font-weight:700}
+  code{background:#1d1d1d;color:var(--code);padding:2px 7px;border-radius:4px;font:13px var(--mono)}
+  .path{display:block;background:#121212;border-left:3px solid var(--mint);padding:14px 18px;margin:0 0 16px;
+        color:var(--code);white-space:pre;font:13px/1.6 var(--mono);overflow-x:auto}
+  .kbd{display:inline-block;background:#1f1f1f;border:1px solid #333;border-bottom-width:2px;border-radius:5px;
+       padding:1px 9px;font:600 13px var(--body);color:var(--head)}
+
+  /* NEW / CHANGED markers, for readers coming from 2.0 */
+  .tag{display:inline-block;font:700 10.5px var(--mono);letter-spacing:1px;padding:2px 7px;border-radius:4px;
+       vertical-align:middle;margin-left:8px;position:relative;top:-2px}
+  .tag.new{background:rgba(110,231,168,.14);color:var(--mint);border:1px solid rgba(110,231,168,.4)}
+  .tag.chg{background:rgba(242,103,34,.14);color:var(--orange);border:1px solid rgba(242,103,34,.45)}
+  h3 .tag{top:-4px}
+
+  /* ---------- contents ---------- */
+  .toc{margin-top:6px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .toc a{display:flex;gap:18px;padding:9px 20px;color:var(--text);border-bottom:1px solid var(--line);font-weight:600;font-size:14.5px}
+  .toc a:last-child{border-bottom:none}
+  .toc a:nth-child(odd){background:var(--panel)}
+  .toc a:nth-child(even){background:var(--panel2)}
+  .toc a span{color:var(--orange);font:400 17px var(--display);min-width:28px}
+  .toc a em{color:var(--dim);font-style:normal;font-weight:400;margin-left:auto;font-size:12.5px}
+  .toc .part{background:#0f0f0f !important;color:var(--mint);font:12px var(--mono);letter-spacing:2px;padding:10px 20px}
+
+  /* ---------- figures ---------- */
+  figure{margin:22px 0 26px}
+  figure img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);
+             box-shadow:0 10px 30px rgba(0,0,0,.45)}
+  /* UI captures are shown near their native size so they stay crisp. */
+  figure img.w-sm{max-width:460px;margin:0 auto}
+  figure img.w-md{max-width:560px;margin:0 auto}
+  figure img.w-lg{max-width:720px;margin:0 auto}
+  figure:has(img.w-sm) figcaption,figure:has(img.w-md) figcaption,figure:has(img.w-lg) figcaption{text-align:center}
+  /* Two-column block: a sidebar screenshot beside the text it illustrates. */
+  .split{display:grid;gap:34px;align-items:start;margin:26px 0 18px}
+  .split.right{grid-template-columns:minmax(0,1fr) var(--fig)}
+  .split.left{grid-template-columns:var(--fig) minmax(0,1fr)}
+  .split > figure.side{margin:4px 0 0}
+  .split-text > :first-child{margin-top:0}
+  .split-text > :last-child{margin-bottom:0}
+  .split figcaption{font-size:12px}
+  .cover .logo{width:96px;height:96px;border-radius:14px;margin-bottom:28px;display:block}
+  figcaption{color:var(--dim);font-size:13px;margin-top:10px;line-height:1.5}
+  figcaption b{color:var(--orange)}
+
+  /* ---------- callouts ---------- */
+  .note,.warn,.new-box{background:var(--panel);padding:14px 18px;margin:0 0 18px;border-radius:0 6px 6px 0;border-left:3px solid var(--mint)}
+  .note b{color:var(--mint)}
+  .warn{border-left-color:var(--orange)}
+  .warn b{color:var(--orange)}
+  .new-box{border-left-color:var(--mint)}
+  .new-box b{color:var(--mint)}
+  .note p:last-child,.warn p:last-child,.new-box p:last-child{margin-bottom:0}
+
+  /* ---------- tables ---------- */
+  table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14px}
+  th{background:#1a1a1a;color:var(--head);text-align:left;padding:10px 14px;font:700 11.5px var(--mono);
+     letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--orange)}
+  td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#101010}
+  td b{color:var(--head)}
+  .dim{color:var(--dim)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+  @media (max-width:760px){.grid2,.grid3,.split.right,.split.left{grid-template-columns:1fr}.split > figure.side{max-width:360px}.page{padding:0 16px 60px}.cover h1{font-size:60px}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+  .card h4{margin-top:0;color:var(--orange);font:400 20px var(--display);text-transform:uppercase;letter-spacing:.5px}
+  .card p:last-child{margin-bottom:0}
+  .big{font:400 44px/1 var(--display);color:var(--head)}
+  .big + .lbl{font:12px var(--mono);color:var(--mint);letter-spacing:1.5px;margin-top:6px}
+
+  footer{color:#5c5c5c;font-size:12px;text-align:center;padding:60px 0 20px;border-top:1px solid var(--line);margin-top:60px}
+
+  /* Print / PDF: keep the dark theme, one section per page. */
+  @page{size:A4;margin:0}
+  @media print{
+    html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .page{max-width:none;padding:14mm 16mm}
+    .cover{min-height:auto;padding:22mm 0 0}
+    .cover h1{font-size:76px}
+    section{page-break-before:always;padding-top:0}
+    figure,.card,.note,.warn,.new-box,.path,.ph{page-break-inside:avoid}
+    .split{break-inside:avoid;page-break-inside:avoid}
+    thead{display:table-header-group}
+    tr{page-break-inside:avoid}
+    .toc{page-break-inside:avoid}
+    .toc a{padding:6px 18px;font-size:13px}
+    h2.sec,h3,h4{page-break-after:avoid}
+    footer{page-break-before:always}
+  }
+
+  /* ---------- web docs: site bar, chapter sidebar ---------- */
+  .site-bar{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .site-bar-inner{max-width:1280px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:22px}
+  .site-brand{display:flex;align-items:center;gap:10px;color:var(--head);font:400 20px var(--display);letter-spacing:.5px}
+  .site-brand img{width:30px;height:30px;border-radius:6px}
+  .site-brand span{color:var(--orange)}
+  .site-brand em{font:600 11px var(--mono);color:var(--mint);letter-spacing:2px;font-style:normal;margin-left:6px}
+  .site-nav{display:flex;gap:20px;margin-left:auto}
+  .site-nav a{color:#9a9a9a;font-size:14px;font-weight:500}
+  .site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--head)}
+  .site-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#111;font:800 13px var(--body);
+            text-transform:uppercase;letter-spacing:.3px;padding:10px 16px;border-radius:4px}
+  .site-btn:hover{background:#ff8a4c;color:#111}
+  .site-btn.ghost{background:transparent;color:var(--head);border:1px solid #3a3a3a;font-weight:700}
+  .site-btn.ghost:hover{border-color:var(--mint);color:var(--mint)}
+  .doc-actions{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 0}
+  .doc-sidebar{display:none}
+  section{scroll-margin-top:70px}
+  @media (min-width:1300px){
+    .doc-sidebar{display:block;position:fixed;top:64px;bottom:0;left:0;width:270px;overflow-y:auto;padding:26px 18px 40px 26px;
+                 border-right:1px solid var(--line);scrollbar-width:thin}
+    body{padding-left:270px}
+    .doc-sidebar .part{font:11px var(--mono);color:var(--mint);letter-spacing:2px;margin:20px 0 8px}
+    .doc-sidebar .part:first-child{margin-top:0}
+    .doc-sidebar a{display:flex;gap:10px;padding:5px 10px;border-radius:5px;color:#a8a8a8;font-size:13.5px;line-height:1.35}
+    .doc-sidebar a span{color:#666;font:400 13px var(--display);min-width:20px}
+    .doc-sidebar a:hover{color:var(--head);background:#151515}
+    .doc-sidebar a.active{color:var(--head);background:#1a1a1a;box-shadow:inset 2px 0 0 var(--orange)}
+    .doc-sidebar a.active span{color:var(--orange)}
+  }
+  @media (max-width:760px){.site-nav{display:none}.site-brand em{display:none}}
+  @media print{.site-bar,.doc-sidebar,.doc-actions{display:none !important}body{padding-left:0 !important}}
+</style>
+</head>
+<body>
+<header class="site-bar">
+  <div class="site-bar-inner">
+    <a class="site-brand" href="../index.html"><img src="../assets/logo.png" alt=""> MatricX <span>PRO</span><em>DOCS</em></a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#pricing">Pricing</a>
+      <a href="./" aria-current="page">Docs</a>
+      <a href="../support.html">Support</a>
+    </nav>
+    <a class="site-btn" href="../index.html#pricing">Get it &mdash; $49</a>
+  </div>
+</header>
+<nav class="doc-sidebar" aria-label="Chapters">
+  <div class="part">PART 1 · GETTING STARTED</div>
+  <a href="#start"><span>01</span>Start here</a>
+  <a href="#whatsnew"><span>02</span>What's new in 2.1</a>
+  <a href="#upgrade"><span>03</span>Upgrading from 2.0</a>
+  <a href="#install"><span>04</span>Installation</a>
+  <a href="#pack"><span>05</span>The asset pack</a>
+  <a href="#interface"><span>06</span>Interface overview</a>
+  <div class="part">PART 2 · MATERIALS</div>
+  <a href="#materials"><span>07</span>Materials workspace</a>
+  <a href="#collection"><span>08</span>The 2.1 material collection</a>
+  <a href="#setup"><span>09</span>Material Setup and Reset</a>
+  <a href="#recipes"><span>10</span>Material recipes</a>
+  <a href="#actions"><span>11</span>Apply, Link, Make Unique, Remove</a>
+  <a href="#looks"><span>12</span>Material Looks</a>
+  <div class="part">PART 3 · IMPERFECTIONS</div>
+  <a href="#studio"><span>13</span>Imperfection Studio</a>
+  <a href="#types"><span>14</span>The 16 imperfection types</a>
+  <a href="#paint"><span>15</span>Paint masks</a>
+  <a href="#custom"><span>16</span>Custom PBR materials</a>
+  <div class="part">PART 4 · DECALS, TRIMS AND VIEWPORT</div>
+  <a href="#decals"><span>17</span>Decals workspace</a>
+  <a href="#libraries"><span>18</span>Adding your own decal libraries</a>
+  <a href="#trims"><span>19</span>Trim sheets</a>
+  <a href="#viewport"><span>20</span>Viewport workspace</a>
+  <a href="#pies"><span>21</span>Radial pie menus</a>
+  <div class="part">PART 5 · REFERENCE</div>
+  <a href="#prefs"><span>22</span>Preferences</a>
+  <a href="#render"><span>23</span>Rendering and performance</a>
+  <a href="#workflows"><span>24</span>Recommended workflows</a>
+  <a href="#trouble"><span>25</span>Troubleshooting</a>
+  <a href="#support"><span>26</span>Support</a>
+</nav>
+<div class="page">
+
+<!-- ============================= COVER ============================= -->
+<div class="cover">
+  <img class="logo" src="images/IMG-00.png" alt="MatricX logo">
+  <p class="eyebrow">OFFICIAL USER GUIDE · BLENDER ADD-ON</p>
+  <h1>MatricX PRO <span class="ver">2.1</span></h1>
+  <p class="edition">Next Edition</p>
+  <div class="rule"></div>
+  <p class="lead">Smart materials, layered imperfections, paint masks, decals and trim sheets. Everything you
+     need to turn a clean model into a used one, inside Blender.</p>
+
+  <figure style="margin:36px 0 26px">
+    <img src="images/IMG-01.jpg" alt="MatricX PRO">
+  </figure>
+
+  <div class="badges">
+    <span class="badge on">VERSION 2.1.0</span>
+    <span class="badge">BLENDER 4.5 – 5.2</span>
+    <span class="badge">ADD-ON &amp; EXTENSION</span>
+  </div>
+  <div class="doc-actions">
+    <a class="site-btn" href="MatricX_PRO_2.1_User_Guide.pdf" download>Download PDF</a>
+    <a class="site-btn ghost" href="#contents">Contents</a>
+    <a class="site-btn ghost" href="../support.html">Get support</a>
+  </div>
+  <p class="byline" style="margin-top:22px">Created by <b>Prasanth / Eidos Edge</b><br>
+     Requires Blender 4.5 or newer · tested through Blender 5.2</p>
+</div>
+
+<!-- ============================= CONTENTS ============================= -->
+<section id="contents">
+  <p class="kicker">CONTENTS</p>
+  <h2 class="sec">What's <span class="acc">Inside</span></h2>
+  <div class="rule"></div>
+  <div class="toc">
+    <div class="part">PART 1 — GETTING STARTED</div>
+    <a href="#start"><span>01</span> Start here <em>new to MatricX? read this first</em></a>
+    <a href="#whatsnew"><span>02</span> What's new in 2.1</a>
+    <a href="#upgrade"><span>03</span> Upgrading from 2.0 <em>existing users</em></a>
+    <a href="#install"><span>04</span> Installation</a>
+    <a href="#pack"><span>05</span> The asset pack</a>
+    <a href="#interface"><span>06</span> Interface overview</a>
+    <div class="part">PART 2 — MATERIALS</div>
+    <a href="#materials"><span>07</span> Materials workspace</a>
+    <a href="#collection"><span>08</span> The 2.1 material collection</a>
+    <a href="#setup"><span>09</span> Material Setup and Reset</a>
+    <a href="#recipes"><span>10</span> Material recipes</a>
+    <a href="#actions"><span>11</span> Apply, Link, Make Unique, Remove</a>
+    <a href="#looks"><span>12</span> Material Looks</a>
+    <div class="part">PART 3 — IMPERFECTIONS</div>
+    <a href="#studio"><span>13</span> Imperfection Studio</a>
+    <a href="#types"><span>14</span> The 16 imperfection types</a>
+    <a href="#paint"><span>15</span> Paint masks</a>
+    <a href="#custom"><span>16</span> Custom PBR materials</a>
+    <div class="part">PART 4 — DECALS, TRIMS AND VIEWPORT</div>
+    <a href="#decals"><span>17</span> Decals workspace</a>
+    <a href="#libraries"><span>18</span> Adding your own decal libraries</a>
+    <a href="#trims"><span>19</span> Trim sheets</a>
+    <a href="#viewport"><span>20</span> Viewport workspace</a>
+    <a href="#pies"><span>21</span> Radial pie menus</a>
+    <div class="part">PART 5 — REFERENCE</div>
+    <a href="#prefs"><span>22</span> Preferences</a>
+    <a href="#render"><span>23</span> Rendering and performance</a>
+    <a href="#workflows"><span>24</span> Recommended workflows</a>
+    <a href="#trouble"><span>25</span> Troubleshooting</a>
+    <a href="#support"><span>26</span> Support</a>
+  </div>
+</section>
+
+<!-- ============================= 01 START HERE ============================= -->
+<section id="start">
+  <p class="kicker">SECTION 01</p>
+  <h2 class="sec">Start <span class="acc">Here</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">MatricX PRO turns a clean model into a used one. You pick a material, stack a few restrained
+     imperfections on it — edge wear, dirt, scratches, rust — and the surface gains a history. No texture
+     painting, no UV work, no shader network to build.</p>
+
+  <figure>
+    <img loading="lazy" src="images/IMG-02.webp" alt="The same weapon with its base materials only (left) and finished with MatricX imperfection layers (right).">
+    <figcaption>The same weapon with its base materials only (left) and finished with MatricX imperfection layers (right).</figcaption>
+  </figure>
+
+  <div class="grid3">
+    <div class="card"><div class="big">70</div><div class="lbl">READY-MADE MATERIALS</div></div>
+    <div class="card"><div class="big">16</div><div class="lbl">IMPERFECTION TYPES</div></div>
+    <div class="card"><div class="big">3</div><div class="lbl">WORKSPACES · 3 PIE MENUS</div></div>
+  </div>
+
+  <h3>Your first material in five steps</h3>
+  <ol>
+    <li>Install the add-on and the asset pack (Sections 04 and 05).</li>
+    <li>In the 3D Viewport press <span class="kbd">N</span> and open the <b>MatricX PRO</b> tab.</li>
+    <li>Select a mesh, pick a <b>Family</b> (for example Metal), then click a material in the collection.</li>
+    <li>Click <b>Apply Material</b>.</li>
+    <li>Open <b>Imperfection Studio</b>, click <b>Add Layer</b>, and choose Edge Wear or Dirt.</li>
+  </ol>
+
+  <div class="note">
+    <p><b>The core idea:</b> several restrained layers read as more realistic than one strong layer. A surface
+    that has been touched, wiped, knocked and left outdoors has many faint stories on it, not one loud one.</p>
+  </div>
+
+  <h3>How to read this guide</h3>
+  <ul>
+    <li><b>New to MatricX?</b> Read Part 1, then Sections 07, 11 and 13. That covers 90% of daily use.</li>
+    <li><b>Coming from 2.0?</b> Start with Sections 02 and 03, then follow the markers below.</li>
+  </ul>
+  <p>Throughout the guide, <span class="tag new">NEW</span> marks something added in 2.1 and
+     <span class="tag chg">CHANGED</span> marks something that works differently from 2.0.</p>
+</section>
+
+<!-- ============================= 02 WHAT'S NEW ============================= -->
+<section id="whatsnew">
+  <p class="kicker">SECTION 02</p>
+  <h2 class="sec">What's New in <span class="acc">2.1</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">2.1 is about choice and control: more ready-made materials, more places imperfections can
+     go, and faster ways to work in the viewport.</p>
+
+  <h3>Material recipes and a larger collection</h3>
+  <p><b>70 materials</b> across nine families. 38 of them are <b>recipes</b> — finished materials built in
+     MatricX from a base material and a layer stack. Unlike the locked authored stacks of 2.0, every recipe
+     layer can be edited, added or removed, and <b>Reset Imperfections</b> brings the shipped look back.
+     See Section 10.</p>
+
+  <h3>Two new families</h3>
+  <ul>
+    <li><b>Weapon &amp; Guns</b> — 19 materials: alloys, polymers, damaged steel and brass, damaged woods and
+        four Scope Glass tints.</li>
+    <li><b>Military Camo</b> — 8 camouflage patterns, now a family of their own and open to every
+        imperfection type.</li>
+  </ul>
+
+  <h3>Imperfections on more surfaces</h3>
+  <ul>
+    <li><b>Powder Dust</b> — a new 16th type: fine, pale, dry particles settled on a surface.</li>
+    <li><b>Wood</b> now takes 11 types (was 3), <b>Rubber &amp; Leather</b> 15 (was 6 and 2), and
+        <b>Tinted Glass</b> 10 (glass took none in 2.0).</li>
+    <li><b>Dirt Stain</b> — the former Leaking layer, reworked for dirt and liquid staining with flow, pools and
+        wet or dried residue.</li>
+    <li>A new <b>Scratch Paint</b> pattern: finer scrapes with real surface relief.</li>
+  </ul>
+
+  <h3>Faster to work with</h3>
+  <ul>
+    <li><b>Material Family</b> picker — a card popover to switch families in one click.</li>
+    <li><b>Add Layer</b> opens a thumbnail grid of every imperfection the material supports.</li>
+    <li><b>Paint masks</b> gain Add / Remove modes, brush Size, Strength and Soft Edge, and Mask Strength.</li>
+    <li><b>Three radial pies</b>: Viewport <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">M</span>,
+        Decal <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">D</span>,
+        Trim <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">T</span>.</li>
+    <li><b>Link Material to Selected</b> — share the active material with every selected mesh.</li>
+    <li><b>Material Looks</b> now also save Material Group Controls (glass, fabric, shiny and damaged woods).</li>
+    <li>Applied materials get a matching <b>Solid-mode colour</b>, so parts read correctly in the Solid viewport.</li>
+    <li>Each <b>Apply Material</b> click is a single undo step.</li>
+  </ul>
+
+  </section>
+
+<!-- ============================= 03 UPGRADING ============================= -->
+<section id="upgrade">
+  <p class="kicker">SECTION 03 · EXISTING USERS</p>
+  <h2 class="sec">Upgrading from <span class="acc">2.0</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Five minutes here saves you surprises later. Read this once before opening your 2.0 projects.</p>
+
+  <h3>1 · Install the new asset pack</h3>
+  <p>MatricX PRO 2.1 needs <code>MatricX_Assets_2.1.0.zip</code>. Older packs (2.0.x and earlier) are
+     recognised but never used — Locate Asset Pack tells you so if you select one. Extract the 2.1.0 pack
+     <b>beside</b> the old one.</p>
+  <div class="warn">
+    <p><b>Keep your 2.0 pack folder where it is.</b> MatricX never changes or deletes it, and decals already
+    placed in your 2.0 scenes still load their images from it. If that folder moves, those decals stay in the
+    scene but their images go missing.</p>
+  </div>
+
+  <h3>2 · Install one code package</h3>
+  <p>Remove the old add-on and restart Blender before installing 2.1. MatricX disables a detected older copy
+     and migrates your saved asset-pack path, favourites, recent items and custom material catalog — but a
+     restart is what guarantees no old Python modules stay in memory.</p>
+
+  <h3>3 · What moved, changed or was removed</h3>
+  <table>
+    <thead><tr><th style="width:190px">Area</th><th>In 2.1</th></tr></thead><tbody>
+    <tr><td><b>Special Mat</b></td><td>Removed as a category. Its camo patterns live on in the new <b>Military Camo</b> family (Camo 1–8). The other Special Mat presets are no longer offered.</td></tr>
+    <tr><td><b>Metal &amp; Plastic presets</b></td><td>The 2.0 presets were replaced by a new set of recipe materials. Some names return, built new. Default Metal and Default Plastic remain.</td></tr>
+    <tr><td><b>Authored stacks</b></td><td>No longer locked. Recipe layers are fully editable; <b>Reset Imperfections</b> restores the shipped stack.</td></tr>
+    <tr><td><b>Leaking</b></td><td>Renamed <b>Dirt Stain</b> and reworked.</td></tr>
+    <tr><td><b>Scratch Paint</b></td><td>New pattern. Layers from 2.0 switch to it automatically the next time their material is rebuilt (see below).</td></tr>
+    <tr><td><b>Decal library</b></td><td>17 decals. The text and label decals (HD, 4K, numbers, warning labels and others) are no longer included.</td></tr>
+    <tr><td><b>Tinted Glass</b></td><td>New independently authored glass shader. Starts slightly clearer: Roughness 0.04, IOR 1.52, Coat 0.30.</td></tr>
+    <tr><td><b>Material thumbnails</b></td><td>Now ship inside the asset pack, not the add-on. The collection is empty until the pack is connected.</td></tr>
+    <tr><td><b>Bevel default</b></td><td>New Default Metal and Default Plastic materials start at Bevel 0.006 (was 0.020). Existing materials keep theirs.</td></tr>
+  </tbody></table>
+
+  <h3>4 · Your existing scenes</h3>
+  <ul>
+    <li><b>Materials you already applied are stored in your .blend files</b> and keep rendering. To use a new
+        2.1 shader (for example the new Tinted Glass) on an existing object, apply the material again.</li>
+    <li><b>Scratch Paint from 2.0</b> switches to the new pattern the next time its material is rebuilt — when
+        you change a setting, apply a Look, or add, remove or reorder a layer. Settings are kept, but the
+        result looks different: finer scrapes, more coverage at the default Amount (0.25), and only the
+        Z rotation is used. Adjust Amount and Scale if needed.</li>
+    <li><b>Saved browser selections</b> for removed decals may be empty. Pick the decal you want before placing.</li>
+  </ul>
+</section>
+
+<!-- ============================= 04 INSTALLATION ============================= -->
+<section id="install">
+  <p class="kicker">SECTION 04</p>
+  <h2 class="sec">Instal<span class="acc">lation</span></h2>
+  <div class="rule"></div>
+
+  <h3>The three downloads</h3>
+  <table>
+    <thead><tr><th>File</th><th>What it is</th></tr></thead><tbody>
+    <tr><td><code>MatricX_PRO_2.1.0_Addon.zip</code></td><td>The add-on, for Blender's classic Add-ons installer.</td></tr>
+    <tr><td><code>MatricX_PRO_2.1.0_Blender_Extension.zip</code></td><td>The same add-on packaged as a Blender Extension.</td></tr>
+    <tr><td><code>MatricX_Assets_2.1.0.zip</code></td><td>The asset pack: materials, thumbnails, textures and the decal library.</td></tr>
+  </tbody></table>
+
+  <div class="warn">
+    <p><b>Install one code package, not both.</b> Never enable the legacy add-on and the extension at the same time.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>As a classic add-on</h4>
+      <ol>
+        <li>Edit → Preferences → <b>Add-ons</b>.</li>
+        <li>Dropdown (top right) → <b>Install from Disk</b>.</li>
+        <li>Select <code>MatricX_PRO_2.1.0_Addon.zip</code>.</li>
+        <li>Enable <b>MatricX PRO</b> if it is not enabled for you.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>As an extension</h4>
+      <ol>
+        <li>Edit → Preferences → <b>Get Extensions</b>.</li>
+        <li>Dropdown (top right) → <b>Install from Disk</b>.</li>
+        <li>Select <code>MatricX_PRO_2.1.0_Blender_Extension.zip</code>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <p>Then press <span class="kbd">N</span> in the 3D Viewport and open the <b>MatricX PRO</b> tab.
+     Continue with the asset pack in Section 05 — MatricX cannot apply materials without it.</p>
+
+  <figure>
+    <img loading="lazy" class="w-md" src="images/IMG-04.png" alt="Edit → Preferences → Add-ons (or Get Extensions) → dropdown → Install from Disk.">
+    <figcaption>Edit → Preferences → Add-ons (or Get Extensions) → dropdown → <b>Install from Disk</b>.</figcaption>
+  </figure>
+
+  </section>
+
+<!-- ============================= 05 ASSET PACK ============================= -->
+<section id="pack">
+  <p class="kicker">SECTION 05</p>
+  <h2 class="sec">The Asset <span class="acc">Pack</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">The add-on is the tool; the asset pack is what it works with. Every material file, thumbnail,
+     texture and decal lives in the pack.</p>
+
+  <h3>Where to put it</h3>
+  <p>Extract <code>MatricX_Assets_2.1.0.zip</code> to a normal folder on a fast local drive. Placing it
+     <b>beside the installed add-on</b> lets MatricX find it automatically. Anywhere else works too — you point
+     MatricX to it once with Locate Asset Pack.</p>
+
+  <span class="path">MatricX_Assets_2.1.0/
+    asset_manifest.json      pack version
+    ASSET_LICENSE.txt
+    Material/                material and recipe files
+    material_preview/        collection thumbnails
+    MX_Texture/              runtime and imperfection textures
+    Decals/MX_Decals/        the official MatricX decal library</span>
+
+  <h3>Locate Asset Pack</h3>
+  <p>If the panel shows <b>Asset pack not connected</b>, click <b>Locate Asset Pack</b> and select the
+     <code>MatricX_Assets_2.1.0</code> folder. Any folder at or near the pack works: the pack itself, the folder
+     you extracted it into, the wrapper folder your archive manager created, or one of its subfolders.</p>
+  <ul>
+    <li>The path is stored outside the add-on, so reinstalling — or switching between add-on and extension —
+        does not lose it. It survives Blender restarts.</li>
+    <li>If a folder is rejected, a popup explains why: no pack found, a pack too old for 2.1, or an incomplete
+        extraction with the missing subfolders named. <span class="tag new">NEW</span></li>
+  </ul>
+
+  <figure>
+    <img loading="lazy" class="w-md" src="images/IMG-05.png" alt="Preferences → MatricX PRO: the asset pack not connected (top) and connected (bottom).">
+    <figcaption>Preferences → MatricX PRO: the asset pack <b>not connected</b> (top) and <b>connected</b> (bottom).</figcaption>
+  </figure>
+
+  <h3>Linux and Flatpak <span class="tag new">NEW</span></h3>
+  <p>On Linux, extract the pack to a normal folder in your home directory, such as <code>~/Downloads</code>
+     or <code>~/Documents</code>, then use Locate Asset Pack and select the <code>MatricX_Assets_2.1.0</code>
+     folder.</p>
+  <div class="warn">
+    <p><b>Flatpak Blender:</b> do not place the asset pack inside the <code>.var</code> sandbox folder. Extract
+    it to your home directory and use Locate Asset Pack. A Flatpak Blender keeps its add-ons under
+    <code>~/.var/app/org.blender.Blender/</code>, so "beside the add-on" does not apply there.</p>
+  </div>
+
+  <h3>Windows: keep the path short</h3>
+  <p>Windows limits full file paths to 260 characters. Extract the pack to a short location such as
+     <code>C:\Users\&lt;you&gt;\Documents\</code> or <code>D:\Assets\</code>. If the folder that holds
+     <code>MatricX_Assets_2.1.0</code> has a very long path, Blender cannot read the deepest decal files and
+     the decal browser stays empty.</p>
+
+  <div class="note">
+    <p><b>Studio deployments:</b> set the <code>MATRICX_ASSET_ROOT</code> environment variable to a shared
+    pack location and every workstation picks it up.</p>
+  </div>
+</section>
+
+<!-- ============================= 06 INTERFACE ============================= -->
+<section id="interface">
+  <p class="kicker">SECTION 06</p>
+  <h2 class="sec">Interface <span class="acc">Overview</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Press <span class="kbd">N</span> in the 3D Viewport and select the <b>MatricX PRO</b> tab.
+     Three workspace buttons sit at the top of the panel.</p>
+
+  <div class="grid3">
+    <div class="card"><h4>Materials</h4><p>Choose, tune and apply materials; save Looks; build imperfection stacks.</p></div>
+    <div class="card"><h4>Decals</h4><p><b>Decals</b> mode places decal objects; <b>Trims</b> mode applies trim-sheet regions to faces.</p></div>
+    <div class="card"><h4>Viewport</h4><p>Fast modelling colours, swatches and collection helpers for blockout.</p></div>
+  </div>
+
+
+  <div class="split right" style="--fig:280px">
+  <div class="split-text">
+  <h3>The panel follows your selection</h3>
+  <p>Select an object carrying a MatricX material and the panel loads its settings, including the whole
+     imperfection stack. Select a decal and you get that decal's controls. Controls that do not apply are hidden
+     or greyed out.</p>
+  <p>If you browse to a different material than the one applied, the panel says
+     <b>Panel is browsing a different material</b> — click <b>Load Applied Material</b> to jump back.</p>
+
+  <h3>Help</h3>
+  <p>The <b>?</b> button at the top of the Materials workspace shows the version and <b>Check Update</b>.</p>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-06.png" alt="The MatricX PRO tab with no object selected: workspace tabs, Help, Material Setup with the Family row, My Material Looks and Actions.">
+    <figcaption>The MatricX PRO tab with no object selected: workspace tabs, Help, Material Setup with the Family row, My Material Looks and Actions.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- ============================= 07 MATERIALS WORKSPACE ============================= -->
+<section id="materials">
+  <p class="kicker">SECTION 07</p>
+  <h2 class="sec">Materials <span class="acc">Workspace</span></h2>
+  <div class="rule"></div>
+
+  <h3>The basic loop</h3>
+  <ol>
+    <li>Select one or more mesh objects.</li>
+    <li>Pick a <b>Family</b>.</li>
+    <li>Click a material in the <b>Material Collection</b>.</li>
+    <li>Adjust its controls in <b>Material Setup</b>.</li>
+    <li>Click <b>Apply Material</b>.</li>
+  </ol>
+
+  <h3>Material Family picker <span class="tag new">NEW</span></h3>
+  <p>Click the <b>Family</b> row to open a card popover with every family. One click switches the collection.</p>
+  <figure>
+    <img loading="lazy" class="w-lg" src="images/IMG-07.png" alt="The Material Family picker: one click switches the collection.">
+    <figcaption>The <b>Material Family</b> picker: one click switches the collection.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th style="width:190px">Family</th><th>What is in it</th></tr></thead><tbody>
+    <tr><td><b>Metal</b></td><td>Default Metal plus 14 recipe metals.</td></tr>
+    <tr><td><b>Plastic</b></td><td>Default Plastic plus 3 recipe plastics.</td></tr>
+    <tr><td><b>Weapon &amp; Guns</b> <span class="tag new">NEW</span></td><td>19 recipe materials for weapons and gear.</td></tr>
+    <tr><td><b>Glass</b></td><td>Glass, Plastic Glass, Chromatic, Iridescent and Tinted Glass.</td></tr>
+    <tr><td><b>Rubber &amp; Leather</b></td><td>Rubbers, leathers, a tyre rubber and 2 recipes.</td></tr>
+    <tr><td><b>Military Camo</b> <span class="tag new">NEW</span></td><td>Camo 1–8.</td></tr>
+    <tr><td><b>Wood</b></td><td>Seven woods, from procedural to shiny lacquered.</td></tr>
+    <tr><td><b>Fabric</b></td><td>Three procedural weaves (need a UV map).</td></tr>
+    <tr><td><b>Emission</b></td><td>A glowing surface with a strength control.</td></tr>
+    <tr><td><b>Custom Material</b></td><td>Your own imported PBR texture sets (Section 16).</td></tr>
+  </tbody></table>
+
+  <div class="split right" style="--fig:300px">
+  <div class="split-text">
+  <h3>The Material Collection</h3>
+  <p>The thumbnail browser shows the current family. Use it to explore; everything you need is on one row.</p>
+  <ul>
+    <li><b>Search</b> filters by name; the ✕ clears it.</li>
+    <li><b>Favorites</b> and <b>Recent</b> narrow the view; <b>Clear</b> empties the recent list.</li>
+    <li><b>◀ ▶</b> step to the previous and next material.</li>
+    <li><b>Browser Options</b>: Thumbnail Size and Show Labels.</li>
+  </ul>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-08.png" alt="The Material Collection: search, Favorites / Recent, previous / next, and Browser Options.">
+    <figcaption>The Material Collection: search, Favorites / Recent, previous / next, and Browser Options.</figcaption>
+  </figure>
+  </div>
+
+  <div class="note">
+    <p><b>Browsing does not change your object.</b> Clicking a thumbnail only loads it into the panel. Nothing is
+    applied until you click Apply Material.</p>
+  </div>
+</section>
+
+<!-- ============================= 08 COLLECTION ============================= -->
+<section id="collection">
+  <p class="kicker">SECTION 08</p>
+  <h2 class="sec">The 2.1 Material <span class="acc">Collection</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">70 materials ship in the 2.1.0 asset pack. Names below match what you see in the browser; every family shows its own thumbnails there once the asset pack is connected.</p>
+
+  <h3>Metal — 15</h3>
+  <figure>
+    <img loading="lazy" class="w-md" src="images/IMG-09A.png" alt="The collection browser showing Metal (top) and Weapon & Guns (bottom).">
+    <figcaption>The collection browser showing <b>Metal</b> (top) and <b>Weapon &amp; Guns</b> (bottom).</figcaption>
+  </figure>
+
+  <p>Default Metal · Cavity Dirt Iron · Cavity Dirt Iron 2 · Grainy Black Iron · Grainy Black Old Iron · Grainy Green Iron ·
+     Mud Stain Metal · Painted Metal · Painted Metal 2 · Painted Metal 3 · Painted Rusty Metal · Old Steel · Black Metal ·
+     Painted Scratch Metal · Painted Scratch Metal 2</p>
+
+  <h3>Plastic — 4</h3>
+  <p>Default Plastic · Old Black Plastic · Old Red Plastic · Dirty Plastic Blue</p>
+
+  <h3>Weapon &amp; Guns — 19 <span class="tag new">NEW</span></h3>
+  <p>Dark Alloy · Dark Alloy Textured · Zinc Alloy · Desert Tan · Matte Black Polymer · Black Plastic · Desert Tan Plastic ·
+     Brown Tan Plastic · Tactical Yellow Polymer · Plastic Case · Scope Glass 1 · Scope Glass 2 · Scope Glass 3 ·
+     Scope Glass 4 · Damaged Steel · Damaged Brass · Damaged Wood · Damaged Wood 2 · Damaged Wood 3</p>
+
+  <h3>Glass — 5</h3>
+  <p>Glass · Plastic Glass · Chromatic Glass · Iridescent Glass · Tinted Glass <span class="tag chg">CHANGED</span></p>
+
+  <h3>Rubber &amp; Leather — 8</h3>
+  <p>None (plain rubber) · Normal · Black · Dark Brown Leather · Brown · Rubber Tyre · Rubber Hose · Dirty Rubber</p>
+
+  <h3>Military Camo — 8 <span class="tag new">NEW</span></h3>
+  <p>Camo 1 (green) · Camo 2 (triad) · Camo 3 (urban) · Camo 4 (olive-brown) · Camo 5 · Camo 6 (green digital) ·
+     Camo 7 (tan, olive and sage blocks) · Camo 8 (green with red patches)</p>
+
+  <h3>Wood — 7</h3>
+  <p>Custom Wood · Red Wood · Light Wood · Deep Brown Wood · Shiny Brown Wood · Shiny Dark Brown Wood · Shiny Deep Brown Wood</p>
+
+  <h3>Fabric — 3 · Emission — 1</h3>
+  <p>Fabric 1 · Fabric 2 · Fabric 3 · Emission</p>
+</section>
+
+<!-- ============================= 09 SETUP ============================= -->
+<section id="setup">
+  <p class="kicker">SECTION 09</p>
+  <h2 class="sec">Material Setup <span class="acc">&amp; Reset</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Material Setup holds the controls of the surface underneath the imperfections. What you see
+     depends on the family.</p>
+
+  <table>
+    <thead><tr><th style="width:190px">Family</th><th>Controls</th></tr></thead><tbody>
+    <tr><td><b>Default Metal</b></td><td>Base Color, Roughness, Bevel.</td></tr>
+    <tr><td><b>Default Plastic</b></td><td>Base Color, Roughness, Gloss (Coat), Bevel.</td></tr>
+    <tr><td><b>Glass</b> (plain)</td><td>Base Color, Roughness, Smudge, Texture Scale, Crack Amount, Crack Scale.</td></tr>
+    <tr><td><b>Grouped materials</b></td><td><b>Material Group Controls</b> — the authored shader's own inputs, such as Base Color, Roughness, IOR, Clarity, Coat and Bevel Radius on Tinted Glass.</td></tr>
+    <tr><td><b>Military Camo</b></td><td>Camo Material Settings; Camo 5–8 add their own group settings (colours, scale, roughness, metallic).</td></tr>
+    <tr><td><b>Wood · Rubber &amp; Leather</b></td><td>Base controls; Deep Brown Wood and Dark Brown Leather add group settings.</td></tr>
+    <tr><td><b>Fabric</b></td><td>Fabric Type. Needs a UV map — click <b>Create UV Map</b> if MatricX warns you.</td></tr>
+    <tr><td><b>Emission</b></td><td>Glow Strength.</td></tr>
+  </tbody></table>
+
+
+  <div class="split left" style="--fig:380px">
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-10.png" alt="Material Setup for a Metal recipe (Painted Metal 3): Family, Base Color and Metal Settings.">
+    <figcaption>Material Setup for a Metal recipe (Painted Metal 3): Family, Base Color and Metal Settings.</figcaption>
+  </figure>
+  <div class="split-text">
+  <h3>Every material brings its own values</h3>
+  <p>Selecting a material loads its own authored colour, roughness and settings into the panel. Values never
+     bleed from one material to the next.</p>
+
+  <h3>Reset Base Material</h3>
+  <p>The ↺ button on the Material Setup header restores the material's shipped colour, roughness and surface
+     values. It does not touch your imperfection layers.</p>
+
+  <h3>Bevel <span class="tag chg">CHANGED</span></h3>
+  <p>Default Metal and Default Plastic expose a <b>Bevel</b> radius that rounds shading on hard edges — this is
+     what makes edge wear catch light. New materials start at <b>0.006</b>.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============================= 10 RECIPES ============================= -->
+<section id="recipes">
+  <p class="kicker">SECTION 10 · NEW IN 2.1</p>
+  <h2 class="sec">Material <span class="acc">Recipes</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">A recipe is a finished material made in MatricX itself: a base material with its own
+     settings and a stack of imperfection layers. Apply one and it is done — but nothing is locked.</p>
+
+  <div class="split right" style="--fig:360px">
+  <div class="split-text">
+  <ul>
+    <li><b>It behaves like its base.</b> A recipe built on Default Metal has every Default Metal control and
+        accepts every imperfection Metal accepts. Weapon &amp; Guns recipes are built on metal, plastic, glass
+        and wood bases alike.</li>
+    <li><b>Every layer is yours.</b> Add, remove, reorder, rename and tune layers freely.</li>
+    <li><b>One click back.</b> <b>Reset Imperfections</b>, under the layer stack, restores the stack it shipped
+        with, after a confirmation. <b>Reset Base Material</b> restores its surface values.</li>
+  </ul>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-11.png" alt="Reset Imperfections asks for confirmation before it restores a recipe's shipped stack.">
+    <figcaption><b>Reset Imperfections</b> asks for confirmation before it restores a recipe's shipped stack.</figcaption>
+  </figure>
+  </div>
+
+
+  <div class="note">
+    <p><b>Start from a recipe, finish as your own:</b> tune the recipe to your asset, then save the result as a
+    Material Look (Section 12) so you can reuse it.</p>
+  </div>
+</section>
+
+<!-- ============================= 11 ACTIONS ============================= -->
+<section id="actions">
+  <p class="kicker">SECTION 11</p>
+  <h2 class="sec">Apply, Link, <span class="acc">Unique</span>, Remove</h2>
+  <div class="rule"></div>
+
+  <p class="intro">The <b>Actions</b> box at the bottom of the Materials workspace.</p>
+
+  <figure>
+    <img loading="lazy" class="w-sm" src="images/IMG-12.png" alt="The Actions box: Live Mapping toggles, Apply Material, then Arrange, Link, Make Unique and Remove.">
+    <figcaption>The Actions box: Live Mapping toggles, Apply Material, then Arrange, Link, Make Unique and Remove.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th style="width:220px">Button</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Apply Material</b></td><td>Assigns the material in the panel to the selected meshes. One click is one undo step. <span class="tag chg">CHANGED</span></td></tr>
+    <tr><td><b>Arrange Material Nodes</b></td><td>Tidies the active material's shader nodes.</td></tr>
+    <tr><td><b>Link Material to Selected</b> <span class="tag new">NEW</span></td><td>Gives every other selected mesh the active material. Edits are then shared.</td></tr>
+    <tr><td><b>Make Material Unique</b></td><td>Gives the active object its own copy, so edits stop affecting the others. Objects sharing its mesh use the copy too.</td></tr>
+    <tr><td><b>Remove Material</b> <span class="tag chg">CHANGED</span></td><td>Unassigns the MatricX material from the selected meshes' active slots only — other slots stay intact. Asks for confirmation and can be undone.</td></tr>
+  </tbody></table>
+
+  <h3>Linked materials</h3>
+  <p>When one material is used by several objects, editing it updates all of them — base colour, roughness,
+     every layer and every layer value. Use Make Unique when one object should stop following the rest.</p>
+
+  <h3>Live Mapping</h3>
+  <p>Two toggles above Apply Material keep procedural textures correct on transformed objects, without
+     applying transforms:</p>
+  <ul>
+    <li><b>Scale Compensation</b> keeps procedural texture size constant while you scale the object.</li>
+    <li><b>Rotation Compensation</b> keeps edge wear correct when the object is rotated.</li>
+  </ul>
+  <p>Turn them off when you want mapping to stretch with the object, or before you apply transforms.</p>
+
+  <h3>Solid-mode colour <span class="tag new">NEW</span></h3>
+  <p>Applied materials get a viewport display colour taken from their own Base Color, so parts read correctly in
+     the Solid viewport. A display colour you set by hand is kept.</p>
+</section>
+
+<!-- ============================= 12 LOOKS ============================= -->
+<section id="looks">
+  <p class="kicker">SECTION 12</p>
+  <h2 class="sec">Material <span class="acc">Looks</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">A Material Look is a complete saved setup: base material, every surface value and the whole
+     imperfection stack. Build a look once; reuse it on every prop in a set.</p>
+
+  <div class="split right" style="--fig:320px">
+  <div class="split-text">
+  <ol>
+    <li>Build and tune a material on a mesh.</li>
+    <li>Expand <b>My Material Looks</b> and click <b>Save Current Look</b>. Give it a name, category and description.</li>
+    <li>Later, select another mesh, pick the look and click <b>Apply as Unique</b> — it is applied as a new,
+        independent material.</li>
+  </ol>
+
+
+  <ul>
+    <li><b>Search</b> and <b>Favorites</b> find looks quickly; the star marks a favourite.</li>
+    <li><b>Rename</b> edits a look's name, category and description; the bin deletes it.</li>
+    <li><b>Library Tools → Export</b> saves a look as a <code>.json</code> file to share; <b>Import</b> adds one to your library.</li>
+    <li>Looks are stored in your Blender user configuration, so they follow you between projects.</li>
+    <li><b>Group controls are saved too</b> <span class="tag new">NEW</span> — Tinted and Scope Glass, the other glasses,
+        fabrics, shiny and damaged woods keep their Material Group Controls values.</li>
+  </ul>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-13.png" alt="My Material Looks: Save Current Look, search, Favorites, the selected look and Library Tools.">
+    <figcaption>My Material Looks: Save Current Look, search, Favorites, the selected look and Library Tools.</figcaption>
+  </figure>
+  </div>
+
+  <div class="note">
+    <p><b>Name them for the result, not the recipe:</b> "Worn Red Painted Metal", "Subtle Dirty Rubber". You will
+    scan this list at speed six months from now.</p>
+  </div>
+</section>
+
+<!-- ============================= 13 STUDIO ============================= -->
+<section id="studio">
+  <p class="kicker">SECTION 13</p>
+  <h2 class="sec">Imperfection <span class="acc">Studio</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Where a material stops looking new. Layers stack, reorder and composite over one another —
+     you are building a history, not applying a texture.</p>
+
+
+  <div class="split right" style="--fig:300px">
+  <div class="split-text">
+  <h3>Adding a layer <span class="tag chg">CHANGED</span></h3>
+  <ol>
+    <li>Apply a material that supports imperfections.</li>
+    <li>Click <b>Add Layer</b>. A thumbnail grid shows every type the material supports.</li>
+    <li>Click a thumbnail. The new layer is selected so you can edit it straight away.</li>
+  </ol>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-14.png" alt="Imperfection Studio before the first layer: Texture / Mask, Add Layer and Tiling.">
+    <figcaption>Imperfection Studio before the first layer: Texture / Mask, Add Layer and Tiling.</figcaption>
+  </figure>
+  </div>
+  <figure>
+    <img loading="lazy" src="images/IMG-15.png" alt="The Add Layer grid on a Metal material — all 16 types.">
+    <figcaption>The <b>Add Layer</b> grid on a Metal material — all 16 types.</figcaption>
+  </figure>
+
+  <h3>Managing the stack</h3>
+  <ul>
+    <li><b>▲ ▼</b> reorder layers. Gradient Linear always evaluates beneath the physical layers.</li>
+    <li><b>Duplicate</b> copies the selected layer with independent settings; <b>−</b> removes it.</li>
+    <li>The checkbox hides a layer without losing its settings — a good A/B switch.</li>
+    <li><b>Rename</b> gives a layer a meaningful name. The ↺ on the layer card resets that layer to its type's
+        defaults, after a confirmation.</li>
+  </ul>
+
+  <div class="split left" style="--fig:340px">
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-16.png" alt="A Rust layer on a recipe: Amount, Opacity, Color, its own controls and Depth, then Advanced opening on Pattern.">
+    <figcaption>A Rust layer on a recipe: Amount, Opacity, Color, its own controls and Depth, then <b>Advanced</b> opening on Pattern.</figcaption>
+  </figure>
+  <div class="split-text">
+  <h3>The layer card <span class="tag chg">CHANGED</span></h3>
+  <p>Every type uses the same layout, so you always know where to look:</p>
+  <ul>
+    <li><b>Amount</b> — how much of the surface the layer covers (two-pass types show Layer 1 and Layer 2).</li>
+    <li><b>Opacity</b> — how strong the layer is. New layers start at 1.0.</li>
+    <li><b>Color</b>, then the type's own signature controls, then its relief (<b>Depth</b> or <b>Bump</b>).</li>
+    <li><b>Advanced</b> holds the rest in the same order on every type: <b>Pattern, Tone, Placement, Relief, Surface</b>.</li>
+  </ul>
+  </div>
+  </div>
+
+
+  <h3>Texture / Mask preview</h3>
+  <p>Switch to <b>Mask</b> to see the active layer alone, in greyscale — white is where the imperfection
+     appears. It is the fastest way to understand what a slider does.</p>
+  <figure>
+    <img loading="lazy" src="images/IMG-17.png" alt="The same Dirt layer in Texture view (left) and Mask view (right).">
+    <figcaption>The same Dirt layer in <b>Texture</b> view (left) and <b>Mask</b> view (right).</figcaption>
+  </figure>
+
+  <h3>Tiling (anti-tiling)</h3>
+  <p>Large surfaces reveal the repeat in any texture. Tiling blends phase-shifted samples to break it up.</p>
+  <table>
+    <thead><tr><th style="width:110px">Mode</th><th>Behaviour</th></tr></thead><tbody>
+    <tr><td><b>Auto</b></td><td>Default. Reads the largest object using the material: off below 12 m, 2 samples from 12 m, 3 samples from 30 m.</td></tr>
+    <tr><td><b>Off</b></td><td>One sample. Fastest; right for small objects.</td></tr>
+    <tr><td><b>Fast</b></td><td>Two blended samples. Hides repeats at moderate cost.</td></tr>
+    <tr><td><b>High</b></td><td>Three blended samples. For very large surfaces; slowest.</td></tr>
+  </tbody></table>
+  <p>In Auto, the info line under Tiling shows what was decided for the current object.</p>
+</section>
+
+<!-- ============================= 14 TYPES ============================= -->
+<section id="types">
+  <p class="kicker">SECTION 14</p>
+  <h2 class="sec">The 16 Imperfection <span class="acc">Types</span></h2>
+  <div class="rule"></div>
+
+  <figure>
+    <img loading="lazy" src="images/IMG-18.png" alt="The imperfection types in Mask view — white is where each one appears. Their names and colour thumbnails are in the Add Layer grid (Section 13).">
+    <figcaption>The imperfection types in Mask view — white is where each one appears. Their names and colour thumbnails are in the Add Layer grid (Section 13).</figcaption>
+  </figure>
+
+  <h4>Tone &amp; Finish</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Gradient Linear</b></td><td>A directional colour gradient across the surface. A tonal foundation, always evaluated beneath the physical layers.</td></tr>
+    <tr><td><b>Bump Texture</b></td><td>Fine surface grain and raised flakes. Finish only — it keeps the base colour.</td></tr>
+  </tbody></table>
+
+  <h4>Edges &amp; Damage</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Edge Wear</b></td><td>Wears the finish off exposed corners and edges. Renders in <b>Cycles only</b> (Section 23).</td></tr>
+    <tr><td><b>Edge Damage</b></td><td>Chips and breaks up edges where they take impacts.</td></tr>
+    <tr><td><b>Chip Damaged</b></td><td>Deep chips cut into the surface, with real crater depth.</td></tr>
+  </tbody></table>
+
+  <h4>Scratches &amp; Marks</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Scratch</b></td><td>Grooves with depth and self-shadowing. Depth controls how dark the groove floor goes.</td></tr>
+    <tr><td><b>Scratch Paint</b> <span class="tag chg">CHANGED</span></td><td>Fine scrapes through paint to the material beneath, with surface relief. Amount sets coverage.</td></tr>
+    <tr><td><b>Fingerprints</b></td><td>Sparse oily fingerprint marks. Best at low opacity on gloss and glass.</td></tr>
+    <tr><td><b>Water Stains</b></td><td>Dried water marks and mineral staining.</td></tr>
+  </tbody></table>
+
+  <h4>Dirt &amp; Weathering</h4>
+  <table>
+    <thead><tr><th style="width:170px">Type</th><th>What it does</th></tr></thead><tbody>
+    <tr><td><b>Dirt</b></td><td>Loose particulate settling into recesses and cavities.</td></tr>
+    <tr><td><b>Directional Dirt</b></td><td>Dirt washed along one axis, as run-off or airflow leaves it.</td></tr>
+    <tr><td><b>Grime</b></td><td>Thin handled residue on open surfaces — handles, rails, touched panels.</td></tr>
+    <tr><td><b>Grunge</b></td><td>General-purpose grunge overlay with real carved depth.</td></tr>
+    <tr><td><b>Powder Dust</b> <span class="tag new">NEW</span></td><td>Fine pale, dry particles settled on the surface.</td></tr>
+    <tr><td><b>Rust</b></td><td>Corrosion eating into corners, seams and cavities. Keep it restrained.</td></tr>
+    <tr><td><b>Dirt Stain</b> <span class="tag chg">CHANGED</span></td><td>Dirt and liquid staining with flow, pools and wet or dried residue. Formerly Leaking.</td></tr>
+  </tbody></table>
+
+  <h3>Which materials support which types <span class="tag chg">CHANGED</span></h3>
+  <p>Add Layer only offers what makes sense on the selected material.</p>
+  <table>
+    <thead><tr><th style="width:190px">Material</th><th>Available imperfections</th></tr></thead><tbody>
+    <tr><td><b>Metal</b></td><td>All 16.</td></tr>
+    <tr><td><b>Military Camo</b></td><td>All 16 — painted military hardware rusts like bare metal.</td></tr>
+    <tr><td><b>Plastic</b></td><td>All except Rust (15).</td></tr>
+    <tr><td><b>Rubber &amp; Leather</b></td><td>All except Rust (15). Overlays stay non-metallic.</td></tr>
+    <tr><td><b>Wood</b></td><td>Gradient Linear, Edge Wear, Edge Damage, Chip Damaged, Scratch, Dirt, Directional Dirt, Grime, Grunge, Dirt Stain, Water Stains (11).</td></tr>
+    <tr><td><b>Tinted Glass</b></td><td>Scratch, Fingerprints, Water Stains, Powder Dust, Dirt, Directional Dirt, Grime, Grunge, Dirt Stain, Bump Texture (10).</td></tr>
+    <tr><td><b>Weapon &amp; Guns</b></td><td>Same as the recipe's base: metal, plastic, Tinted Glass or wood.</td></tr>
+    <tr><td><b>Other glass</b></td><td class="dim">None — plain Glass has its own Smudge and Crack controls.</td></tr>
+    <tr><td><b>Fabric · Emission · Custom</b></td><td class="dim">None.</td></tr>
+  </tbody></table>
+</section>
+
+<!-- ============================= 15 PAINT ============================= -->
+<section id="paint">
+  <p class="kicker">SECTION 15</p>
+  <h2 class="sec">Paint <span class="acc">Masks</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Procedural masks decide where an imperfection goes by rule. A paint mask lets you decide by
+     hand — brush rust onto the one corner that should have it, wipe grime off where a hand would polish.</p>
+
+  <figure>
+    <img loading="lazy" src="images/IMG-19.jpg" alt="Painting a Dirt layer's mask in Vertex Paint, with the Add / Remove modes, Brush and Mask controls in the panel.">
+    <figcaption>Painting a Dirt layer's mask in Vertex Paint, with the Add / Remove modes, Brush and Mask controls in the panel.</figcaption>
+  </figure>
+
+  <h3>Painting a layer</h3>
+  <ol>
+    <li>Select the layer and expand <b>Paint Mask</b>.</li>
+    <li>Choose a <b>Paint Mode</b>, then click <b>Start Painting</b>. MatricX switches to Vertex Paint with a brush ready.</li>
+    <li>Paint on the mesh.</li>
+    <li>Click <b>Finish Painting</b> to return to the finished material.</li>
+  </ol>
+
+  <h3>Paint Mode <span class="tag new">NEW</span></h3>
+  <table>
+    <thead><tr><th style="width:110px">Mode</th><th>Starts</th><th>Click</th><th>Ctrl + click</th></tr></thead><tbody>
+    <tr><td><b>Add</b></td><td>Hidden — paint it in</td><td>Adds the imperfection</td><td>Removes it</td></tr>
+    <tr><td><b>Remove</b></td><td>Visible — paint it out</td><td>Removes the imperfection</td><td>Restores it</td></tr>
+  </tbody></table>
+  <p>Switching modes never changes what is already painted. Pick whichever means less painting.</p>
+
+  <h3>Brush and Mask controls <span class="tag new">NEW</span></h3>
+  <ul>
+    <li><b>Size</b>, <b>Strength</b> and <b>Soft Edge</b> set the brush. Strength is linear: 0.5 paints half.</li>
+    <li><b>Mask Strength</b> scales the whole painted mask without repainting. 0 ignores the paint.</li>
+    <li><b>Mask Utilities</b>: <b>Hide Everywhere</b>, <b>Show Everywhere</b> (both replace every stroke), and
+        <b>Delete Paint Mask</b>, which returns the layer to its procedural mask.</li>
+  </ul>
+
+  <div class="warn">
+    <p><b>Paint masks are vertex-based.</b> Detail follows mesh density — a default cube has eight vertices and
+    cannot hold a mask. MatricX warns you when a mesh is too coarse. Subdivide where you need detail.</p>
+  </div>
+  <div class="note">
+    <p><b>Shared materials:</b> the mask lives on each mesh. Objects without one have the layer hidden. MatricX
+    warns you and offers <b>Add Mask To All</b>. Only one layer can be painted at a time; if another session is
+    open, click <b>Finish That Session</b>.</p>
+  </div>
+</section>
+
+<!-- ============================= 16 CUSTOM ============================= -->
+<section id="custom">
+  <p class="kicker">SECTION 16</p>
+  <h2 class="sec">Custom PBR <span class="acc">Materials</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Turn an external texture set into a reusable MatricX entry.</p>
+  <div class="split right" style="--fig:290px">
+  <div class="split-text">
+  <ol>
+    <li>Set the family to <b>Custom Material</b>.</li>
+    <li>Click <b>+</b> and select one or more texture files from the set's folder.</li>
+    <li>MatricX scans the folder and identifies the maps by name.</li>
+    <li>Check the detected entry, then click <b>Apply Custom Material</b>.</li>
+  </ol>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-20.png" alt="The Custom Material family before a texture set is added — click + to import one.">
+    <figcaption>The Custom Material family before a texture set is added — click <b>+</b> to import one.</figcaption>
+  </figure>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h4>Maps detected</h4><p>Base Color, Normal, Roughness, Metallic, Ambient Occlusion, packed ORM, Height, Emission, Opacity.</p></div>
+    <div class="card"><h4>Controls</h4><p>Mapping (scale, rotation, offset, UV map), PBR Textures, and Advanced options such as treat-as-metal, ORM mode, normal strength, displacement and alpha.</p></div>
+  </div>
+
+
+  <p>Entries are stored in add-on preferences and stay available across projects. Imperfection layers are not
+     offered on custom materials — your maps are the complete surface definition.</p>
+</section>
+
+<!-- ============================= 17 DECALS ============================= -->
+<section id="decals">
+  <p class="kicker">SECTION 17</p>
+  <h2 class="sec">Decals <span class="acc">Workspace</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Place, project and manage decal objects. The official library has 17 decals
+     <span class="tag chg">CHANGED</span>; add as many of your own as you like (Section 18).</p>
+
+
+  <div class="split right" style="--fig:300px">
+  <div class="split-text">
+  <h3>Placing a decal</h3>
+  <ol>
+    <li>Pick a library, category and decal thumbnail.</li>
+    <li>Click <b>Place Decal</b> and move the cursor over a mesh — the decal aligns to the surface.</li>
+    <li>Confirm.</li>
+  </ol>
+  <table>
+    <thead><tr><th>Input</th><th>Action</th></tr></thead><tbody>
+    <tr><td><span class="kbd">LMB</span> / <span class="kbd">Space</span></td><td>Confirm</td></tr>
+    <tr><td><span class="kbd">RMB</span> / <span class="kbd">Esc</span></td><td>Cancel</td></tr>
+    <tr><td><span class="kbd">Wheel</span></td><td>Rotate 15°</td></tr>
+    <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Wheel</span></td><td>Rotate 5°</td></tr>
+    <tr><td><span class="kbd">Shift</span> + <span class="kbd">Wheel</span></td><td>Scale</td></tr>
+    <tr><td><span class="kbd">R</span></td><td>Straighten</td></tr>
+  </tbody></table>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-21.png" alt="The Decals workspace: Decal Library, the 17 MatricX decals, Place Decal and Scene Decals.">
+    <figcaption>The Decals workspace: Decal Library, the 17 MatricX decals, Place Decal and Scene Decals.</figcaption>
+  </figure>
+  </div>
+
+  <h3>Working with a placed decal</h3>
+  <ul>
+    <li><b>Reposition</b> moves it to another point or mesh, keeping its settings.</li>
+    <li><b>Scale &amp; Rotate</b> resizes or angles it in place.</li>
+    <li><b>Opacity</b> blends it into the surface, from 0 to 1. <span class="tag chg">CHANGED</span></li>
+    <li><b>Adjust Offset</b> sets the gap that prevents z-fighting; <b>Set 1 mm Offset</b> is a good start.</li>
+    <li><b>Conform Quality</b> sets how closely it follows curved surfaces.</li>
+    <li><b>Project to Surface</b> builds final conforming geometry. Only the first surface along each ray is
+        kept, so a decal never prints through a closed mesh.</li>
+    <li><b>Material Base</b> / <b>Subset Base</b> on surface decals: Color, Metallic, Roughness, IOR, or
+        <b>Match Target Material</b>.</li>
+    <li><b>Scene Decals</b>: Select All, Hide, Show and Delete All Decals.</li>
+  </ul>
+  <div class="note">
+    <p><b>Decal Color</b> and <b>Change Color</b> remain available for supported decals from your own libraries.
+    None of the 17 bundled decals offers them.</p>
+  </div>
+  <p>For speed in the viewport, use the Decal pie, <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">D</span> (Section 21).</p>
+</section>
+
+<!-- ============================= 18 LIBRARIES ============================= -->
+<section id="libraries">
+  <p class="kicker">SECTION 18</p>
+  <h2 class="sec">Your Own Decal <span class="acc">Libraries</span></h2>
+  <div class="rule"></div>
+
+  <h3>Adding a library</h3>
+  <ol>
+    <li>Click <b>+</b> on the Decal Library header, or <b>Add Library</b> in Preferences.</li>
+    <li>Select the folder that <i>contains</i> the decal subfolders.</li>
+    <li>Optionally name it — otherwise the folder name is used.</li>
+  </ol>
+  <p>MatricX validates the folder and tells you if there is nothing usable inside.</p>
+
+  <h4>Expected folder layout</h4>
+  <span class="path">My Decal Pack/
+    001_some_decal/
+        decal.blend      required
+        decal.png        thumbnail, recommended
+        uuid             optional, gives the decal a stable identity
+    002_another_decal/
+        decal.blend
+        decal.png</span>
+
+  <h3>Removing a library</h3>
+  <p>Click <b>✕</b> on the library header, or beside any entry in Preferences. Only the reference is removed —
+     nothing is deleted from disk. The bundled library cannot be removed.</p>
+  <div class="note">
+    <p><b>Duplicates are filtered.</b> The same decal in two libraries shows once. Identity comes from the
+    <code>uuid</code> file, so give copies unique uuids if you want them treated as distinct.</p>
+  </div>
+</section>
+
+<!-- ============================= 19 TRIMS ============================= -->
+<section id="trims">
+  <p class="kicker">SECTION 19</p>
+  <h2 class="sec">Trim <span class="acc">Sheets</span></h2>
+  <div class="rule"></div>
+
+  <div class="warn">
+    <p><b>MatricX does not ship trim sheets.</b> The Trims tool is fully functional; add a folder of your own
+    sheets with <b>Add Trim Sheet Library</b>.</p>
+  </div>
+
+  <figure>
+    <img loading="lazy" src="images/IMG-22.png" alt="Trims mode in Edit Mode: a trim region applied to the selected faces, with UV Fit and Trim Material.">
+    <figcaption>Trims mode in Edit Mode: a trim region applied to the selected faces, with UV Fit and Trim Material.</figcaption>
+  </figure>
+
+  <h3>Applying a trim</h3>
+  <ol>
+    <li>Enter <b>Edit Mode</b> and select the faces that should receive the trim.</li>
+    <li>Open <b>Decals → Trims</b>, pick a sheet, then a trim region.</li>
+    <li>Set <b>UV Fit</b> and <b>Trim Material</b>.</li>
+    <li>Click <b>Apply Trim to Selected Faces</b>.</li>
+    <li>Refine with <b>Live Trim Adjustment</b>: Move, Rotate, Scale — or the Trim pie,
+        <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">T</span>.</li>
+  </ol>
+
+  <table>
+    <thead><tr><th style="width:200px">Option</th><th>Behaviour</th></tr></thead><tbody>
+    <tr><td><b>Automatic</b></td><td>Picks the sensible fit for the selection. Start here.</td></tr>
+    <tr><td><b>Fill</b></td><td>Stretches the selection to fill the region. Fast for panel strips.</td></tr>
+    <tr><td><b>Preserve</b></td><td>Keeps more of the existing UV proportions.</td></tr>
+    <tr><td><b>Fit Each UV Island</b></td><td>Fits islands separately — good for repeated strips.</td></tr>
+    <tr><td><b>Rotation / Flip U / Flip V</b></td><td>Correct orientation without re-selecting.</td></tr>
+    <tr><td><b>Edge Padding</b></td><td>Insets UVs slightly to stop neighbouring regions bleeding in.</td></tr>
+    <tr><td><b>Trimsheet / Mesh Materials</b></td><td>Assign the sheet's material, or keep each face's existing material and apply only UV placement. <b>Restore Material</b> undoes it.</td></tr>
+  </tbody></table>
+
+  <h4>Trim sheet folder format</h4>
+  <p>A sheet folder is identified by a <code>data.json</code> with a <code>resolution</code> pair and a
+     <code>trims</code> list; each trim has <code>coords</code> and <code>dimensions</code> in 0–1 UV space.</p>
+  <span class="path">{
+  "name": "Panel Sheet 01",
+  "resolution": [2048, 2048],
+  "trims": [
+    { "name": "Panel A", "coords": [0.0, 0.0],  "dimensions": [1.0, 0.25] },
+    { "name": "Panel B", "coords": [0.0, 0.25], "dimensions": [1.0, 0.25] }
+  ],
+  "maps": { }
+}</span>
+</section>
+
+<!-- ============================= 20 VIEWPORT ============================= -->
+<section id="viewport">
+  <p class="kicker">SECTION 20</p>
+  <h2 class="sec">Viewport <span class="acc">Workspace</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Fast, disposable colour for blockout and modelling — parts stay readable long before look
+     development starts.</p>
+
+
+  <div class="split right" style="--fig:360px">
+  <div class="split-text">
+  <ul>
+    <li><b>Live Viewport Color</b> — set Color, Metallic and Roughness, then <b>Apply to Selection</b>. The
+        controls then edit that material live; selecting another viewport-coloured object syncs the panel.
+        The button beside Apply to Selection is <b>Separate Material</b>: the mesh keeps its look but stops
+        sharing the material.</li>
+    <li><b>Quick Swatches</b> — Clay, Dark, Light, Rubber Black, Metal Gray, Accent Red, Accent Blue, Glass Cyan.
+        <b>Use Material View</b> switches viewports to Material Preview so the colours show.</li>
+    <li><b>Modeling Helpers</b> — Move Collection, New Collection, and Random Viewport Color (a different colour
+        per selected mesh).</li>
+    <li><b>Linked recolouring</b> <span class="tag new">NEW</span> — recolouring one mesh recolours every mesh
+        sharing its viewport material.</li>
+  </ul>
+  </div>
+  <figure class="side">
+    <img loading="lazy" src="images/IMG-23.png" alt="The Viewport workspace on a blockout model.">
+    <figcaption>The Viewport workspace on a blockout model.</figcaption>
+  </figure>
+  </div>
+  <div class="note">
+    <p><b>Production materials are protected.</b> Viewport colours never replace a MatricX production material;
+    MatricX tells you how many objects it skipped and why.</p>
+  </div>
+</section>
+
+<!-- ============================= 21 PIES ============================= -->
+<section id="pies">
+  <p class="kicker">SECTION 21 · NEW IN 2.1</p>
+  <h2 class="sec">Radial Pie <span class="acc">Menus</span></h2>
+  <div class="rule"></div>
+
+  <p class="intro">Three radial menus put the common actions under your cursor. Each can be switched on or off
+     in Preferences.</p>
+
+  <div class="grid3">
+    <div class="card">
+      <h4>Viewport pie</h4>
+      <p><span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">M</span> · Object Mode</p>
+      <p>Add Material, Black, Grey, Red, Random Colors, Custom Color, Link Materials, Separate Materials.</p>
+    </div>
+    <div class="card">
+      <h4>Decal pie</h4>
+      <p><span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">D</span> · over a selected decal</p>
+      <p>Reposition, Scale &amp; Rotate, Surface &amp; Opacity, Project to Surface, Adjust Offset, Delete Decal,
+         plus Material Base / Subset Base where available.</p>
+    </div>
+    <div class="card">
+      <h4>Trim pie</h4>
+      <p><span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">T</span> · Edit Mode</p>
+      <p>Move, Scale, Rotate, Refit Selected Trim.</p>
+    </div>
+  </div>
+
+  <figure>
+    <img loading="lazy" class="w-lg" src="images/IMG-24.png" alt="The Viewport, Decal and Trim pies.">
+    <figcaption>The <b>Viewport</b>, <b>Decal</b> and <b>Trim</b> pies.</figcaption>
+  </figure>
+
+  <p>A shortcut conflicts with another add-on? Turn the pie off in Preferences, or rebind it under
+     Preferences → Keymap.</p>
+</section>
+
+<!-- ============================= 22 PREFS ============================= -->
+<section id="prefs">
+  <p class="kicker">SECTION 22</p>
+  <h2 class="sec">Prefer<span class="acc">ences</span></h2>
+  <div class="rule"></div>
+
+  <p>Edit → Preferences → Add-ons (or Get Extensions) → <b>MatricX PRO</b>.</p>
+  <ul>
+    <li><b>External Asset Pack</b> — the folder, Locate Asset Pack, Open, and a live status line.</li>
+    <li><b>MatricX Decals &amp; Trims</b> — decal and trim counts, pie shortcut toggles, Refresh Libraries.</li>
+    <li><b>Additional Libraries</b> — every library you added, with a ✕ to remove it. A missing folder is flagged
+        but stays listed so you can clear it.</li>
+    <li><b>Updates and support</b> — official Eidos Edge links.</li>
+  </ul>
+  <figure>
+    <img loading="lazy" src="images/IMG-25.png" alt="MatricX PRO preferences: asset pack, decals & trims, libraries, pie shortcuts and links.">
+    <figcaption>MatricX PRO preferences: asset pack, decals &amp; trims, libraries, pie shortcuts and links.</figcaption>
+  </figure>
+
+  <h3>Cross-platform</h3>
+  <p>One build runs on Windows, macOS (Intel and Apple Silicon) and Linux. Paths use no platform-specific
+     separators and tolerate differences in capitalisation, so projects move between systems.</p>
+</section>
+
+<!-- ============================= 23 RENDER ============================= -->
+<section id="render">
+  <p class="kicker">SECTION 23</p>
+  <h2 class="sec">Rendering &amp; <span class="acc">Performance</span></h2>
+  <div class="rule"></div>
+
+  <h3>Edge Wear needs Cycles</h3>
+  <p>Edge Wear finds edges with Bevel nodes, which only Cycles evaluates. It does not show in EEVEE or in the
+     Material Preview viewport; the layer card says so when that applies. Edge Damage, Chip Damaged and the
+     other types work in both engines.</p>
+
+  <h3>Keep it fast</h3>
+  <ul>
+    <li><b>Tiling:</b> leave it on <b>Auto</b>. Fast and High cost more render time on every object using the material.</li>
+    <li><b>Layer count:</b> a few restrained layers usually look better and render faster than many strong ones.
+        Hide layers with their checkbox to compare.</li>
+    <li><b>Heavier materials:</b> some procedural materials, such as Camo 1–4, are more expensive to render in
+        Cycles than the rest of the collection. Use lower samples while you iterate.</li>
+    <li><b>Paint masks</b> add no render cost beyond the layer itself; mesh density only affects painting detail.</li>
+  </ul>
+
+  <h3>Glass</h3>
+  <p>Tinted Glass and Scope Glass are transmissive with a clear coat in Cycles; lowering <b>Clarity</b> below 1
+     adds a milky haze. In EEVEE they stay see-through without turning on scene raytracing.</p>
+</section>
+
+<!-- ============================= 24 WORKFLOWS ============================= -->
+<section id="workflows">
+  <p class="kicker">SECTION 24</p>
+  <h2 class="sec">Recommended <span class="acc">Workflows</span></h2>
+  <div class="rule"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Fast hard-surface</h4>
+      <ol>
+        <li>Apply Default Metal or Default Plastic.</li>
+        <li>Turn on Live Mapping if transforms are unapplied.</li>
+        <li>Set colour, roughness and bevel.</li>
+        <li>Add subtle Edge Wear.</li>
+        <li>Add low-opacity Dirt or Directional Dirt.</li>
+        <li>Add Scratch or Fingerprints only where they earn their place.</li>
+        <li>Save it as a Material Look.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Start from a recipe</h4>
+      <ol>
+        <li>Apply a recipe — the stack is already built.</li>
+        <li>Tune Base Color and Roughness to your asset.</li>
+        <li>Adjust layer Amount and Opacity to taste.</li>
+        <li>Add or remove layers freely.</li>
+        <li>Reset Imperfections to start over.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Rusted metal</h4>
+      <ol>
+        <li>Apply a metal and add Rust; keep Opacity restrained.</li>
+        <li>Add Edge Damage for chipped areas.</li>
+        <li>Add Dirt at low opacity to unify everything.</li>
+        <li>Paint the rust mask where water would actually sit.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Dusty weapon prop</h4>
+      <ol>
+        <li>Apply a Weapon &amp; Guns recipe.</li>
+        <li>Add Powder Dust on top surfaces.</li>
+        <li>Add Fingerprints at low opacity on grips.</li>
+        <li>Use Scope Glass for lenses.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Hand-placed wear</h4>
+      <ol>
+        <li>Get the layer's procedural look right first.</li>
+        <li>Start Painting in the mode that means less brushing.</li>
+        <li>Check coverage in Mask view.</li>
+        <li>Finish, then lower Mask Strength if needed.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Modelling blockout</h4>
+      <ol>
+        <li>Open Viewport and click Use Material View.</li>
+        <li>Assign swatches by part group, or Random Viewport Color.</li>
+        <li>Use <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">M</span> for speed.</li>
+        <li>Organise with the collection helpers.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 25 TROUBLESHOOTING ============================= -->
+<section id="trouble">
+  <p class="kicker">SECTION 25</p>
+  <h2 class="sec">Trouble<span class="acc">shooting</span></h2>
+  <div class="rule"></div>
+
+  <h4>"Asset pack not connected"</h4>
+  <p>Click <b>Locate Asset Pack</b> and select the <code>MatricX_Assets_2.1.0</code> folder (Section 05).
+     Until a pack is connected, the panel's "Looked in" line shows a default location inside the add-on folder —
+     that is a placeholder, not a sign your selection was ignored.</p>
+
+  <h4>"This is a 2.0.x asset pack"</h4>
+  <p>You selected an older pack. MatricX PRO 2.1.0 needs <code>MatricX_Assets_2.1.0.zip</code>: download it,
+     extract it, and select the new folder. The old pack is not changed.</p>
+
+  <h4>The Material Collection shows no thumbnails</h4>
+  <p>In 2.1 the thumbnails live in the asset pack. Connect the pack.</p>
+
+  <h4>Linux / Flatpak: the pack is not found</h4>
+  <p>Extract the pack in your home directory (not inside <code>.var</code>) and use Locate Asset Pack.</p>
+
+  <h4>Windows: the decal browser is empty</h4>
+  <p>The pack is probably in a folder with a very long path. Move it somewhere short, such as <code>D:\Assets\</code>,
+     and locate it again.</p>
+
+  <h4>Edge Wear does not show</h4>
+  <p>It renders in Cycles only — not in EEVEE or Material Preview (Section 23).</p>
+
+  <h4>An imperfection covers far too much</h4>
+  <p>Lower <b>Opacity</b> first, then <b>Amount</b>. Switch to Mask view to see exactly what the mask does.</p>
+
+  <h4>Add Layer is missing a type</h4>
+  <p>The list follows what the material supports (Section 14). Plain glass, Fabric, Emission and Custom offer none.</p>
+
+  <h4>My 2.0 Scratch Paint looks different</h4>
+  <p>2.1 uses a new pattern (Section 03). Adjust Amount and Scale.</p>
+
+  <h4>Decals in an old scene have no images</h4>
+  <p>Their images live in your 2.0 pack folder. Keep it in its original location.</p>
+
+  <h4>Painting says another layer is being painted</h4>
+  <p>Click <b>Finish That Session</b>, then start again on the layer you want.</p>
+
+  <h4>My paint mask is blocky</h4>
+  <p>Masks are vertex-based. Subdivide where you need finer control.</p>
+
+  <h4>A fabric looks flat</h4>
+  <p>Fabrics need a UV map. Click <b>Create UV Map</b> when MatricX warns you.</p>
+
+  <h4>A decal appears twice</h4>
+  <p>Refresh libraries and check the same folder is not added twice. Decals are de-duplicated by <code>uuid</code>.</p>
+
+  <h4>A pie shortcut conflicts with another add-on</h4>
+  <p>Turn the pie off in Preferences, or rebind it under Preferences → Keymap.</p>
+</section>
+
+<!-- ============================= 26 SUPPORT ============================= -->
+<section id="support">
+  <p class="kicker">SECTION 26</p>
+  <h2 class="sec"><span class="acc">Support</span></h2>
+  <div class="rule"></div>
+
+  <p>Use the official Eidos Edge links in MatricX Preferences for support, updates and tutorials, or visit the
+     <a href="../support.html">Support page</a> to report a bug or send feedback.</p>
+  <p>When reporting a problem, include:</p>
+  <ul>
+    <li>Blender version and operating system.</li>
+    <li>MatricX PRO version, and whether you installed the add-on or the extension.</li>
+    <li>Whether the asset pack is connected — Preferences shows the status.</li>
+    <li>A screenshot or short recording.</li>
+    <li>A minimal <code>.blend</code> where possible.</li>
+    <li>The exact steps to reproduce it.</li>
+  </ul>
+
+  <div class="note" style="margin-top:36px">
+    <p style="font-size:17px"><b>Thank you for using MatricX PRO.</b></p>
+    <p style="margin-top:6px;color:var(--dim)">— Prasanth · Eidos Edge · MatricX PRO Developer</p>
+  </div>
+</section>
+
+<footer>
+  MatricX PRO — Official User Guide · v2.1.0 · Next Edition<br>
+  © 2024–2026 Prasanth / Eidos Edge
+</footer>
+
+</div>
+<script>
+(function () {
+  var links = {};
+  document.querySelectorAll('.doc-sidebar a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  if (!('IntersectionObserver' in window)) return;
+  var current = null;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && links[e.target.id]) {
+        if (current) current.classList.remove('active');
+        current = links[e.target.id];
+        current.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  Object.keys(links).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+})();
+</script>
+</body>
+</html>
