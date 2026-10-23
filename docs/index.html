@@ -189,7 +189,19 @@
   }
   @media (max-width:760px){.site-nav{display:none}.site-brand em{display:none}}
   @media print{.site-bar,.doc-sidebar,.doc-actions{display:none !important}body{padding-left:0 !important}}
+  /* The cover filled 96vh; inside an iframe vh is the iframe's height, so cap it. */
+  .cover{min-height:min(96vh,960px)}
+  /* Embedded in a store page (iframe): no site bar or sidebar, compact cover. */
+  html.embedded .site-bar,html.embedded .doc-sidebar,html.embedded .doc-support{display:none !important}
+  html.embedded body{padding-left:0}
+  html.embedded .cover{min-height:auto;padding:40px 0 24px}
+  html.embedded section{scroll-margin-top:12px}
 </style>
+<script>
+  // Running inside an iframe (for example a store's documentation tab)?
+  try { if (window.self !== window.top) document.documentElement.classList.add('embedded'); }
+  catch (e) { document.documentElement.classList.add('embedded'); }
+</script>
 </head>
 <body>
 <header class="site-bar">
@@ -261,7 +273,7 @@
   <div class="doc-actions">
     <a class="site-btn" href="MatricX_PRO_2.1_User_Guide.pdf" download>Download PDF</a>
     <a class="site-btn ghost" href="#contents">Contents</a>
-    <a class="site-btn ghost" href="../support.html">Get support</a>
+    <a class="site-btn ghost doc-support" href="../support.html">Get support</a>
   </div>
   <p class="byline" style="margin-top:22px">Created by <b>Prasanth / Eidos Edge</b><br>
      Requires Blender 4.5 or newer · tested through Blender 5.2</p>
@@ -1485,6 +1497,15 @@
 </footer>
 
 </div>
+<script>
+(function () {
+  if (!document.documentElement.classList.contains('embedded')) return;
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (h.charAt(0) !== '#' && !a.hasAttribute('download')) { a.target = '_blank'; a.rel = 'noopener'; }
+  });
+})();
+</script>
 <script>
 (function () {
   var links = {};
