@@ -2,1118 +2,979 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MatricX PRO 2.1.0 — Next Edition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MatricX PRO 2.1 — Stop Wasting Time Texturing</title>
+<meta name="description" content="MatricX PRO for Blender: 70 ready-made materials, 16 layered imperfection types, paint masks, decals and trim sheets. Click, customise, finish.">
+<meta property="og:title" content="MatricX PRO 2.1 — Stop Wasting Time Texturing">
+<meta property="og:description" content="70 ready-made materials and 16 layered imperfections for Blender 4.5–5.2.">
+<meta property="og:image" content="assets/showcase.jpg">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
-
-:root{
-  --bg:#0c0c0c;
-  --panel:#161616;
-  --panel2:#1c1c1c;
-  --line:#2b2b2b;
-  --text:#c9c9c9;
-  --dim:#8c8c8c;
-  --head:#f5f5f5;
-  --accent:#f26722;
-  --accent2:#ff8a4c;
-  --green:#4fc281;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:16px;
-  line-height:1.65;
-}
-.page{max-width:1040px;margin:0 auto;padding:0 0 100px}
-img{max-width:100%;display:block}
-
-h1,h2.sec,h3.sub{
-  font-family:'Anton',Impact,sans-serif;
-  font-weight:400;
-  text-transform:uppercase;
-  color:var(--head);
-  letter-spacing:.5px;
-  margin:0;
-}
-.kicker{
-  color:var(--accent);
-  font-family:'JetBrains Mono',monospace;
-  font-size:12.5px;
-  font-weight:500;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin:0 0 10px;
-}
-.rule{height:3px;width:64px;background:var(--accent);margin:16px 0 26px;border:none}
-p{margin:0 0 14px;color:var(--text)}
-.dim{color:var(--dim)}
-
-/* ---------------- HERO ---------------- */
-.hero-img{width:100%;border-radius:2px;display:block}
-.hero-copy{padding:38px 6px 0}
-.hero-copy h1{font-size:34px;line-height:1.15;max-width:760px}
-.hero-copy h1 span{color:var(--accent)}
-.hero-sub{font-size:17px;color:var(--text);max-width:640px;margin-top:16px}
-
-.badges{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 4px}
-.badge{
-  background:var(--panel);
-  border:1px solid var(--line);
-  color:var(--dim);
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  padding:9px 14px;
-  border-radius:4px;
-}
-.badge.on{background:var(--accent);color:#100800;border-color:var(--accent);font-weight:700}
-
-/* ---------------- NEW 2.1.0 STYLES ---------------- */
-.new-badge {
-  display: inline-block;
-  background: var(--accent);
-  color: #150900;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 3px;
-  margin-left: 8px;
-  vertical-align: middle;
-  text-transform: uppercase;
-}
-.feature-highlight {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin: 30px 0;
-}
-@media(max-width: 768px) { .feature-highlight { grid-template-columns: 1fr; } }
-.highlight-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-}
-.highlight-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 4px; height: 100%;
-  background: var(--accent);
-}
-.highlight-card h3 { color: var(--head); margin: 0 0 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px; }
-.highlight-card p { color: var(--dim); font-size: 14px; margin: 0; }
-
-/* ---------------- BUTTONS ---------------- */
-.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'Inter';font-weight:700;font-size:14px;
-  padding:13px 22px;border-radius:5px;text-decoration:none;
-  cursor:pointer;border:1.5px solid transparent;transition:transform .12s ease, background .12s ease;
-}
-.btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--accent);color:#150900}
-.btn-primary:hover{background:var(--accent2)}
-.btn-secondary{background:transparent;color:var(--head);border-color:var(--line)}
-.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-.btn svg{width:16px;height:16px;flex-shrink:0}
-
-/* ---------------- BEFORE/AFTER COMPARE SLIDER ---------------- */
-.compare{
-  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
-  border-radius:6px;border:1px solid var(--line);margin:26px 0 10px;
-  touch-action:none;cursor:ew-resize;background:#000;
-}
-.compare img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  pointer-events:none;-webkit-user-select:none;user-select:none;
-}
-.compare .after-img{z-index:1}
-.compare .before-img{z-index:2;clip-path:inset(0 50% 0 0)}
-.compare-label{
-  position:absolute;top:14px;z-index:4;
-  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
-  letter-spacing:1.5px;color:#000;background:var(--accent);
-  padding:5px 10px;border-radius:3px;pointer-events:none;
-}
-.compare-label.before-lbl{left:14px}
-.compare-label.after-lbl{right:14px;background:var(--panel2);color:var(--head);border:1px solid var(--line)}
-.compare-handle{
-  position:absolute;top:0;bottom:0;left:50%;z-index:3;width:0;pointer-events:none;
-}
-.compare-handle .bar{position:absolute;top:0;bottom:0;left:-1px;width:2px;background:var(--accent)}
-.compare-handle .knob{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:46px;height:46px;border-radius:50%;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;color:#150900;
-  font-size:15px;font-weight:800;box-shadow:0 3px 14px rgba(0,0,0,.55);
-}
-.compare-hint{
-  text-align:center;color:var(--dim);font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;letter-spacing:.5px;margin:0 0 30px;
+:root {
+  --bg: #0a0a0a;
+  --panel: #141414;
+  --panel-hover: #1a1a1a;
+  --line: #2a2a2a;
+  --text: #d1d1d1;
+  --muted: #a0a0a0;
+  --head: #ffffff;
+  --orange: #f26722;
+  --orange-hover: #ff8a4c;
+  --green: #69f0ae;
 }
 
-/* ---------------- SECTIONS ---------------- */
-section{padding:70px 6px 0}
-h2.sec{font-size:32px;line-height:1.15}
-h2.sec + .rule{margin:16px 0 22px}
-.lead{font-size:17.5px;color:var(--head);max-width:700px;font-weight:500}
-.body-col{max-width:680px}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+.page { max-width: 1040px; margin: 0 auto; padding: 0 20px 80px; }
+b, strong { color: #f0f0f0; font-weight: 600; }
 
-/* ---------------- IMAGE PLACEHOLDER ---------------- */
-.shot{
-  border:1.5px dashed #3a3a3a;
-  background:repeating-linear-gradient(135deg, #151515, #151515 10px, #181818 10px, #181818 20px);
-  border-radius:6px;
-  padding:26px;
-  margin:26px 0;
-  text-align:left;
+/* Typography */
+h1, h2, h3 { font-family: 'Anton', Impact, sans-serif; font-weight: 400; text-transform: uppercase; color: var(--head); letter-spacing: 0.5px; line-height: 1.1; }
+p { margin-bottom: 16px; }
+.kicker {
+  color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.shot .tag{
-  display:inline-block;
-  font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;
-  letter-spacing:1.5px;
-  color:#000;
-  background:var(--accent);
-  padding:4px 9px;
-  border-radius:3px;
-  margin-bottom:12px;
-  text-transform:uppercase;
-  font-weight:700;
-}
-.shot h4{margin:0 0 8px;color:var(--head);font-size:15px;font-family:'Inter';font-weight:700}
-.shot p{margin:0;color:var(--dim);font-size:13.5px;max-width:560px}
-.shot .ratio{
-  margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;
-}
+.kicker::before { content: ""; display: block; width: 20px; height: 2px; background: var(--green); }
+.kicker.center { justify-content: center; }
+.green-text { color: var(--green); }
+.orange-text { color: var(--orange); }
+.section-head { text-align: center; margin-bottom: 48px; }
+.section-head h2 { font-size: clamp(30px, 4.4vw, 42px); margin-bottom: 14px; }
+.section-head p { color: #888; max-width: 620px; margin: 0 auto; }
+section { padding: 84px 0; border-top: 1px solid var(--line); }
+section.hero { border-top: none; }
 
-/* ---------------- FEATURE IMAGE (provided) ---------------- */
-.feature-img-wrap{
-  border-radius:6px;overflow:hidden;border:1px solid var(--line);margin:26px 0;
+/* Top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(10,10,10,.86); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
 }
+.topbar-inner { max-width: 1040px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--head); text-decoration: none; font-family: 'Anton', Impact, sans-serif; font-size: 20px; letter-spacing: .5px; }
+.brand img { width: 30px; height: 30px; border-radius: 6px; }
+.brand span { color: var(--orange); }
+.nav { display: flex; gap: 22px; margin-left: auto; }
+.nav a { color: #9a9a9a; text-decoration: none; font-size: 14px; font-weight: 500; }
+.nav a:hover { color: var(--head); }
 
-/* ---------------- GRID CARDS ---------------- */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-@media(max-width:760px){.grid3,.grid2{grid-template-columns:1fr}}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:20px 20px 22px;
+/* Buttons */
+.btn {
+  display: inline-flex; justify-content: center; align-items: center; gap: 10px;
+  background: var(--orange); color: #000;
+  font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: .3px;
+  padding: 18px 36px; border-radius: 4px; text-decoration: none;
+  transition: all 0.2s ease; border: none; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(242, 103, 34, 0.3);
 }
-.card .num{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:1px}
-.card h4{color:var(--head);font-size:16.5px;margin:8px 0 8px;font-weight:700}
-.card p{color:var(--dim);font-size:13.8px;margin:0}
+.btn:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(242, 103, 34, 0.4); }
+.btn:focus-visible, .btn-ghost:focus-visible, .nav a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.btn-large { font-size: 18px; padding: 22px 48px; width: 100%; max-width: 400px; }
+.btn-small { font-size: 13px; padding: 10px 18px; box-shadow: none; }
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--head); text-decoration: none; font-weight: 600; font-size: 15px;
+  padding: 16px 28px; border: 1px solid #3a3a3a; border-radius: 4px; transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+.cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; align-items: center; }
 
-/* ---------------- MATERIAL CATEGORY TABLE ---------------- */
-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px}
-th{
-  background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;
-  font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);
-  font-family:'JetBrains Mono',monospace;font-weight:500;
+/* Media frames (screenshots and renders) */
+.frame {
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #111;
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
 }
-td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--text);vertical-align:top}
-tr:nth-child(even) td{background:var(--panel)}
-td b{color:var(--head)}
-.count{color:var(--accent);font-weight:700}
+.frame img { width: 100%; }
+.caption { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--green); text-align: center; margin-top: 14px; }
 
-/* ---------------- LAYER STACK DIAGRAM ---------------- */
-.stack-diagram{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  margin:30px 0 8px;padding:24px;background:var(--panel);border:1px solid var(--line);border-radius:6px;
-}
-.stack-chip{
-  background:var(--panel2);border:1px solid var(--line);border-radius:5px;
-  padding:12px 16px;min-width:120px;
-}
-.stack-chip .n{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:11px;font-weight:700}
-.stack-chip .t{color:var(--head);font-size:13.5px;font-weight:700;margin-top:3px}
-.arrow{color:var(--accent);font-size:20px;font-weight:700}
-.stack-result{
-  background:var(--accent);color:#150900;border-radius:5px;padding:12px 18px;font-weight:800;
-  font-size:13.5px;letter-spacing:.5px;
-}
+/* Launch offer bar */
+.offerbar { background: var(--orange); color: #111; text-align: center; font-size: 14px; font-weight: 600; padding: 9px 16px; }
+.offerbar a { color: #111; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; margin-left: 6px; }
+.offerbar s { opacity: .65; }
+.offerbar .cd { font-family: 'JetBrains Mono', monospace; font-weight: 700; margin-left: 8px; }
 
-/* ---------------- IMPERFECTION TYPE GROUPS ---------------- */
-.type-group{margin-bottom:26px}
-.type-group h4{
-  color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px;
-  letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;font-weight:600;
-}
-.type-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
-@media(max-width:600px){.type-list{grid-template-columns:1fr}}
-.type-item{
-  padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;
-}
-.type-item b{color:var(--head)}
-.type-item span{color:var(--dim);font-size:13px;display:block;margin-top:2px}
+/* Price line under hero CTA */
+.price-line { margin-top: 16px; font-size: 15px; color: var(--muted); }
+.price-line s { color: #777; margin-right: 6px; }
+.price-line .now { color: var(--head); font-weight: 800; font-size: 18px; margin-right: 8px; }
+.price-line .off { color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
 
-/* ---------------- SPEC / INCLUDED TABLE ---------------- */
-.spec-block{
-  background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:26px 0;
-}
-.spec-row{display:flex;border-bottom:1px solid var(--line);padding:14px 20px}
-.spec-row:last-child{border-bottom:none}
-.spec-row .k{width:220px;flex-shrink:0;color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase}
-.spec-row .v{color:var(--text);font-size:14.5px}
-.spec-row .v b{color:var(--head)}
+/* Mid-page buy band */
+.buy-band { margin-top: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  background: linear-gradient(90deg, rgba(242,103,34,.14), rgba(242,103,34,.04)); border: 1px solid rgba(242,103,34,.35);
+  border-radius: 10px; padding: 26px 30px; }
+.buy-band h3 { font-size: 26px; }
+.buy-band p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+.buy-band s { color: #777; }
 
-/* ---------------- CALLOUT STRIP ---------------- */
-.strip{
-  display:flex;gap:24px;align-items:flex-start;background:var(--panel);
-  border:1px solid var(--line);border-left:3px solid var(--accent);
-  border-radius:0 6px 6px 0;padding:22px 24px;margin:30px 0;
-}
-@media(max-width:640px){.strip{flex-direction:column}}
-.strip .icon{color:var(--accent);font-family:'Anton';font-size:26px;flex-shrink:0}
-.strip h4{margin:0 0 6px;color:var(--head);font-size:16px}
-.strip p{margin:0;color:var(--dim);font-size:14px}
+/* Offer: value table + price card */
+.offer-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.value-table { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.value-table table { width: 100%; border-collapse: collapse; }
+.value-table th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--green); padding: 14px 20px; border-bottom: 1px solid var(--line); font-weight: 700; }
+.value-table td { padding: 13px 20px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 15px; }
+.value-table td b { display: block; color: var(--head); }
+.value-table td span { display: block; font-size: 13px; color: #8a8a8a; margin-top: 2px; }
+.value-table .worth { text-align: right; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #cfcfcf; width: 90px; }
+.value-table tfoot td { border-bottom: none; background: #101010; font-weight: 700; color: var(--head); font-size: 16px; }
+.value-table tfoot .worth { color: var(--head); font-size: 17px; }
+.value-table .incl { color: var(--green); }
+.price-card { position: sticky; top: 90px; background: #121212; border: 2px solid var(--orange); border-radius: 12px; padding: 30px 28px; text-align: center;
+  box-shadow: 0 20px 60px rgba(242,103,34,.18); }
+.price-card .badge { display: inline-block; background: var(--orange); color: #111; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; padding: 5px 12px; border-radius: 4px; }
+.price-row { display: flex; align-items: baseline; justify-content: center; gap: 14px; margin: 18px 0 6px; }
+.price-row .was { font-size: 28px; color: #6f6f6f; text-decoration: line-through; font-weight: 600; }
+.price-row .now { font-family: 'Anton', Impact, sans-serif; font-size: 76px; color: var(--head); line-height: 1; }
+.price-card .save { color: var(--green); font-weight: 700; font-size: 15px; }
+.price-card .vs { color: var(--muted); font-size: 14px; margin: 10px 0 22px; }
+.price-card .btn-large { max-width: none; }
+.price-card .cd-box { margin-top: 14px; font-size: 13px; color: var(--muted); }
+.price-card .cd-box b { font-family: 'JetBrains Mono', monospace; color: var(--orange); }
+.trust { list-style: none; margin-top: 22px; text-align: left; border-top: 1px solid var(--line); padding-top: 18px; }
+.trust li { position: relative; padding-left: 26px; font-size: 14px; color: #c8c8c8; margin-bottom: 9px; }
+.trust li::before { content: "\2713"; position: absolute; left: 0; color: var(--green); font-weight: 800; }
 
-/* ---------------- FOOTER ---------------- */
-footer{
-  margin-top:80px;padding:34px 6px 0;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
-}
-footer .brand{font-family:'Anton';color:var(--head);font-size:15px;letter-spacing:.5px}
-footer .brand span{color:var(--accent)}
-footer .tag{color:var(--dim);font-size:12.5px;font-family:'JetBrains Mono',monospace}
+/* Final close */
+.final-price { margin: 6px 0 26px; font-size: 18px; color: var(--muted); }
+.final-price s { color: #777; margin-right: 8px; }
+.final-price b { color: var(--head); font-size: 22px; margin-right: 6px; }
 
-/* ---------------- PAIN / COMPARISON COLUMNS ---------------- */
-.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
-.pain-col{border-radius:6px;padding:22px 22px 24px}
-.pain-col.old{background:var(--panel);border:1px solid var(--line)}
-.pain-col.new{background:var(--panel);border:1px solid var(--accent)}
-.pain-col .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:700}
-.pain-col.old .label{color:var(--dim)}
-.pain-col.new .label{color:var(--accent)}
-.pain-step{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--text)}
-.pain-step:last-child{border-bottom:none}
-.pain-col.old .pain-step{color:var(--dim)}
-.pain-col.new .pain-step{color:var(--head);font-weight:600}
-
-/* ---------------- WORKFLOW STEPS ---------------- */
-.workflow-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:28px 0}
-.workflow-step{
-  background:var(--panel2);border:1px solid var(--line);border-radius:6px;
-  padding:14px 16px;min-width:110px;text-align:center;
-}
-.workflow-step .wn{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:11px;font-weight:700}
-.workflow-step .wt{color:var(--head);font-size:13px;font-weight:700;margin-top:4px}
-.workflow-arrow{color:var(--accent);font-size:18px}
-
-/* ---------------- PULL QUOTE ---------------- */
-.pull-quote{
-  border-left:3px solid var(--accent);padding:6px 0 6px 24px;margin:30px 0;
-}
-.pull-quote p{
-  font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:none;
-  color:var(--head);font-size:22px;line-height:1.35;margin:0;letter-spacing:.2px;
+/* Mobile buy bar */
+.buybar { display: none; }
+@media (max-width: 860px) {
+  .offer-grid { grid-template-columns: 1fr; }
+  .price-card { position: static; order: -1; }
+  .buy-band { padding: 22px; }
+  .buybar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(10,10,10,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line); transform: translateY(110%); transition: transform .25s ease; }
+  .buybar.show { transform: none; }
+  .buybar .p { font-size: 14px; color: var(--muted); }
+  .buybar .p s { color: #777; }
+  .buybar .p b { color: var(--head); font-size: 20px; margin: 0 4px; }
+  body { padding-bottom: 72px; }
 }
 
-/* ---------------- CONTRAST TABLE ---------------- */
-.contrast-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-.contrast-row:last-child{border-bottom:none}
-.contrast-old{color:var(--dim);font-size:14px;text-align:right}
-.contrast-arrow{color:var(--accent);font-size:14px;font-family:'JetBrains Mono',monospace}
-.contrast-new{color:var(--head);font-size:14px;font-weight:600}
+/* Family banner carousel */
+.carousel { position: relative; margin-bottom: 40px; }
+.carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  border-radius: 10px; border: 1px solid var(--line); scrollbar-width: none; background: #000; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track img { flex: 0 0 100%; width: 100%; scroll-snap-align: center; aspect-ratio: 2 / 1; object-fit: cover; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid #3a3a3a; background: rgba(10,10,10,.8); color: var(--head); font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: border-color .2s, color .2s; }
+.carousel-btn:hover { border-color: var(--orange); color: var(--orange); }
+.carousel-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.carousel-btn.prev { left: -22px; }
+.carousel-btn.next { right: -22px; }
+.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.carousel-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; background: #3a3a3a; cursor: pointer; padding: 0; }
+.carousel-dots button[aria-current="true"] { background: var(--orange); width: 24px; border-radius: 5px; }
 
-/* ---------------- PILLAR TAGS ---------------- */
-.pillars{display:flex;gap:12px;margin:26px 0;flex-wrap:wrap}
-.pillar{
-  background:var(--panel);border:1px solid var(--line);border-radius:6px;
-  padding:16px 20px;flex:1;min-width:160px;
-}
-.pillar .pt{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
-.pillar-tags{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
-.pillar-tag{
-  background:var(--panel2);border:1px solid var(--line);border-radius:20px;
-  padding:7px 14px;font-size:12.5px;color:var(--text);
-}
-.pillar-tag b{color:var(--accent)}
+/* Showcase gallery */
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gallery .wide { grid-column: 1 / -1; }
 
-/* ---------------- WHO IT'S FOR ---------------- */
-.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:28px 0}
-.who-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
-.who-card .wh{color:var(--head);font-size:15px;font-weight:700;margin-bottom:6px}
-.who-card p{color:var(--dim);font-size:13.5px;margin:0}
-
-/* ---------------- VALUE STACK LIST ---------------- */
-.value-list{list-style:none;margin:26px 0;padding:0}
-.value-list li{
-  display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);
-  font-size:14.5px;color:var(--text);align-items:flex-start;
-}
-.value-list li:last-child{border-bottom:none}
-.value-list .check{color:var(--accent);font-weight:800;flex-shrink:0}
-.value-list b{color:var(--head)}
-
-/* ---------------- FAQ ---------------- */
-.faq-item{border-bottom:1px solid var(--line);padding:18px 0}
-.faq-item:last-child{border-bottom:none}
-.faq-q{color:var(--head);font-size:15.5px;font-weight:700;margin:0 0 8px}
-.faq-a{color:var(--dim);font-size:14px;margin:0}
-
-/* ---------------- FINAL CTA ---------------- */
-.final-cta{
-  background:linear-gradient(180deg, var(--panel), var(--panel2));
-  border:1px solid var(--line);border-top:3px solid var(--accent);
-  border-radius:8px;padding:44px 34px;text-align:center;margin:26px 0;
-}
-.final-cta h2{font-size:30px;max-width:600px;margin:0 auto}
-.final-cta p{max-width:520px;margin:16px auto 0;color:var(--text);font-size:15.5px}
-
-/* ---------------- ASSET PLACEHOLDER (detailed spec format) ---------------- */
-.asset-ph{
-  border:1.5px dashed #3a3a3a;
-  background:repeating-linear-gradient(135deg, #151515, #151515 10px, #181818 10px, #181818 20px);
-  border-radius:6px;padding:26px;margin:26px 0;
-}
-.asset-ph .aid{
-  display:inline-block;background:var(--accent);color:#000;font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 9px;border-radius:3px;margin-bottom:12px;
-}
-.asset-ph h4{margin:0 0 14px;color:var(--head);font-size:16px;font-weight:700}
-.asset-ph .af{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:13.5px;margin-bottom:6px}
-.asset-ph .af b{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
-.asset-ph .af span{color:var(--text)}
-
-/* ---------------- PRICING ---------------- */
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}
-@media(max-width:900px){.pricing-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.pricing-grid{grid-template-columns:1fr}}
-.price-card{
-  background:var(--panel);border:1px solid var(--line);border-radius:8px;
-  padding:26px 20px;display:flex;flex-direction:column;position:relative;
-}
-.price-card.popular{border-color:var(--accent);background:var(--panel2)}
-.price-card .pop-tag{
-  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
-  background:var(--accent);color:#150900;font-family:'JetBrains Mono',monospace;
-  font-size:10px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;border-radius:3px;
-}
-.price-card .pname{font-family:'JetBrains Mono',monospace;color:var(--dim);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
-.price-card.popular .pname{color:var(--accent)}
-.price-card .pamount{font-family:'Anton',sans-serif;color:var(--head);font-size:34px;margin-bottom:4px}
-.price-card .pnote{color:var(--dim);font-size:12.5px;margin-bottom:18px;min-height:34px}
-.price-card ul{list-style:none;margin:0 0 22px;padding:0;flex-grow:1}
-.price-card li{color:var(--text);font-size:13px;padding:7px 0;border-bottom:1px solid var(--line)}
-.price-card li:last-child{border-bottom:none}
-.price-card a.btn{width:100%;justify-content:center;text-align:center}
-
-/* ---------------- PROMO MODULE ---------------- */
-.promo-module{
-  background:var(--panel2);border:1px dashed var(--accent);border-radius:8px;
-  padding:28px 26px;margin:30px 0;text-align:center;
-}
-.promo-module .plabel{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.promo-module h3{font-family:'Anton',sans-serif;color:var(--head);font-size:24px;margin:0 0 14px;text-transform:uppercase}
-.coupon-code{
-  display:inline-block;background:var(--bg);border:1px solid var(--accent);color:var(--accent);
-  font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;letter-spacing:2px;
-  padding:10px 20px;border-radius:5px;margin:6px 0 14px;
-}
-.promo-table{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.promo-tier{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px 16px;font-size:12.5px;color:var(--dim)}
-.promo-tier b{color:var(--head)}
-.promo-tier s{color:#555}
-.promo-tier .disc{color:var(--accent);font-weight:700}
-
-/* ---------------- ECOSYSTEM PIPELINE ---------------- */
-.pipeline-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0;justify-content:center}
-.pipeline-node{
-  background:var(--panel);border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;text-align:center;min-width:120px;
-}
-.pipeline-node.hi{border-color:var(--accent);background:var(--panel2)}
-.pipeline-node .pn-label{color:var(--head);font-size:13px;font-weight:700}
-.pipeline-arrow{color:var(--accent);font-size:18px}
-
-/* ---------------- OPTIONAL MODULE MARKER ---------------- */
-.optional-module{border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:36px 0}
-.module-note{
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#666;letter-spacing:1px;
-  text-transform:uppercase;text-align:center;margin-bottom:20px;
+@media (max-width: 860px) {
+  .carousel-btn { display: none; }
+  .gallery { grid-template-columns: 1fr; }
 }
 
-/* ---------------- MATERIAL CAROUSEL ---------------- */
-.material-carousel{
-  position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);
-  background:#000;margin:26px 0 10px;touch-action:pan-y;
+/* Store picker */
+.stores-dialog { margin: auto; border: 1px solid var(--line); border-radius: 14px; background: #111; color: var(--text);
+  padding: 0; width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 32px); box-shadow: 0 30px 90px rgba(0,0,0,.7); }
+.stores-dialog::backdrop { background: rgba(0,0,0,.72); backdrop-filter: blur(4px); }
+.stores-inner { padding: 30px 30px 26px; position: relative; }
+.stores-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #333;
+  background: transparent; color: #aaa; font-size: 20px; cursor: pointer; line-height: 1; }
+.stores-close:hover { color: var(--head); border-color: var(--orange); }
+.stores-dialog h2 { font-size: 30px; margin: 6px 0 6px; }
+.stores-dialog .sub { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
+.stores-dialog .sub b { color: var(--head); }
+.store-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.store { display: flex; flex-direction: column; gap: 6px; text-decoration: none; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 20px 18px; transition: border-color .2s, transform .2s, background .2s; }
+.store:hover { border-color: var(--orange); background: var(--panel-hover); transform: translateY(-2px); }
+.store:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.store .name { font-family: 'Anton', Impact, sans-serif; font-size: 22px; text-transform: uppercase; color: var(--head); letter-spacing: .5px; }
+.store .note { font-size: 13.5px; color: #8f8f8f; flex: 1; }
+.store .go { margin-top: 10px; font-weight: 800; font-size: 13px; text-transform: uppercase; color: var(--orange); letter-spacing: .3px; }
+.stores-foot { margin-top: 18px; font-size: 13px; color: #777; text-align: center; }
+@media (max-width: 640px) { .store-list { grid-template-columns: 1fr; } .stores-inner { padding: 26px 18px 20px; } .store { padding: 16px; } }
+@media (prefers-reduced-motion: reduce) { .store { transition: none; } .store:hover { transform: none; } }
+
+/* Before / after slider */
+.ba { position: relative; aspect-ratio: 16 / 9; cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-line {
+  position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px;
+  background: var(--orange); box-shadow: 0 0 16px rgba(242,103,34,.75);
 }
-.mc-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1)}
-.mc-slide{flex:0 0 100%;position:relative;aspect-ratio:16/10}
-.mc-slide img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;user-select:none}
-.mc-cap{
-  position:absolute;left:14px;bottom:14px;z-index:2;
-  background:var(--accent);color:#150900;font-family:'JetBrains Mono',monospace;
-  font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
-  padding:6px 12px;border-radius:4px;
+.ba-handle {
+  position: absolute; top: 50%; left: var(--pos); width: 46px; height: 46px; margin: -23px 0 0 -23px;
+  border-radius: 50%; background: var(--orange); color: #000;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 4px rgba(10,10,10,.6), 0 6px 18px rgba(0,0,0,.55);
+  transition: transform .15s ease;
 }
-.mc-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
-  width:38px;height:38px;border-radius:50%;background:rgba(12,12,12,.72);
-  border:1px solid var(--line);color:var(--head);font-size:18px;line-height:1;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
+.ba:hover .ba-handle, .ba.dragging .ba-handle { transform: scale(1.08); }
+.ba-handle:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.ba-label {
+  position: absolute; top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 10px; border-radius: 4px;
+  background: rgba(10,10,10,.72); border: 1px solid var(--line); pointer-events: none; transition: opacity .2s;
 }
-.mc-arrow:hover{background:var(--accent);color:#150900;border-color:var(--accent)}
-.mc-arrow.mc-prev{left:12px}
-.mc-arrow.mc-next{right:12px}
-.mc-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
-.mc-dot{
-  width:8px;height:8px;border-radius:50%;background:var(--line);
-  border:none;cursor:pointer;padding:0;
+.ba-label-before { left: 16px; color: #bdbdbd; }
+.ba-label-after { right: 16px; color: var(--green); }
+.ba[data-side="after"] .ba-label-before, .ba[data-side="before"] .ba-label-after { opacity: .25; }
+
+/* Hero */
+.hero { text-align: center; padding: 88px 0 64px; }
+.hero h1 { font-size: clamp(32px, 6.4vw, 70px); max-width: 920px; margin: 0 auto 24px; overflow-wrap: break-word; }
+.hero-sub { font-size: 18px; max-width: 680px; margin: 0 auto 40px; color: var(--muted); }
+.hero-img-wrap { max-width: 900px; margin: 0 auto 40px; }
+
+/* Stat strip */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-top: 56px; }
+.stat { padding: 26px 18px; text-align: center; background: var(--panel); }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat .num { font-family: 'Anton', Impact, sans-serif; font-size: 44px; color: var(--head); line-height: 1; }
+.stat .lbl { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; color: var(--green); text-transform: uppercase; margin-top: 10px; }
+
+/* Features */
+.feature-grid { display: flex; flex-direction: column; gap: 80px; }
+.feature-card { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.feature-card.flip .feature-media { order: -1; }
+.feature-text .tag {
+  display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  color: var(--green); border: 1px solid rgba(105,240,174,.4); background: rgba(105,240,174,.08);
+  padding: 3px 8px; border-radius: 4px; margin-bottom: 14px;
 }
-.mc-dot.active{background:var(--accent);width:22px;border-radius:4px;transition:width .2s ease}
-.mc-hint{
-  text-align:center;color:var(--dim);font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.5px;margin:0 0 20px;
+.feature-text h3 { font-size: clamp(26px, 3vw, 32px); margin-bottom: 16px; }
+.feature-text p { font-size: 16px; color: var(--muted); }
+.feature-text ul { list-style: none; margin-top: 20px; }
+.feature-text li { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 15px; color: #ccc; }
+.feature-text li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-weight: bold; }
+.feature-media .frame.narrow { max-width: 420px; margin: 0 auto; }
+kbd {
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--head);
+  background: #1f1f1f; border: 1px solid #333; border-bottom-width: 2px; border-radius: 4px; padding: 1px 7px;
+}
+
+/* How it works */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.step { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 28px 24px; }
+.step .n { font-family: 'Anton', Impact, sans-serif; font-size: 40px; color: var(--orange); line-height: 1; }
+.step h3 { font-size: 22px; margin: 14px 0 10px; }
+.step p { color: var(--muted); font-size: 15px; margin: 0; }
+
+/* Families */
+.families { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.family { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; transition: border-color .2s, background .2s; }
+.family:hover { border-color: #3a3a3a; background: var(--panel-hover); }
+.family .top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.family h3 { font-size: 21px; }
+.family .count { font-family: 'Anton', Impact, sans-serif; font-size: 26px; color: var(--orange); }
+.family p { color: #8f8f8f; font-size: 14px; margin: 8px 0 0; }
+.family .new { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--green); letter-spacing: 1px; margin-left: 6px; vertical-align: middle; }
+
+/* What's new */
+.new-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.new-item { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; padding: 18px 20px; }
+.new-item h3 { font-size: 19px; margin-bottom: 6px; }
+.new-item p { color: var(--muted); font-size: 14.5px; margin: 0; }
+.upgrade-note {
+  margin-top: 26px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--orange);
+  border-radius: 0 8px 8px 0; padding: 18px 22px; color: var(--muted); font-size: 15px;
+}
+.upgrade-note b { color: var(--orange); }
+
+/* Showcase */
+.showcase .frame { max-width: 1000px; margin: 0 auto; }
+
+/* Specs */
+.specs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.spec { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 24px 26px; }
+.spec h3 { font-size: 22px; margin-bottom: 14px; }
+.spec ul { list-style: none; }
+.spec li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: #c8c8c8; display: flex; justify-content: space-between; gap: 16px; }
+.spec li:last-child { border-bottom: none; }
+.spec li span:last-child { color: var(--muted); text-align: right; }
+.spec code { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #ffb98a; overflow-wrap: anywhere; }
+
+/* FAQ */
+.faq { max-width: 780px; margin: 0 auto; }
+.faq details { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); margin-bottom: 10px; }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 18px 22px; font-weight: 600; color: var(--head); font-size: 16px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: 'JetBrains Mono', monospace; color: var(--orange); font-size: 20px; transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:focus-visible { outline: 2px solid var(--green); outline-offset: -2px; border-radius: 8px; }
+.faq .answer { padding: 0 22px 20px; color: var(--muted); font-size: 15px; }
+.faq .answer p:last-child { margin-bottom: 0; }
+
+/* Final CTA */
+.final-cta { text-align: center; }
+.final-cta h2 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 20px; }
+
+/* Footer */
+footer {
+  text-align: center; padding: 40px 0; border-top: 1px solid var(--line);
+  font-size: 13px; color: #666; font-family: 'JetBrains Mono', monospace;
+}
+footer a { color: #888; text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--orange); }
+
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .feature-card { grid-template-columns: 1fr; gap: 24px; }
+  .feature-card.flip .feature-media { order: 0; }
+  .feature-grid { gap: 64px; }
+  .steps, .families, .new-grid, .specs { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: none; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .hero { padding: 56px 0 40px; }
+  .hero-sub { font-size: 16.5px; }
+  .spec li { flex-direction: column; gap: 2px; }
+  .spec li span:last-child { text-align: left; }
+  .btn-large { padding: 20px 24px; font-size: 16px; }
+  .stat .num { font-size: 38px; }
+  section { padding: 64px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .btn-ghost, .family, .faq summary::after { transition: none; }
+  .btn:hover { transform: none; }
 }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- SECTION 01 — HERO -->
-  <img class="hero-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/hero-give-history.png" alt="MatricX PRO — Give your 3D surfaces a history">
+<div class="offerbar" role="note">
+  Launch offer: MatricX PRO 2.1 for <b>$49</b> <s>$79</s> &mdash; save $30<span class="cd" data-countdown hidden></span>
+  <a href="#pricing">Get the deal</a>
+</div>
 
-  <div class="hero-copy">
-    <p class="kicker">MatricX PRO &middot; Version 2.1.0 Next Edition</p>
-    <h1>Build finished surfaces.<br><span>Not shader networks.</span></h1>
-    <p class="hero-sub">The ultimate Surface System for Blender. Bring professional materials, layered imperfections, paint masks, and reusable PBR states into one seamless workflow. Now fully optimized for Blender 4.5, 5.1, and 5.2.</p>
-
-    <div class="badges">
-      <span class="badge on">Material Looks Saved</span>
-      <span class="badge on">Cycles & EEVEE Glass</span>
-      <span class="badge on">Cross-Platform Stable</span>
-      <span class="badge on">55+ Materials</span>
-    </div>
-
-    <div class="btn-row">
-      <a class="btn btn-primary cta-hero" href="#pricing" target="_self">Get MatricX 2.1.0</a>
-      <a class="btn btn-secondary" href="#whats-new" target="_self">See What's New</a>
-    </div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt=""> MatricX <span>PRO</span></a>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#features">Features</a>
+      <a href="#families">Materials</a>
+      <a href="#whats-new">What's new</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#pricing" class="btn btn-small">Get it &mdash; $49</a>
   </div>
+</header>
 
-  <!-- NEW SECTION 01.5 — WHAT'S NEW IN 2.1.0 -->
-  <section id="whats-new" style="padding-top: 40px;">
-    <p class="kicker">The 2.1.0 Update</p>
-    <h2 class="sec">Engineered for perfection.</h2>
-    <hr class="rule">
-    
-    <div class="feature-highlight">
-      <div class="highlight-card">
-        <h3>Material Looks <span class="new-badge">New</span></h3>
-        <p>Save your exact material state—including deep group controls like Glass IOR and Wood grain—and recall them instantly on any object. Your custom tweaks are never lost again.</p>
-      </div>
-      
-      <div class="highlight-card">
-        <h3>Tinted & Scope Glass Rebuilt <span class="new-badge">Upgraded</span></h3>
-        <p>Independently rebuilt from the ground up for absolute physical accuracy. Stunning, physically-based glass that works flawlessly in both Cycles and EEVEE without breaking.</p>
-      </div>
+<div class="page" id="top">
 
-      <div class="highlight-card">
-        <h3>True Cross-Platform Support <span class="new-badge">Stable</span></h3>
-        <p>Whether you are on Windows, macOS, or Linux (including Flatpak), the asset pack locator and decal systems are now bulletproof. Zero path errors, zero missing files.</p>
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="kicker center">MatricX PRO 2.1.0 · Next Edition</div>
+    <h1>Are You Wasting Hours<br>Texturing Your Models?</h1>
+    <p class="hero-sub">
+      MatricX PRO is built for 3D artists in Blender. <b>No texture painting. No UV unwrapping for most materials. No node graphs to build.</b>
+      Pick a material, stack a few imperfections, and your model has a history in minutes.
+    </p>
 
-      <div class="highlight-card">
-        <h3>Precision Decal Opacity <span class="new-badge">Fixed</span></h3>
-        <p>The decal UI is now strictly clamped from 0.0 to 1.0. No more negative values or broken shader nodes—just pure, predictable art direction.</p>
+    <div class="hero-img-wrap">
+      <div class="frame ba" id="ba" style="--pos:50%">
+        <img class="ba-after" src="assets/hero-after.jpg" width="1600" height="900"
+             alt="After: the weapon finished with MatricX materials and imperfection layers.">
+        <img class="ba-before" src="assets/hero-before.jpg" width="1600" height="900"
+             alt="Before: the same weapon with flat base colours." aria-hidden="true">
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After MatricX</span>
+        <div class="ba-line" aria-hidden="true"></div>
+        <div class="ba-handle" role="slider" tabindex="0" aria-label="Before and after comparison"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% before">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
+      <p class="caption">Drag to compare · Flat base colours vs. MatricX materials and imperfection layers</p>
+    </div>
+
+    <div class="cta-row">
+      <a href="#pricing" class="btn btn-large">Get MatricX PRO &mdash; $49</a>
+    </div>
+    <p class="price-line"><s>$79</s><span class="now">$49</span><span class="off">LAUNCH PRICE &middot; SAVE 38%</span></p>
+
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><div class="num">70</div><div class="lbl">Ready-made materials</div></div>
+      <div class="stat" role="listitem"><div class="num">16</div><div class="lbl">Imperfection types</div></div>
+      <div class="stat" role="listitem"><div class="num">3</div><div class="lbl">Pie menus</div></div>
+      <div class="stat" role="listitem"><div class="num">4.5+</div><div class="lbl">Blender, tested to 5.2</div></div>
     </div>
   </section>
 
-  <!-- SECTION 02 — PROBLEM RECOGNITION -->
-  <section>
-    <p class="kicker">01 / The Problem</p>
-    <h2 class="sec">Texturing shouldn't mean<br>rebuilding the workflow.</h2>
-    <hr class="rule">
-    <p class="lead body-col">The hard part isn't creating one good material. It's rebuilding the same setup every time you need another believable surface.</p>
-    <p class="body-col">MatricX turns that repetitive process into a reusable, artist-facing workflow.</p>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-head">
+      <h2 class="green-text">Everything You Need.<br>Nothing You Don't.</h2>
+      <p>Stop building shader networks from scratch. MatricX gives you the building blocks of professional hard-surface materials.</p>
+    </div>
 
-    <div class="pain-grid">
-      <div class="pain-col old">
-        <div class="label">Traditional Workflow</div>
-        <div class="pain-step">Nodes</div>
-        <div class="pain-step">Masks</div>
-        <div class="pain-step">Mapping</div>
-        <div class="pain-step">Weathering</div>
-        <div class="pain-step">Manual adjustments</div>
-        <div class="pain-step">More setup</div>
+    <div class="feature-grid">
+
+      <!-- Feature 1: materials -->
+      <div class="feature-card">
+        <div class="feature-text">
+          <h3>70 Ready-Made Materials <br><span class="orange-text">+ Your Own</span></h3>
+          <p>Apply a finished material in one click — then make it yours. 38 of them are recipes: complete materials with a built-in layer stack you can edit freely and reset any time.</p>
+          <ul>
+            <li>Metal, Plastic, Weapon &amp; Guns, Military Camo, Wood, Glass, Rubber &amp; Leather, Fabric, Emission</li>
+            <li>Save any setup as a reusable <b>Material Look</b> — share it as a file</li>
+            <li>Import your own PBR texture sets as Custom Materials</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="frame"><img src="assets/materials-in-use.jpg" width="1200" height="600" loading="lazy"
+               alt="A robot finished with two MatricX materials: Painted Metal 3 on the armour and a grainy old iron on the frame."></div>
+        </div>
       </div>
-      <div class="pain-col new">
-        <div class="label">MatricX</div>
-        <div class="pain-step">Choose Material</div>
-        <div class="pain-step">Add History</div>
-        <div class="pain-step">Direct It</div>
-        <div class="pain-step">Finish</div>
+
+      <!-- Feature 2: imperfections -->
+      <div class="feature-card flip">
+        <div class="feature-text">
+          <h3>Layer-Based History <br><span class="orange-text">(16 Imperfections)</span></h3>
+          <p>Don't slap a flat grunge map on your model. Build real surface history with stackable layers — and see exactly where each one lands with the Mask preview.</p>
+          <ul>
+            <li>Edge Wear, Edge Damage, Rust, Dirt, Scratches, Water Stains, Powder Dust and more</li>
+            <li>Non-destructive: reorder, hide, duplicate, tune every layer</li>
+            <li>Auto anti-tiling hides texture repeats on large surfaces</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="frame"><img src="assets/add-layer.png" width="1400" height="900" loading="lazy"
+               alt="The Add Layer grid with thumbnails of all 16 imperfection types."></div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SECTION 03 — SHOW THE WORKFLOW -->
-  <section id="workflow">
-    <p class="kicker">02 / The Workflow</p>
-    <h2 class="sec">From clean model<br>to finished surface.</h2>
-    <hr class="rule">
-
-    <div class="workflow-row">
-      <div class="workflow-step"><div class="wn">01</div><div class="wt">Choose</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step"><div class="wn">02</div><div class="wt">Build</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step"><div class="wn">03</div><div class="wt">Direct</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step"><div class="wn">04</div><div class="wt">Detail</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step" style="background:var(--accent);border-color:var(--accent)"><div class="wn" style="color:#150900">05</div><div class="wt" style="color:#150900">Finish</div></div>
-    </div>
-
-    <p class="body-col dim" style="font-size:14px">Apply a material &middot; layer imperfections &middot; paint effects exactly where they belong &middot; add decals and trim-sheet detail &middot; render the finished surface.</p>
-
-    <div class="shot-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/Asset%201%20Gif%20(%20base%20to%20final%20materials%20show).gif" alt="MatricX PRO full workflow, base material to finished surface" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
-    </div>
-  </section>
-
-  <!-- SECTION 04 — VISUAL PROOF -->
-  <section>
-    <p class="kicker">03 / The Result</p>
-    <h2 class="sec">Same model.<br>Different story.</h2>
-    <hr class="rule">
-
-    <div class="compare" id="compare-hero">
-      <img class="after-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vector%202.0.jpg" alt="After MatricX PRO">
-      <img class="before-img" src="https://jack-hardsurface.github.io/MatricX-Pro-Page/vector%201.0.png" alt="Before MatricX PRO">
-      <span class="compare-label before-lbl">BEFORE</span>
-      <span class="compare-label after-lbl">AFTER</span>
-      <div class="compare-handle"><div class="bar"></div><div class="knob">&#8596;</div></div>
-    </div>
-    <p class="compare-hint">drag to compare</p>
-    <p class="body-col" style="text-align:center;color:var(--head);font-weight:600;margin-top:8px">Geometry gives the object its shape. Surface history makes it believable.</p>
-  </section>
-
-  <!-- SECTION 05 — MATERIAL SYSTEM -->
-  <section>
-    <p class="kicker">04 / Material System</p>
-    <h2 class="sec">Start with a finished surface.<br>Then make it yours.</h2>
-    <hr class="rule">
-    <p class="lead body-col">You don't just receive presets. You receive strong starting surfaces that stay fully editable.</p>
-
-    <div class="workflow-row">
-      <div class="workflow-step"><div class="wt">Start Fast</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step"><div class="wt">Adjust</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step"><div class="wt">Personalize</div></div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step"><div class="wt">Restore Original</div></div>
-    </div>
-
-    <div class="grid2">
-      <div class="card"><h4>55 Premade Materials</h4><p>Metal, plastic, wood, fabric, glass, rubber, leather and specialty shaders.</p></div>
-      <div class="card"><h4>Pre-Built Surface Histories</h4><p>Many materials ship with complete imperfection stacks already layered on, ready to use as-is.</p></div>
-      <div class="card"><h4>Editable Layer Stacks</h4><p>Reorder, retune, or strip back any authored layer &mdash; nothing is locked.</p></div>
-      <div class="card"><h4>Restore Anytime</h4><p>One click returns a material to its original authored recipe.</p></div>
-    </div>
-
-    <div class="material-carousel" id="material-carousel">
-      <div class="mc-track">
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/METAL%20(1).png" alt="MatricX PRO metal materials"><span class="mc-cap">Metal</span></div>
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/plastic.png" alt="MatricX PRO plastic materials"><span class="mc-cap">Plastic</span></div>
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/wood.png" alt="MatricX PRO wood materials"><span class="mc-cap">Wood</span></div>
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/fabric.png" alt="MatricX PRO fabric materials"><span class="mc-cap">Fabric</span></div>
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/glass.png" alt="MatricX PRO glass materials"><span class="mc-cap">Glass</span></div>
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/rubber%20%26%20Leather.png" alt="MatricX PRO rubber and leather materials"><span class="mc-cap">Rubber &amp; Leather</span></div>
-        <div class="mc-slide"><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/special%20mat.png" alt="MatricX PRO special materials"><span class="mc-cap">Special Mat</span></div>
+      <!-- Feature 3: paint masks -->
+      <div class="feature-card">
+        <div class="feature-text">
+          <span class="tag">IMPROVED IN 2.1</span>
+          <h3>Paint Exactly <br><span class="orange-text">Where Wear Goes</span></h3>
+          <p>Procedural masks place wear by rule. Paint masks let you decide by hand — brush rust onto the one corner that should have it, wipe grime off where a hand would polish.</p>
+          <ul>
+            <li>Add and Remove modes; <kbd>Ctrl</kbd>-click flips the brush</li>
+            <li>Brush Size, Strength and Soft Edge, plus Mask Strength</li>
+            <li>Works on every imperfection layer</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="frame"><img src="assets/paint-mask.jpg" width="1600" height="889" loading="lazy"
+               alt="Painting an imperfection mask on a sphere in Vertex Paint mode with the MatricX panel open."></div>
+        </div>
       </div>
-      <button class="mc-arrow mc-prev" aria-label="Previous material category">&#8249;</button>
-      <button class="mc-arrow mc-next" aria-label="Next material category">&#8250;</button>
-    </div>
-    <div class="mc-dots" id="material-carousel-dots"></div>
-    <p class="mc-hint">swipe or tap to browse the full material collection</p>
-  </section>
 
-  <!-- SECTION 06 — IMPERFECTION SYSTEM -->
-  <section>
-    <p class="kicker">05 / Imperfection Studio</p>
-    <h2 class="sec">Don't add grunge.<br>Build a history.</h2>
-    <hr class="rule">
-    <p class="lead body-col">Build believable surface history from controllable layers &mdash; not a single grunge pass.</p>
-
-    <div class="stack-diagram">
-      <div class="stack-chip"><div class="n">01</div><div class="t">Base Material</div></div>
-      <div class="arrow">+</div>
-      <div class="stack-chip"><div class="n">02</div><div class="t">Edge Wear</div></div>
-      <div class="arrow">+</div>
-      <div class="stack-chip"><div class="n">03</div><div class="t">Scratches</div></div>
-      <div class="arrow">+</div>
-      <div class="stack-chip"><div class="n">04</div><div class="t">Rust</div></div>
-      <div class="arrow">+</div>
-      <div class="stack-chip"><div class="n">05</div><div class="t">Dirt</div></div>
-      <div class="arrow">=</div>
-      <div class="stack-result">Believable Surface</div>
-    </div>
-
-    <div class="shot-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/IMPERFECTION%20STUDIO.png" alt="MatricX PRO Imperfection Studio layer stack" style="max-width:520px;width:100%;display:block;margin:24px auto;border-radius:6px;border:1px solid var(--line);">
-    </div>
-
-    <div class="type-group">
-      <h4>Edge &amp; Damage</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Edge Wear</b></div>
-        <div class="type-item"><b>Edge Damage</b></div>
-        <div class="type-item"><b>Chip Damaged</b></div>
+      <!-- Feature 4: decals & trims -->
+      <div class="feature-card flip">
+        <div class="feature-text">
+          <h3>Decals &amp; Trim Sheets <br><span class="orange-text">(Pie Menus)</span></h3>
+          <p>Add high-frequency detail without baking. Place decals that align to the surface, project them for a perfect fit, and drive everything from a pie under your cursor.</p>
+          <ul>
+            <li>17 MatricX decals — plus unlimited libraries of your own</li>
+            <li>Project to Surface, offset and 0–1 opacity control</li>
+            <li>Trim sheets fit selected faces into any region of your own sheets</li>
+            <li>Decal pie <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> · Trim pie <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd></li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="frame"><img src="assets/pies.png" width="1800" height="800" loading="lazy"
+               alt="The three MatricX pie menus: Viewport Materials, Decal and Trim Sheet."></div>
+        </div>
       </div>
-    </div>
-    <div class="type-group">
-      <h4>Scratches &amp; Marks</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Scratch</b></div>
-        <div class="type-item"><b>Scratch Paint</b></div>
-        <div class="type-item"><b>Fingerprints</b></div>
-        <div class="type-item"><b>Water Stains</b></div>
+
+      <!-- Feature 5: viewport -->
+      <div class="feature-card">
+        <div class="feature-text">
+          <h3>Viewport Workflow <br><span class="orange-text">(Blockout Fast)</span></h3>
+          <p>Before look development starts, keep a busy model readable. Fast viewport colours, swatches and helpers — and every MatricX material shows its own colour in Solid mode.</p>
+          <ul>
+            <li>Live colour, metallic and roughness on the selection</li>
+            <li>Viewport pie <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>: swatches, random colours, link and separate</li>
+            <li>Production materials are protected from viewport colours</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="frame narrow"><img src="assets/viewport.png" width="1000" height="1100" loading="lazy"
+               alt="The MatricX Viewport workspace next to a blockout model."></div>
+        </div>
       </div>
+
     </div>
-    <div class="type-group">
-      <h4>Dirt &amp; Weathering</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Dirt</b></div>
-        <div class="type-item"><b>Directional Dirt</b></div>
-        <div class="type-item"><b>Grime</b></div>
-        <div class="type-item"><b>Grunge</b></div>
-        <div class="type-item"><b>Rust</b></div>
-        <div class="type-item"><b>Leaking</b></div>
+
+    <div class="buy-band">
+      <div>
+        <h3>All of this for <span class="orange-text">$49</span></h3>
+        <p>Launch price &mdash; regular <s>$79</s>. One purchase, every feature above.</p>
       </div>
+      <a href="#pricing" class="btn">See the offer</a>
     </div>
-    <div class="type-group">
-      <h4>Tone &amp; Finish</h4>
-      <div class="type-list">
-        <div class="type-item"><b>Gradient Linear</b></div>
-        <div class="type-item"><b>Bump Texture</b></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-head">
+      <div class="kicker center">How it works</div>
+      <h2>Three Clicks to a Used Surface</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Pick</h3><p>Select your mesh, choose a family and click a material in the collection.</p></div>
+      <div class="step"><div class="n">02</div><h3>Layer</h3><p>Add Edge Wear, Dirt, Rust or any of 16 imperfections. Tune Amount and Opacity.</p></div>
+      <div class="step"><div class="n">03</div><h3>Apply</h3><p>Click Apply Material. Save the result as a Look and reuse it on every prop in the set.</p></div>
+    </div>
+  </section>
+
+  <!-- MATERIAL FAMILIES -->
+  <section id="families">
+    <div class="section-head">
+      <div class="kicker center">The collection</div>
+      <h2>70 Materials. <span class="orange-text">9 Families.</span></h2>
+      <p>Every material loads its own authored values, and every one stays fully editable.</p>
+    </div>
+
+    <div class="carousel" id="family-carousel">
+      <div class="carousel-track" tabindex="0" aria-label="Material families, swipe or use the arrows">
+        <img src="assets/family-metal.jpg" width="1200" height="600" loading="lazy" alt="Metal smart materials: 15 materials, customizable, no UV required.">
+        <img src="assets/family-camo.jpg" width="1200" height="600" loading="lazy" alt="Camo smart materials: 8 materials, customizable, no UV required.">
+        <img src="assets/family-rubber-leather.jpg" width="1200" height="600" loading="lazy" alt="Leather and rubber smart materials: 8 materials, customizable, no UV required.">
+        <img src="assets/family-glass-emission.jpg" width="1200" height="600" loading="lazy" alt="Glass and emission smart materials: 6 materials, customizable, no UV required.">
+        <!-- Ready for the corrected banners (see notes):
+        <img src="assets/family-weapon.jpg" width="1200" height="600" loading="lazy" alt="Weapon smart materials: 19 materials, customizable, no UV required.">
+        <img src="assets/family-wood.jpg" width="1200" height="600" loading="lazy" alt="Wood smart materials: 7 materials, customizable, no UV required.">
+        <img src="assets/family-plastic-fabric.jpg" width="1200" height="600" loading="lazy" alt="Plastic and fabric smart materials: 7 materials, customizable.">
+        -->
       </div>
+      <button class="carousel-btn prev" type="button" aria-label="Previous family">&#8249;</button>
+      <button class="carousel-btn next" type="button" aria-label="Next family">&#8250;</button>
+      <div class="carousel-dots" role="tablist" aria-label="Choose a family"></div>
+    </div>
+
+    <div class="families">
+      <div class="family"><div class="top"><h3>Metal</h3><span class="count">15</span></div><p>Irons, steels and painted metals, from clean to rusted.</p></div>
+      <div class="family"><div class="top"><h3>Weapon &amp; Guns<span class="new">NEW</span></h3><span class="count">19</span></div><p>Alloys, polymers, damaged steel and brass, scope glass.</p></div>
+      <div class="family"><div class="top"><h3>Military Camo<span class="new">NEW</span></h3><span class="count">8</span></div><p>Eight camouflage patterns that take every imperfection.</p></div>
+      <div class="family"><div class="top"><h3>Rubber &amp; Leather</h3><span class="count">8</span></div><p>Rubbers, leathers, tyre rubber and worn hoses.</p></div>
+      <div class="family"><div class="top"><h3>Wood</h3><span class="count">7</span></div><p>Procedural and shiny lacquered woods.</p></div>
+      <div class="family"><div class="top"><h3>Glass</h3><span class="count">5</span></div><p>Clear, plastic, chromatic, iridescent and tinted glass.</p></div>
+      <div class="family"><div class="top"><h3>Plastic</h3><span class="count">4</span></div><p>Clean and weathered plastics.</p></div>
+      <div class="family"><div class="top"><h3>Fabric</h3><span class="count">3</span></div><p>Procedural weaves.</p></div>
+      <div class="family"><div class="top"><h3>Emission</h3><span class="count">1</span></div><p>Glowing surfaces with a strength control.</p></div>
     </div>
   </section>
 
-  <!-- SECTION 07 — PAINT MASKS -->
-  <section>
-    <p class="kicker">06 / Art Direction</p>
-    <h2 class="sec">Procedural speed.<br>Hand-painted intention.</h2>
-    <hr class="rule">
-    <p class="lead body-col">Procedural gets you there fast. Paint Masks let you decide exactly where the story happens.</p>
-
-    <div class="pipeline-row" style="justify-content:flex-start">
-      <div class="pipeline-node"><div class="pn-label">Procedural Rust</div></div>
-      <div class="pipeline-arrow">&rarr;</div>
-      <div class="pipeline-node"><div class="pn-label">Paint Bolt / Seam / Corner</div></div>
-      <div class="pipeline-arrow">&rarr;</div>
-      <div class="pipeline-node hi"><div class="pn-label">Directed Result</div></div>
+  <!-- SHOWCASE -->
+  <section class="showcase">
+    <div class="section-head">
+      <div class="kicker center">Made with MatricX</div>
+      <h2>No Texture Painting. <span class="orange-text">Just This.</span></h2>
     </div>
-
-    <div class="shot-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/Asset%202%20Gif%20(%20Paint%20Mask%20workflow).gif" alt="MatricX PRO paint mask workflow in Vertex Paint mode" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
+    <div class="gallery">
+      <div class="frame wide"><img src="assets/showcase-tank.jpg" width="1600" height="900" loading="lazy"
+           alt="An eight-wheeled armoured vehicle with worn camouflage paint, rust and dirt, finished with MatricX."></div>
+      <div class="frame"><img src="assets/showcase-rifle.jpg" width="1600" height="900" loading="lazy"
+           alt="A suppressed rifle with worn black finish and edge wear, finished with MatricX."></div>
+      <div class="frame"><img src="assets/showcase.jpg" width="1600" height="900" loading="lazy"
+           alt="A weaponised three-wheeler with worn yellow paint and grime, finished with MatricX."></div>
     </div>
+    <p class="caption">Rendered in Blender with MatricX materials and imperfection layers.</p>
   </section>
 
-  <!-- SECTION 08 — DECALS + TRIMS -->
-  <section>
-    <p class="kicker">07 / Detailing</p>
-    <h2 class="sec">Detail the surface.<br>Without breaking the flow.</h2>
-    <hr class="rule">
-
-    <div class="grid2">
-      <div class="card">
-        <div class="num">Decals</div>
-        <h4>Place, project, recolor</h4>
-        <p>Place &middot; Project &middot; Scale &middot; Rotate &middot; Recolor</p>
-      </div>
-      <div class="card">
-        <div class="num">Trim Sheets</div>
-        <h4>Fit sheet regions to faces</h4>
-        <p>Select Faces &middot; Choose Region &middot; Fit &middot; Adjust</p>
-      </div>
-    </div>
-
-    <div class="grid2">
-      <div><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/decal%20system.png" alt="MatricX PRO decal placement in viewport" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);"></div>
-      <div><img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/trim%20sheets%20mode.png" alt="MatricX PRO trim sheet applied to selected faces" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);"></div>
-    </div>
-  </section>
-
-  <!-- SECTION 09 — CUSTOM MATERIAL PRESETS -->
-  <section>
-    <p class="kicker">08 / Design Your Own</p>
-    <h2 class="sec">Design your own material.<br>Save it as a preset.</h2>
-    <hr class="rule">
-    <p class="lead body-col">Not just 55 premade materials &mdash; build your own from scratch, right inside MatricX.</p>
-
-    <div class="pipeline-row" style="justify-content:flex-start">
-      <div class="pipeline-node"><div class="pn-label">Choose Base &amp; Color</div></div>
-      <div class="pipeline-arrow">&rarr;</div>
-      <div class="pipeline-node"><div class="pn-label">Layer Imperfections</div></div>
-      <div class="pipeline-arrow">&rarr;</div>
-      <div class="pipeline-node hi"><div class="pn-label">Save As Preset</div></div>
-    </div>
-
-    <div class="feature-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/custom_materials.png" alt="MatricX PRO — Custom Materials, no UV, no shader nodes">
-    </div>
-    <p class="body-col dim" style="font-size:14px">Set your own base colour and surface properties, then layer in edge wear, rust, dirt or any of the 15 imperfection types &mdash; all from one panel, no UV work, no shader nodes. Save the result as your own custom preset, ready to reuse on any object.</p>
-  </section>
-
-  <!-- SECTION 10 — LIVE MAPPING -->
-  <section>
-    <p class="kicker">09 / Automation</p>
-    <h2 class="sec">Change the object.<br>Keep the material right.</h2>
-    <hr class="rule">
-    <p class="lead body-col">Scale and rotate freely &mdash; procedural textures and edge effects stay locked in place, without applying transforms.</p>
-
-    <div class="shot-img-wrap">
-      <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/Asset%203%20(%20live%20scale%20gif).gif" alt="MatricX PRO Live Scale Compensation on vs off" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin:24px 0;">
-    </div>
-  </section>
-
-  <!-- SECTION 11 — WHY MATRICX -->
-  <section>
-    <p class="kicker">10 / Why MatricX</p>
-    <h2 class="sec">Not another<br>material pack.</h2>
-    <hr class="rule">
-
-    <div class="pull-quote">
-      <p>MatricX is designed for artists who want the speed of procedural workflows without surrendering artistic control.</p>
-    </div>
-
-    <div class="grid2">
-      <div class="card">
-        <div class="num">Material Library</div>
-        <p style="margin-top:8px">Choose preset &rarr; Use preset &rarr; Move on</p>
-      </div>
-      <div class="card" style="border-color:var(--accent)">
-        <div class="num" style="color:var(--accent)">MatricX</div>
-        <p style="margin-top:8px">Start with authored material &rarr; Layer surface history &rarr; Art-direct effects &rarr; Paint locally &rarr; Add decals/trims &rarr; Design your own preset &rarr; Continue editing</p>
-      </div>
-    </div>
-
-    <div class="pillars">
-      <div class="pillar"><div class="pt">Speed</div></div>
-      <div class="pillar"><div class="pt">Control</div></div>
-      <div class="pillar"><div class="pt">Finished Quality</div></div>
-    </div>
-  </section>
-
-  <!-- SECTION 12 — WHO IT IS FOR -->
-  <section>
-    <p class="kicker">11 / Built For</p>
-    <h2 class="sec">Built for artists<br>who finish surfaces.</h2>
-    <hr class="rule">
-    <div class="who-grid">
-      <div class="who-card"><div class="wh">Hard-Surface Artists</div><p>Detail props and mechanical parts without hand-building wear every time.</p></div>
-      <div class="who-card"><div class="wh">Concept Designers</div><p>Get a surface to read as real, fast enough to keep pace with iteration.</p></div>
-      <div class="who-card"><div class="wh">Game Asset Artists</div><p>Ship presentation-ready materials without a dedicated texturing pass.</p></div>
-      <div class="who-card"><div class="wh">Look Development</div><p>Iterate on surface variants without rebuilding shader graphs each time.</p></div>
-      <div class="who-card"><div class="wh">Product / Asset Presentation</div><p>Finished, believable materials for renders that need to look real now.</p></div>
-    </div>
-  </section>
-
-  <!-- SECTION 13 — MATRICX ECOSYSTEM / BAKE UPSELL -->
-  <section>
-    <p class="kicker">12 / Going Beyond Blender?</p>
-    <h2 class="sec">Create in MatricX.<br>Bake for the game engine.</h2>
-    <hr class="rule">
-    <p class="body-col">If your work stays inside Blender, MatricX Pro may be all you need. If you need baked texture maps for a game-engine workflow, MatricX Bake picks up where Pro leaves off.</p>
-
-    <div class="pipeline-row">
-      <div class="pipeline-node hi"><div class="pn-label">MatricX Pro<br><span class="dim" style="font-size:11px">Build Surface</span></div></div>
-      <div class="pipeline-arrow">&rarr;</div>
-      <div class="pipeline-node"><div class="pn-label">MatricX Bake<br><span class="dim" style="font-size:11px">Bake Textures</span></div></div>
-      <div class="pipeline-arrow">&rarr;</div>
-      <div class="pipeline-node"><div class="pn-label">Game Engine</div></div>
-    </div>
-
-    <p class="body-col dim" style="font-size:14px">MatricX Pro builds the surface. MatricX Bake turns that result into texture maps for workflows that need to leave the procedural Blender environment.</p>
-
-    <div class="btn-row">
-      <a class="btn btn-secondary cta-bake" href="https://superhivemarket.com/products/matricx-bake-game-ready-texture-blender" target="_blank" rel="noopener">Explore MatricX Bake</a>
-    </div>
-  </section>
-
-  <!-- SECTION 14 — VALUE STACK -->
-  <section>
-    <p class="kicker">13 / Everything Included</p>
-    <h2 class="sec">One surface workflow.<br>Everything inside.</h2>
-    <hr class="rule">
-    <ul class="value-list">
-      <li><span class="check">&#10003;</span><span>55 Premade Materials</span></li>
-      <li><span class="check">&#10003;</span><span>Custom Material Creation</span></li>
-      <li><span class="check">&#10003;</span><span>Pre-Built Imperfection Stacks</span></li>
-      <li><span class="check">&#10003;</span><span>15 Imperfection Types</span></li>
-      <li><span class="check">&#10003;</span><span>Paint Masks</span></li>
-      <li><span class="check">&#10003;</span><span>Decal System</span></li>
-      <li><span class="check">&#10003;</span><span>Trim Sheet Workflow</span></li>
-      <li><span class="check">&#10003;</span><span>Custom Material Presets</span></li>
-      <li><span class="check">&#10003;</span><span>Live Scale Compensation</span></li>
-      <li><span class="check">&#10003;</span><span>Live Rotation Compensation</span></li>
-      <li><span class="check">&#10003;</span><span>Viewport Material Tools</span></li>
-      <li><span class="check">&#10003;</span><span>Official Decal Library</span></li>
-      <li><span class="check">&#10003;</span><span>Documentation</span></li>
-    </ul>
-  </section>
-
-  <!-- SECTION 15 — ACCESS LEVEL COMPARISON -->
+  <!-- OFFER -->
   <section id="pricing">
-    <p class="kicker">14 / Choose Your Access</p>
-    <h2 class="sec">Same core system.<br>Choose how far you want to go.</h2>
-    <hr class="rule">
-    <p class="body-col dim" style="font-size:14px">Every tier includes the full MatricX surface workflow &mdash; all materials, the imperfection system, decals, trims and custom presets. Higher tiers add deeper support and collaboration, not a more complete version of the tool. Pick your tier using the selector above and add it to cart from there.</p>
-
-    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:26px 0">
-      <tr>
-        <th style="background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);font-family:'JetBrains Mono',monospace">Tier</th>
-        <th style="background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);font-family:'JetBrains Mono',monospace">Price</th>
-        <th style="background:var(--panel2);color:var(--head);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--accent);font-family:'JetBrains Mono',monospace">What's Different</th>
-      </tr>
-      <tr>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--head);font-weight:700">Creator Access</td>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--text)">$79</td>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--dim)">Full surface workflow &mdash; all materials, decals, imperfection system, live mapping, viewport tools</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--accent);font-weight:700">Pro Studio <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px">POPULAR</span></td>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--text)">$129</td>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2);color:var(--dim)">Everything in Creator Access, plus priority support and faster response</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--head);font-weight:700">Elite Custom</td>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--text)">$269</td>
-        <td style="padding:12px 14px;border-bottom:1px solid var(--line);color:var(--dim)">Everything in Pro Studio, plus custom updates and tailored workflow integration</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 14px;color:var(--head);font-weight:700">Enterprise Partner</td>
-        <td style="padding:12px 14px;color:var(--text)">$519</td>
-        <td style="padding:12px 14px;color:var(--dim)">Everything in Elite Custom, plus direct roadmap collaboration, early access, and dedicated onboarding</td>
-      </tr>
-    </table>
-  </section>
-
-  <!-- SECTION 16 — 20% PROMOTIONAL OFFER -->
-  <section>
-    <div class="promo-module">
-      <div class="plabel">Limited Promotion</div>
-      <h3>Save 20% on MatricX Pro</h3>
-      <div>Use code</div>
-      <div class="coupon-code">PRO20</div>
-      <div class="dim" style="font-size:13px">at checkout &middot; offer ends August 20, 2026</div>
-      <div class="promo-table">
-        <div class="promo-tier">Creator <s>$79</s> <span class="disc">$63.20</span></div>
-        <div class="promo-tier">Pro Studio <s>$129</s> <span class="disc">$103.20</span></div>
-        <div class="promo-tier">Elite Custom <s>$269</s> <span class="disc">$215.20</span></div>
-        <div class="promo-tier">Enterprise <s>$519</s> <span class="disc">$415.20</span></div>
+    <div class="section-head">
+      <div class="kicker center">Launch offer</div>
+      <h2>Over <span class="orange-text" data-value-total>$165</span> of Tools. Yours for $49.</h2>
+      <p>One purchase gets you every material, imperfection and tool &mdash; at the launch price.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="value-table">
+        <table>
+          <thead><tr><th>What you get</th><th class="worth">Value</th></tr></thead>
+          <tbody>
+          <tr data-value="40"><td><b>70 ready-made materials</b><span>9 families, incl. 38 editable recipes, Weapon &amp; Guns and Military Camo</span></td><td class="worth">$40</td></tr>
+          <tr data-value="35"><td><b>Imperfection Studio</b><span>16 layered imperfection types, Mask preview and auto anti-tiling</span></td><td class="worth">$35</td></tr>
+          <tr data-value="15"><td><b>Paint masks</b><span>Hand-paint where every layer appears, with Add / Remove modes</span></td><td class="worth">$15</td></tr>
+          <tr data-value="20"><td><b>Decal system</b><span>17 MatricX decals, surface projection, unlimited libraries of your own</span></td><td class="worth">$20</td></tr>
+          <tr data-value="15"><td><b>Trim sheet tool</b><span>Fit selected faces into regions of your own trim sheets</span></td><td class="worth">$15</td></tr>
+          <tr data-value="10"><td><b>Material Looks</b><span>Save any setup, reuse it on every prop, share it as a file</span></td><td class="worth">$10</td></tr>
+          <tr data-value="10"><td><b>Custom PBR materials</b><span>Turn any texture set into a reusable MatricX material</span></td><td class="worth">$10</td></tr>
+          <tr data-value="10"><td><b>3 radial pie menus</b><span>Viewport, Decal and Trim actions under your cursor</span></td><td class="worth">$10</td></tr>
+          <tr data-value="10"><td><b>Viewport workflow tools</b><span>Live viewport colours, swatches and blockout helpers</span></td><td class="worth">$10</td></tr>
+          <tr><td><b>26-chapter user guide</b><span>Step-by-step PDF for new and upgrading users</span></td><td class="worth incl">Included</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total value</td><td class="worth" data-value-total>$165</td></tr></tfoot>
+        </table>
       </div>
-      <p class="dim" style="font-size:11.5px;margin-top:14px;margin-bottom:0">Superhive checkout pricing is authoritative &mdash; coupon must be valid and applied at checkout.</p>
+      <div class="price-card">
+        <span class="badge">LAUNCH PRICE</span>
+        <div class="price-row"><span class="was">$79</span><span class="now">$49</span></div>
+        <div class="save">You save $30 (38% off)</div>
+        <p class="vs">Total value <b data-value-total>$165</b> &mdash; you pay <b>$49</b></p>
+        <a href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" class="btn btn-large" data-store-picker>Get MatricX PRO &mdash; $49</a>
+        <div class="cd-box" data-countdown-box hidden>Launch price ends in <b data-countdown></b></div>
+        <ul class="trust">
+          <li>Instant download: add-on, extension and asset pack</li>
+          <li>Blender 4.5 &ndash; 5.2 &middot; Windows, macOS and Linux</li>
+          <li>26-chapter user guide included</li>
+          <li>Buy on Blender Market, Gumroad or Payhip</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- SECTION 21 — TECHNICAL SPECIFICATIONS -->
+  <!-- WHAT'S NEW -->
+  <section id="whats-new">
+    <div class="section-head">
+      <div class="kicker center">For 2.0 owners</div>
+      <h2>What's New in <span class="orange-text">2.1</span></h2>
+    </div>
+    <div class="new-grid">
+      <div class="new-item"><h3>Editable recipes</h3><p>38 finished recipe materials. Every layer is yours to edit; Reset Imperfections brings the shipped look back.</p></div>
+      <div class="new-item"><h3>Weapon &amp; Guns · Military Camo</h3><p>Two new families: 19 weapon materials and 8 camouflage patterns.</p></div>
+      <div class="new-item"><h3>Powder Dust &amp; Dirt Stain</h3><p>A new 16th imperfection, a reworked dirt-and-liquid stain, and a new Scratch Paint pattern.</p></div>
+      <div class="new-item"><h3>Imperfections everywhere</h3><p>Wood now takes 11 types, Rubber &amp; Leather 15, and Tinted Glass 10.</p></div>
+      <div class="new-item"><h3>Three pie menus</h3><p>Viewport, Decal and Trim pies put common actions under your cursor.</p></div>
+      <div class="new-item"><h3>Better paint masks</h3><p>Add / Remove modes, brush Size, Strength and Soft Edge, and Mask Strength.</p></div>
+      <div class="new-item"><h3>Faster to work with</h3><p>Material Family picker, a thumbnail Add Layer grid, Link Material to Selected, one undo step per Apply.</p></div>
+      <div class="new-item"><h3>Easier setup</h3><p>Clear messages when a folder is not a 2.1 pack, plus Linux and Flatpak setup instructions.</p></div>
+    </div>
+    <div class="upgrade-note">
+      <b>Upgrading?</b> MatricX PRO 2.1 needs the new <b>MatricX_Assets_2.1.0</b> pack. Extract it beside your 2.0 pack and
+      keep the old folder where it is — decals placed in your 2.0 scenes still load their images from it.
+    </div>
+  </section>
+
+  <!-- SPECS -->
   <section id="specs">
-    <p class="kicker">Specifications</p>
-    <h2 class="sec">The technical details.</h2>
-    <hr class="rule">
-    <div class="spec-block">
-      <div class="spec-row"><div class="k">Requires</div><div class="v"><b>Blender 4.5</b> or newer &mdash; fully tested through Blender 5.2</div></div>
-      <div class="spec-row"><div class="k">Package format</div><div class="v">Classic add-on ZIP <b>and</b> Blender Extension package, both included</div></div>
-      <div class="spec-row"><div class="k">Material collection</div><div class="v"><b>55</b> premade materials, plus custom material creation</div></div>
-      <div class="spec-row"><div class="k">Imperfection types</div><div class="v"><b>15</b> layer types across tone, edges, scratches and weathering</div></div>
-      <div class="spec-row"><div class="k">Paint masks</div><div class="v">Vertex-based hand painting for any imperfection layer</div></div>
-      <div class="spec-row"><div class="k">Decals &amp; trims</div><div class="v">Official decal library included, plus support for your own decal and trim sheet libraries</div></div>
-      <div class="spec-row"><div class="k">Custom materials</div><div class="v">Design your own material from base colour and imperfection layers, and save it as a reusable preset &mdash; no UV work, no shader nodes</div></div>
-      <div class="spec-row"><div class="k">Mapping</div><div class="v">Live Scale and Live Rotation Compensation</div></div>
+    <div class="section-head">
+      <div class="kicker center">What you get</div>
+      <h2>Requirements &amp; Downloads</h2>
     </div>
-  </section>
-
-  <!-- SECTION 19 — OBJECTION HANDLING / FAQ -->
-  <section>
-    <p class="kicker">15 / Before You Buy</p>
-    <h2 class="sec">The things<br>you should know.</h2>
-    <hr class="rule">
-
-    <div class="faq-item">
-      <p class="faq-q">Does MatricX replace Blender materials?</p>
-      <p class="faq-a">No. MatricX materials are built on standard Blender shader nodes &mdash; they work alongside anything else in your scene.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Do I need UVs?</p>
-      <p class="faq-a">Not for most materials. Procedural materials work without unwrapping. The fabric weaves are UV-mapped, and trim sheets use UVs by design since they place sheet regions onto faces.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Can I build my own materials?</p>
-      <p class="faq-a">Yes. Set your own base colour and properties, layer in any of the 15 imperfection types, and save the result as your own custom preset for reuse.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Can I edit materials after applying them?</p>
-      <p class="faq-a">Yes. Every layer stays editable &mdash; reorder, retune, or remove any effect, any time.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Can I control exactly where imperfections appear?</p>
-      <p class="faq-a">Yes, with Paint Masks &mdash; brush any imperfection layer directly onto the mesh instead of relying on a procedural mask alone.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Does it support decals?</p>
-      <p class="faq-a">Yes &mdash; place, project, scale, rotate and recolor decals, plus support for your own decal libraries.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Does it support trim sheets?</p>
-      <p class="faq-a">Yes &mdash; select faces, fit a trim region, and adjust live afterward.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">What Blender versions are supported?</p>
-      <p class="faq-a">Blender 4.5 and newer, fully tested through Blender 5.2.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">What's the difference between Creator Access, Pro Studio, Elite Custom and Enterprise Partner?</p>
-      <p class="faq-a">All four include the same complete MatricX surface workflow. Higher tiers add faster support, tailored updates, and direct collaboration &mdash; not extra core features.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Do I need MatricX Bake?</p>
-      <p class="faq-a">No. MatricX Bake is for users who need to bake their finished MatricX surfaces into texture maps for workflows such as game engines. If your work stays inside Blender, Pro is complete on its own.</p>
-    </div>
-
-    <p class="body-col dim" style="font-size:14px;margin-top:24px">Need the details? <a href="https://jack-hardsurface.github.io/MatricX-Pro-Page/MatricX-PRO-User-Guide.html" target="_blank" rel="noopener" style="color:var(--accent)">Read full documentation</a>.</p>
-  </section>
-
-  <!-- SECTION 20 — FINAL CONVERSION SECTION -->
-  <section>
-    <img src="https://jack-hardsurface.github.io/MatricX-Pro-Page/closeup%20shot.jpg" alt="MatricX PRO — close-up detail render" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line);margin-bottom:22px;">
-    <div class="final-cta">
-      <p class="kicker" style="justify-content:center;display:flex">MatricX PRO</p>
-      <h2 class="sec">Create more.<br>Configure less.</h2>
-      <p>Build materials, layer surface history, direct imperfections and finish your assets &mdash; without turning every project into another shader-building exercise.</p>
-
-      <div style="margin-top:26px">
-        <div class="kicker" style="justify-content:center;display:flex">Starting At</div>
-        <div style="font-family:'Anton',sans-serif;color:var(--head);font-size:38px">$79 <span style="font-size:15px;color:var(--dim);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px">Creator Access</span></div>
+    <div class="specs">
+      <div class="spec">
+        <h3>In the box</h3>
+        <ul>
+          <li><span>Add-on package</span><span><code>MatricX_PRO_2.1.0_Addon.zip</code></span></li>
+          <li><span>Extension package</span><span><code>MatricX_PRO_2.1.0_Blender_Extension.zip</code></span></li>
+          <li><span>Asset pack (about 485 MB)</span><span><code>MatricX_Assets_2.1.0.zip</code></span></li>
+          <li><span>User guide</span><span>PDF, 26 chapters</span></li>
+        </ul>
       </div>
-
-      <div class="btn-row" style="justify-content:center;margin-top:22px">
-        <a class="btn btn-primary cta-final" href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener">Get MatricX PRO</a>
-        <a class="btn btn-secondary" href="#pricing" target="_self">Compare Access Levels</a>
+      <div class="spec">
+        <h3>Requirements</h3>
+        <ul>
+          <li><span>Blender</span><span>4.5 or newer · tested on 4.5, 5.1 and 5.2</span></li>
+          <li><span>Systems</span><span>Windows, macOS, Linux (one build)</span></li>
+          <li><span>Render engines</span><span>Cycles and EEVEE</span></li>
+          <li><span>Install</span><span>Classic add-on or Blender Extension</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-head">
+      <div class="kicker center">FAQ</div>
+      <h2>Questions, Answered</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is $49 the permanent price?</summary>
+        <div class="answer"><p>No. $49 is the launch price. The regular price is $79.</p></div>
+      </details>
+      <details>
+        <summary>Do I need to UV unwrap my models?</summary>
+        <div class="answer"><p>Not for most materials, and never for imperfection layers. Fabrics need a UV map — MatricX warns you and creates one in a click. Trim sheets write the UVs for the faces you select.</p></div>
+      </details>
+      <details>
+        <summary>Does it work in Cycles and EEVEE?</summary>
+        <div class="answer"><p>Yes. One exception: Edge Wear uses Blender's Bevel node, which only Cycles evaluates, so it shows in Cycles renders. Every other imperfection works in both engines.</p></div>
+      </details>
+      <details>
+        <summary>Can I use my own textures, decals and trim sheets?</summary>
+        <div class="answer"><p>Yes. Import PBR texture sets as Custom Materials, add your own decal folders as libraries, and add your own trim sheets. MatricX does not ship trim sheets — the tool is there for yours.</p></div>
+      </details>
+      <details>
+        <summary>Will 2.1 break my 2.0 scenes?</summary>
+        <div class="answer"><p>No. Materials you already applied are stored in your .blend files and keep rendering. Keep your 2.0 asset-pack folder in place so older decals still find their images.</p></div>
+      </details>
+      <details>
+        <summary>Does it run on macOS and Linux?</summary>
+        <div class="answer"><p>Yes — one build for Windows, macOS and Linux. On Linux, extract the asset pack in your home folder and point MatricX to it with Locate Asset Pack (Flatpak included).</p></div>
+      </details>
+      <details>
+        <summary>Add-on or Extension — which do I install?</summary>
+        <div class="answer"><p>Either; they are the same tool. Install one, not both. The Extension uses Blender's Get Extensions installer, the Add-on uses the classic Add-ons installer.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="buy">
+    <div class="kicker center">Launch offer</div>
+    <h2>Create More. Configure Less.</h2>
+    <p style="color:#a0a0a0; margin-bottom: 12px;">Stop rebuilding shader networks. Start finishing your art.</p>
+    <p class="final-price"><s>$79</s><b>$49</b>launch price</p>
+    <div class="cta-row">
+      <!-- Opens the store picker (Blender Market, Gumroad, Payhip); falls back to Blender Market without JavaScript -->
+      <a href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" class="btn btn-large" data-store-picker>Get MatricX PRO &mdash; $49</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div>
-      <div class="brand">MATRICX <span>PRO</span></div>
-      <div class="tag">Create more. Configure less.</div>
-    </div>
-    <div class="tag">Built by Prasanth / EidosEdge</div>
+    <p>
+      &copy; 2024&ndash;2026 Prasanth / Eidos Edge. All rights reserved.
+      &nbsp;|&nbsp;
+      <a href="support.html">Support</a>
+      &nbsp;|&nbsp;
+      <a href="terms.html">Terms &amp; Conditions</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.youtube.com/@MatricX-blender" target="_blank" rel="noopener">Tutorials</a>
+    </p>
+    <p style="margin-top: 10px;"><a href="mailto:contact.eidosedge@gmail.com">contact.eidosedge@gmail.com</a></p>
+    <p style="margin-top: 10px; font-size: 11px;">Tested on Blender 4.5, 5.1 and 5.2. Supports Windows, macOS and Linux.</p>
   </footer>
 
 </div>
 
+<div class="buybar" id="buybar">
+  <span class="p"><s>$79</s><b>$49</b>launch price</span>
+  <a href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" class="btn btn-small" data-store-picker>Get MatricX PRO</a>
+</div>
+
 <script>
-// Before/After compare slider — drag or tap anywhere on the image to move the divider
-document.querySelectorAll('.compare').forEach(function(el){
-  var before = el.querySelector('.before-img');
-  var handle = el.querySelector('.compare-handle');
-  var dragging = false;
+/* Launch offer.
+   OFFER_END: set to the real end of the launch price, for example "2026-11-30T23:59:00Z",
+   to show a countdown. Leave it empty and no countdown or deadline is shown. */
+(function () {
+  var OFFER_END = "";
 
-  function setPct(pct){
-    pct = Math.max(0, Math.min(100, pct));
-    before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
-    handle.style.left = pct + '%';
+  // The value total always matches the rows of the value table.
+  var sum = 0;
+  document.querySelectorAll('.value-table tbody tr[data-value]').forEach(function (r) { sum += +r.dataset.value; });
+  document.querySelectorAll('[data-value-total]').forEach(function (e) { e.textContent = '$' + sum; });
+
+  // Countdown, only when a real end date is set; it hides itself when the date passes.
+  var end = OFFER_END ? Date.parse(OFFER_END) : NaN;
+  if (!isNaN(end)) {
+    var slots = document.querySelectorAll('[data-countdown]'), boxes = document.querySelectorAll('[data-countdown-box]');
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    var tick = function () {
+      var ms = end - Date.now();
+      if (ms <= 0) {
+        slots.forEach(function (e) { e.hidden = true; });
+        boxes.forEach(function (e) { e.hidden = true; });
+        return;
+      }
+      var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
+      var txt = (d ? d + 'd ' : '') + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+      slots.forEach(function (e) { e.hidden = false; e.textContent = e.closest('.offerbar') ? ' \u00b7 ends in ' + txt : txt; });
+      boxes.forEach(function (e) { e.hidden = false; });
+      setTimeout(tick, 1000);
+    };
+    tick();
   }
 
-  function pctFromEvent(e){
-    var rect = el.getBoundingClientRect();
-    return ((e.clientX - rect.left) / rect.width) * 100;
+  // Mobile buy bar: shown after the hero, hidden while the offer or the final close is on screen.
+  var bar = document.getElementById('buybar'), hero = document.querySelector('.hero');
+  if (bar && hero && 'IntersectionObserver' in window) {
+    var heroVisible = true, offerVisible = {};
+    var update = function () {
+      var anyOffer = Object.keys(offerVisible).some(function (k) { return offerVisible[k]; });
+      bar.classList.toggle('show', !heroVisible && !anyOffer);
+    };
+    new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; update(); }).observe(hero);
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { offerVisible[e.target.id] = e.isIntersecting; });
+      update();
+    });
+    ['pricing', 'buy'].forEach(function (id) { var t = document.getElementById(id); if (t) io.observe(t); });
   }
-
-  el.addEventListener('pointerdown', function(e){
-    dragging = true;
-    el.setPointerCapture(e.pointerId);
-    setPct(pctFromEvent(e));
-  });
-  el.addEventListener('pointermove', function(e){
-    if (dragging) setPct(pctFromEvent(e));
-  });
-  el.addEventListener('pointerup', function(){ dragging = false; });
-  el.addEventListener('pointercancel', function(){ dragging = false; });
-
-  setPct(50); // start centered
-});
-
-// Material collection carousel — arrows, dots, drag/swipe
-(function(){
-  var root = document.getElementById('material-carousel');
-  if (!root) return;
-  var track = root.querySelector('.mc-track');
-  var slides = root.querySelectorAll('.mc-slide');
-  var dotsWrap = document.getElementById('material-carousel-dots');
-  var count = slides.length;
-  var index = 0;
-
-  // build dots
-  for (var i = 0; i < count; i++) {
-    var dot = document.createElement('button');
-    dot.className = 'mc-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    (function(idx){
-      dot.addEventListener('click', function(){ goTo(idx); });
-    })(i);
-    dotsWrap.appendChild(dot);
-  }
-  var dots = dotsWrap.querySelectorAll('.mc-dot');
-
-  function goTo(i){
-    index = (i + count) % count;
-    track.style.transform = 'translateX(-' + (index * 100) + '%)';
-    dots.forEach(function(d, di){ d.classList.toggle('active', di === index); });
-  }
-
-  root.querySelector('.mc-prev').addEventListener('click', function(){ goTo(index - 1); });
-  root.querySelector('.mc-next').addEventListener('click', function(){ goTo(index + 1); });
-
-  // drag / swipe support
-  var startX = 0, dragging = false, deltaX = 0;
-  root.addEventListener('pointerdown', function(e){
-    if (e.target.closest('.mc-arrow')) return; // let arrow buttons handle their own clicks
-    dragging = true; startX = e.clientX; deltaX = 0;
-    root.setPointerCapture(e.pointerId);
-    track.style.transition = 'none';
-  });
-  root.addEventListener('pointermove', function(e){
-    if (!dragging) return;
-    deltaX = e.clientX - startX;
-    var pct = (deltaX / root.clientWidth) * 100;
-    track.style.transform = 'translateX(calc(-' + (index * 100) + '% + ' + pct + '%))';
-  });
-  function endDrag(){
-    if (!dragging) return;
-    dragging = false;
-    track.style.transition = '';
-    if (Math.abs(deltaX) > root.clientWidth * 0.15) {
-      goTo(deltaX < 0 ? index + 1 : index - 1);
-    } else {
-      goTo(index);
-    }
-  }
-  root.addEventListener('pointerup', endDrag);
-  root.addEventListener('pointercancel', endDrag);
-  root.addEventListener('pointerleave', function(){ if (dragging) endDrag(); });
-
-  goTo(0);
 })();
 </script>
+
+<script>
+/* Family banner carousel: arrows, dots, swipe and keyboard. */
+(function () {
+  var root = document.getElementById('family-carousel');
+  if (!root) return;
+  var track = root.querySelector('.carousel-track');
+  var slides = track.querySelectorAll('img');
+  var dots = root.querySelector('.carousel-dots');
+  function current() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function go(i) {
+    i = (i + slides.length) % slides.length;
+    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+  }
+  slides.forEach(function (img, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Show ' + img.alt.split(':')[0]);
+    b.addEventListener('click', function () { go(i); });
+    dots.appendChild(b);
+  });
+  function sync() {
+    var c = current();
+    dots.querySelectorAll('button').forEach(function (b, i) { b.setAttribute('aria-current', i === c ? 'true' : 'false'); });
+  }
+  root.querySelector('.prev').addEventListener('click', function () { go(current() - 1); });
+  root.querySelector('.next').addEventListener('click', function () { go(current() + 1); });
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { go(current() - 1); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { go(current() + 1); e.preventDefault(); }
+  });
+  var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(sync, 60); });
+  window.addEventListener('resize', sync);
+  sync();
+})();
+</script>
+
+<dialog class="stores-dialog" id="stores" aria-labelledby="stores-title">
+  <div class="stores-inner">
+    <button class="stores-close" type="button" aria-label="Close" data-close>&times;</button>
+    <div class="kicker">Launch price &middot; $49</div>
+    <h2 id="stores-title">Choose Your Store</h2>
+    <p class="sub">The same MatricX PRO 2.1 at <b>$49</b> on every store. Pick the one you already use.</p>
+    <div class="store-list">
+      <a class="store" href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" data-store="superhive">
+        <span class="name">Blender Market</span>
+        <span class="note">Superhive &mdash; the marketplace built for Blender add-ons.</span>
+        <span class="go">Buy now &rarr;</span>
+      </a>
+      <a class="store" href="https://eidosedge.gumroad.com/l/MatricX-PRO" target="_blank" rel="noopener" data-store="gumroad">
+        <span class="name">Gumroad</span>
+        <span class="note">Quick checkout with your Gumroad account or as a guest.</span>
+        <span class="go">Buy now &rarr;</span>
+      </a>
+      <a class="store" href="https://payhip.com/b/lhdpU" target="_blank" rel="noopener" data-store="payhip">
+        <span class="name">Payhip</span>
+        <span class="note">Simple checkout with an instant download link.</span>
+        <span class="go">Buy now &rarr;</span>
+      </a>
+    </div>
+    <p class="stores-foot">Checkout, payment and refunds are handled by the store you choose.</p>
+  </div>
+</dialog>
+
+<script>
+/* Store picker: every buy button opens the store choice.
+   Without JavaScript (or <dialog> support) the buttons simply go to Blender Market. */
+(function () {
+  var dlg = document.getElementById('stores');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var opener = null;
+  document.querySelectorAll('[data-store-picker]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      opener = btn;
+      dlg.showModal();
+      var first = dlg.querySelector('.store');
+      if (first) first.focus();
+    });
+  });
+  dlg.querySelector('[data-close]').addEventListener('click', function () { dlg.close(); });
+  // Click on the dimmed backdrop closes it; Esc is handled by <dialog> itself.
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (opener) opener.focus(); });
+  // Close after a store is chosen, so the page is tidy when the visitor returns.
+  dlg.querySelectorAll('.store').forEach(function (a) { a.addEventListener('click', function () { setTimeout(function () { dlg.close(); }, 50); }); });
+})();
+</script>
+
+<script>
+/* Before / after slider: a slow automatic sweep until the visitor takes over,
+   then it follows the mouse, finger or arrow keys. */
+(function () {
+  var el = document.getElementById('ba');
+  if (!el) return;
+  var handle = el.querySelector('.ba-handle');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pos = 50, auto = !reduced, visible = true, dragging = false, start = null;
+
+  function set(p) {
+    pos = Math.max(0, Math.min(100, p));
+    el.style.setProperty('--pos', pos + '%');
+    el.dataset.side = pos < 12 ? 'after' : pos > 88 ? 'before' : '';
+    handle.setAttribute('aria-valuenow', Math.round(pos));
+    handle.setAttribute('aria-valuetext', Math.round(pos) + '% before');
+  }
+  function stopAuto() { auto = false; }
+  function fromEvent(e) {
+    var r = el.getBoundingClientRect();
+    set((e.clientX - r.left) / r.width * 100);
+  }
+
+  // Automatic sweep: eases between 18% and 82%, about 7 s per cycle.
+  function tick(t) {
+    if (!auto) return;
+    if (visible) {
+      if (start === null) start = t;
+      var phase = ((t - start) / 7000) * Math.PI * 2;
+      set(50 - Math.sin(phase) * 32);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (auto) requestAnimationFrame(tick);
+
+  // Pause the sweep while the slider is off screen.
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; }).observe(el);
+  }
+
+  el.addEventListener('pointerdown', function (e) {
+    stopAuto(); dragging = true; el.classList.add('dragging');
+    el.setPointerCapture(e.pointerId); fromEvent(e);
+  });
+  el.addEventListener('pointermove', function (e) {
+    if (dragging) { fromEvent(e); }
+    else if (e.pointerType === 'mouse' && !auto) { fromEvent(e); }
+  });
+  el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { stopAuto(); fromEvent(e); } });
+  function end() { dragging = false; el.classList.remove('dragging'); }
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
+
+  handle.addEventListener('keydown', function (e) {
+    var step = e.shiftKey ? 10 : 2, k = e.key;
+    if (k === 'ArrowLeft' || k === 'ArrowDown') set(pos - step);
+    else if (k === 'ArrowRight' || k === 'ArrowUp') set(pos + step);
+    else if (k === 'Home') set(0);
+    else if (k === 'End') set(100);
+    else return;
+    stopAuto(); e.preventDefault();
+  });
+})();
+</script>
+
 </body>
 </html>
