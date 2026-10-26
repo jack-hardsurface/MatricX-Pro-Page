@@ -338,6 +338,23 @@ kbd {
 .final-cta { text-align: center; }
 .final-cta h2 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 20px; }
 
+/* Reviews */
+.reviews { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.review { display: flex; flex-direction: column; gap: 14px; margin: 0; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 24px 24px 20px; position: relative; }
+.review::before { content: "\201C"; position: absolute; top: 2px; right: 18px; font-family: 'Anton', Impact, sans-serif; font-size: 72px;
+  line-height: 1; color: rgba(242,103,34,.18); }
+.review .stars { color: var(--orange); font-size: 17px; letter-spacing: 3px; }
+.review blockquote { margin: 0; color: #dcdcdc; font-size: 15.5px; line-height: 1.65; flex: 1; }
+.review figcaption { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 14px; }
+.review .avatar { flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #111; background: var(--orange); }
+.review .avatar.alt { background: var(--green); }
+.review .avatar.dim { background: #3a3a3a; color: #ddd; }
+.review .who { color: var(--head); font-weight: 600; font-size: 14.5px; line-height: 1.3; }
+.review .src { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1px; color: #8f8f8f; text-transform: uppercase; margin-top: 2px; }
+@media (max-width: 860px) { .reviews { grid-template-columns: 1fr; } }
+
 /* Footer */
 footer {
   text-align: center; padding: 40px 0; border-top: 1px solid var(--line);
@@ -394,6 +411,7 @@ footer a:hover { color: var(--orange); }
       <a href="#features">Features</a>
       <a href="#families">Materials</a>
       <a href="#whats-new">What's new</a>
+      <a href="#reviews">Reviews</a>
       <a href="#pricing">Pricing</a>
       <a href="docs/">Docs</a>
       <a href="#faq">FAQ</a>
@@ -616,6 +634,36 @@ footer a:hover { color: var(--orange); }
            alt="A weaponised three-wheeler with worn yellow paint and grime, finished with MatricX."></div>
     </div>
     <p class="caption">Rendered in Blender with MatricX materials and imperfection layers.</p>
+  </section>
+
+  <!-- REVIEWS: real customer reviews and comments, quoted word for word -->
+  <section id="reviews">
+    <div class="section-head">
+      <div class="kicker center">Reviews</div>
+      <h2>What Artists <span class="orange-text">Say</span></h2>
+      <p>From MatricX customers and the YouTube channel, in their own words.</p>
+    </div>
+    <div class="reviews">
+    <figure class="review">
+      <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>Amazing addon! had a problem installing the assetpack on Linux. Eidosedge responded and fix the problem completely within a couple of hours. Very good support!</blockquote>
+      <figcaption><span class="avatar" aria-hidden="true">FH</span><span><span class="who">firsthill</span><span class="src">5-star customer review</span></span></figcaption>
+    </figure>
+    <figure class="review">
+      <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>at first, I was thinking of getting this add-on instead of buying mutiple smart materials from different sources to save some money. this would probably my best decision yet :) very easy to use specially for me whos a noob when it comes Materials and shader nodes. it even saves me time and recourses when I do my mockup blockouts.</blockquote>
+      <figcaption><span class="avatar alt" aria-hidden="true">EP</span><span><span class="who">Eriko Pedojan</span><span class="src">5-star customer review</span></span></figcaption>
+    </figure>
+    <figure class="review">
+      <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>A fantastic add on, made even better with the Pro version. Super easy to use, with great results. And great customer service from Jack!</blockquote>
+      <figcaption><span class="avatar dim" aria-hidden="true">A</span><span><span class="who">Anonymous</span><span class="src">5-star customer review</span></span></figcaption>
+    </figure>
+    <figure class="review">
+      <blockquote>thank you for keeping updating this add on. i love it</blockquote>
+      <figcaption><span class="avatar alt" aria-hidden="true">S</span><span><span class="who">@solarixusai</span><span class="src">Comment on YouTube</span></span></figcaption>
+    </figure>
+    </div>
   </section>
 
   <!-- OFFER -->
