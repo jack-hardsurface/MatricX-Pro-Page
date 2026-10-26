@@ -368,6 +368,15 @@ footer a:hover { color: var(--orange); }
   .btn, .btn-ghost, .family, .faq summary::after { transition: none; }
   .btn:hover { transform: none; }
 }
+
+/* Way back to the Eidos Edge home page, visible on every screen size */
+.home-link { display: inline-flex; align-items: center; gap: 6px; color: #9a9a9a; text-decoration: none; font-size: 13.5px; font-weight: 600;
+  border-left: 1px solid var(--line); padding-left: 16px; white-space: nowrap; transition: color .2s; }
+.home-link:hover { color: var(--orange); }
+.home-link:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.home-link .short { display: none; }
+@media (max-width: 520px) { .home-link .long { display: none; } .home-link .short { display: inline; } .topbar-inner { gap: 14px; } }
+@media (max-width: 860px) { .topbar-inner > .btn { margin-left: auto; } }
 </style>
 </head>
 <body>
@@ -380,6 +389,7 @@ footer a:hover { color: var(--orange); }
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="#top"><img src="assets/logo.png" alt=""> MatricX <span>PRO</span></a>
+    <a class="home-link" href="https://jack-hardsurface.github.io/" data-home><span aria-hidden="true">&larr;</span><span class="long">All add-ons</span><span class="short">Home</span></a>
     <nav class="nav" aria-label="Page sections">
       <a href="#features">Features</a>
       <a href="#families">Materials</a>
@@ -756,6 +766,8 @@ footer a:hover { color: var(--orange); }
     <p>
       &copy; 2024&ndash;2026 Prasanth / Eidos Edge. All rights reserved.
       &nbsp;|&nbsp;
+      <a href="https://jack-hardsurface.github.io/" data-home>All add-ons</a>
+      &nbsp;|&nbsp;
       <a href="docs/">Documentation</a>
       &nbsp;|&nbsp;
       <a href="support.html">Support</a>
@@ -979,5 +991,14 @@ footer a:hover { color: var(--orange); }
 })();
 </script>
 
+<script>
+/* Inside a store listing (the page is shown in a frame), open the home page in a new tab instead of inside the listing. */
+(function () {
+  var framed = false;
+  try { framed = window.self !== window.top; } catch (e) { framed = true; }
+  if (!framed) return;
+  document.querySelectorAll('[data-home]').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+})();
+</script>
 </body>
 </html>
