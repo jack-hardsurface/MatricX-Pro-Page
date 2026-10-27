@@ -395,6 +395,12 @@ footer a:hover { color: var(--orange); }
 .home-link .short { display: none; }
 @media (max-width: 520px) { .home-link .long { display: none; } .home-link .short { display: inline; } .topbar-inner { gap: 14px; } }
 @media (max-width: 860px) { .topbar-inner > .btn { margin-left: auto; } }
+
+/* Small link to the other stores (store picker); hidden inside a store listing */
+.other-stores { display: inline-flex; align-items: center; min-height: 44px; margin-top: 6px; font-size: 13.5px; color: #9a9a9a;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+.other-stores:hover { color: var(--head); }
+.other-stores[hidden] { display: none; }
 </style>
 </head>
 <body>
@@ -698,7 +704,8 @@ footer a:hover { color: var(--orange); }
         <div class="price-row"><span class="was">$79</span><span class="now">$49</span></div>
         <div class="save">You save $30 (38% off)</div>
         <p class="vs">Total value <b data-value-total>$165</b> &mdash; you pay <b>$49</b></p>
-        <a href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" class="btn btn-large" data-store-picker>Get MatricX PRO &mdash; $49</a>
+        <a href="https://eidosedge.gumroad.com/l/MatricX-PRO" target="_blank" rel="noopener" class="btn btn-large" data-store-picker>Get MatricX PRO &mdash; $49</a>
+        <a class="other-stores" href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" data-other-stores>Other stores: Blender Market &middot; Payhip</a>
         <div class="cd-box" data-countdown-box hidden>Launch price ends in <b data-countdown></b></div>
         <ul class="trust">
           <li>Instant download: add-on, extension and asset pack</li>
@@ -805,8 +812,8 @@ footer a:hover { color: var(--orange); }
     <p style="color:#a0a0a0; margin-bottom: 12px;">Stop rebuilding shader networks. Start finishing your art.</p>
     <p class="final-price"><s>$79</s><b>$49</b>launch price</p>
     <div class="cta-row">
-      <!-- Opens the store picker (Blender Market, Gumroad, Payhip); falls back to Blender Market without JavaScript -->
-      <a href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" class="btn btn-large" data-store-picker>Get MatricX PRO &mdash; $49</a>
+      <!-- Goes to Gumroad; inside the Blender Market listing it goes to that listing -->
+      <a href="https://eidosedge.gumroad.com/l/MatricX-PRO" target="_blank" rel="noopener" class="btn btn-large" data-store-picker>Get MatricX PRO &mdash; $49</a>
     </div>
   </section>
 
@@ -833,7 +840,7 @@ footer a:hover { color: var(--orange); }
 
 <div class="buybar" id="buybar">
   <span class="p"><s>$79</s><b>$49</b>launch price</span>
-  <a href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" class="btn btn-small" data-store-picker>Get MatricX PRO</a>
+  <a href="https://eidosedge.gumroad.com/l/MatricX-PRO" target="_blank" rel="noopener" class="btn btn-small" data-store-picker>Get MatricX PRO</a>
 </div>
 
 <script>
@@ -930,14 +937,14 @@ footer a:hover { color: var(--orange); }
     <h2 id="stores-title">Choose Your Store</h2>
     <p class="sub">The same MatricX PRO 2.1 at <b>$49</b> on every store. Pick the one you already use.</p>
     <div class="store-list">
-      <a class="store" href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" data-store="superhive">
-        <span class="name">Blender Market</span>
-        <span class="note">Superhive &mdash; the marketplace built for Blender add-ons.</span>
-        <span class="go">Buy now &rarr;</span>
-      </a>
       <a class="store" href="https://eidosedge.gumroad.com/l/MatricX-PRO" target="_blank" rel="noopener" data-store="gumroad">
         <span class="name">Gumroad</span>
         <span class="note">Quick checkout with your Gumroad account or as a guest.</span>
+        <span class="go">Buy now &rarr;</span>
+      </a>
+      <a class="store" href="https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture" target="_blank" rel="noopener" data-store="superhive">
+        <span class="name">Blender Market</span>
+        <span class="note">Superhive &mdash; the marketplace built for Blender add-ons.</span>
         <span class="go">Buy now &rarr;</span>
       </a>
       <a class="store" href="https://payhip.com/b/lhdpU" target="_blank" rel="noopener" data-store="payhip">
@@ -951,26 +958,31 @@ footer a:hover { color: var(--orange); }
 </dialog>
 
 <script>
-/* Store picker: every buy button opens the store choice.
-   Without JavaScript (or <dialog> support) the buttons simply go to Blender Market. */
+/* Buy buttons go straight to Gumroad; inside the Blender Market listing (the page is shown in a frame) they go to
+   that listing. The 'Other stores' link opens the store picker; it is hidden inside the listing. */
 (function () {
+  var GUMROAD = 'https://eidosedge.gumroad.com/l/MatricX-PRO';
+  var MARKET = 'https://superhivemarket.com/products/matricx-pro-one-click-realistic-texture';
+  var framed = false;
+  try { framed = window.self !== window.top; } catch (e) { framed = true; }
+  document.querySelectorAll('[data-store-picker]').forEach(function (b) { b.href = framed ? MARKET : GUMROAD; });
+  var others = document.querySelectorAll('[data-other-stores]');
+  if (framed) { others.forEach(function (a) { a.hidden = true; }); return; }
   var dlg = document.getElementById('stores');
   if (!dlg || typeof dlg.showModal !== 'function') return;
   var opener = null;
-  document.querySelectorAll('[data-store-picker]').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
+  others.forEach(function (a) {
+    a.addEventListener('click', function (e) {
       e.preventDefault();
-      opener = btn;
+      opener = a;
       dlg.showModal();
       var first = dlg.querySelector('.store');
       if (first) first.focus();
     });
   });
   dlg.querySelector('[data-close]').addEventListener('click', function () { dlg.close(); });
-  // Click on the dimmed backdrop closes it; Esc is handled by <dialog> itself.
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', function () { if (opener) opener.focus(); });
-  // Close after a store is chosen, so the page is tidy when the visitor returns.
   dlg.querySelectorAll('.store').forEach(function (a) { a.addEventListener('click', function () { setTimeout(function () { dlg.close(); }, 50); }); });
 })();
 </script>
