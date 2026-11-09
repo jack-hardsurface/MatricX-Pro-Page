@@ -113,6 +113,13 @@ section.hero { border-top: none; }
   box-shadow: 0 18px 50px rgba(0,0,0,.55);
 }
 .frame img { width: 100%; }
+/* Real screen recordings: play muted on a loop while on screen (see the script at the end of the page) */
+.video-frame { position: relative; }
+.frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; }
+.video-frame .rec { position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px;
+  background: rgba(10,10,10,.8); border: 1px solid #333; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #ddd; pointer-events: none; }
+.video-frame .rec::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #ff4d4d; }
 .caption { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--green); text-align: center; margin-top: 14px; }
 
 /* Launch offer bar */
@@ -503,8 +510,8 @@ footer a:hover { color: var(--orange); }
           </ul>
         </div>
         <div class="feature-media">
-          <div class="frame"><img src="assets/materials-in-use.jpg" width="1200" height="600" loading="lazy"
-               alt="A robot finished with two MatricX materials: Painted Metal 3 on the armour and a grainy old iron on the frame."></div>
+          <div class="frame video-frame"><video src="assets/video/materials-apply.mp4" poster="assets/video/materials-apply.jpg" width="1280" height="720"
+               muted loop playsinline preload="none" aria-label="Applying a MatricX material and adjusting it in Blender."></video><span class="rec">Recorded in Blender</span></div>
         </div>
       </div>
 
@@ -538,8 +545,8 @@ footer a:hover { color: var(--orange); }
           </ul>
         </div>
         <div class="feature-media">
-          <div class="frame"><img src="assets/paint-mask.jpg" width="1600" height="889" loading="lazy"
-               alt="Painting an imperfection mask on a sphere in Vertex Paint mode with the MatricX panel open."></div>
+          <div class="frame video-frame"><video src="assets/video/texture-paint.mp4" poster="assets/video/texture-paint.jpg" width="1280" height="720"
+               muted loop playsinline preload="none" aria-label="Painting an imperfection mask by hand with the MatricX panel open."></video><span class="rec">Recorded in Blender</span></div>
         </div>
       </div>
 
@@ -556,8 +563,8 @@ footer a:hover { color: var(--orange); }
           </ul>
         </div>
         <div class="feature-media">
-          <div class="frame"><img src="assets/pies.png" width="1800" height="800" loading="lazy"
-               alt="The three MatricX pie menus: Viewport Materials, Decal and Trim Sheet."></div>
+          <div class="frame video-frame"><video src="assets/video/decal-apply.mp4" poster="assets/video/decal-apply.jpg" width="1280" height="720"
+               muted loop playsinline preload="none" aria-label="Placing a MatricX decal on a model in Blender."></video><span class="rec">Recorded in Blender</span></div>
         </div>
       </div>
 
@@ -647,12 +654,10 @@ footer a:hover { color: var(--orange); }
       <h2>No Texture Painting. <span class="orange-text">Just This.</span></h2>
     </div>
     <div class="gallery">
-      <div class="frame wide"><img src="assets/showcase-tank.jpg" width="1600" height="900" loading="lazy"
-           alt="An eight-wheeled armoured vehicle with worn camouflage paint, rust and dirt, finished with MatricX."></div>
-      <div class="frame"><img src="assets/showcase-rifle.jpg" width="1600" height="900" loading="lazy"
-           alt="A suppressed rifle with worn black finish and edge wear, finished with MatricX."></div>
-      <div class="frame"><img src="assets/showcase.jpg" width="1600" height="900" loading="lazy"
-           alt="A weaponised three-wheeler with worn yellow paint and grime, finished with MatricX."></div>
+      <div class="frame wide"><img src="assets/made-with-matricx-1.jpg" width="1920" height="1080" loading="lazy"
+           alt="A green sci-fi gun turret with worn paint, edge wear and grime, finished with MatricX."></div>
+      <div class="frame wide"><img src="assets/made-with-matricx-2.jpg" width="1920" height="1080" loading="lazy"
+           alt="The same turret from the front, with a glowing red sensor and weathered green paint, finished with MatricX."></div>
     </div>
     <p class="caption">Rendered in Blender with MatricX materials and imperfection layers.</p>
   </section>
@@ -1073,6 +1078,24 @@ footer a:hover { color: var(--orange); }
   try { framed = window.self !== window.top; } catch (e) { framed = true; }
   if (!framed) return;
   document.querySelectorAll('[data-home]').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+})();
+</script>
+<script>
+(function () {
+  var videos = document.querySelectorAll('.video-frame video');
+  if (!videos.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    videos.forEach(function (v) { v.controls = true; v.preload = 'metadata'; });
+    return;
+  }
+  var seen = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (entry.isIntersecting) { v.play().catch(function () { v.controls = true; }); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.35 });
+  videos.forEach(function (v) { seen.observe(v); });
 })();
 </script>
 </body>
